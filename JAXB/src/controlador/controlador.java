@@ -23,8 +23,8 @@ public class controlador {
         try{
             UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
             SwingUtilities.updateComponentTreeUI(vista);
-            vista.setVisible(true);
             vista.setLocationRelativeTo(null);
+            vista.setVisible(true);
         }catch (UnsupportedLookAndFeelException ex){}
         catch (ClassNotFoundException ex){}
         catch (InstantiationException ex){}
