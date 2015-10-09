@@ -1,15 +1,20 @@
 package controlador;
 
-import javax.swing.SwingUtilities;
-import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
+import java.io.*;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.*;
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
 import modelo.modelo;
 import vista.interfaz;
 
 public class controlador {
     
     interfaz vista ;
-    modelo modelo = new modelo();
+    modelo modelo = new modelo();    
     
     public enum AccionMVC{
         
