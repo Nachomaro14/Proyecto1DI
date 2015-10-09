@@ -1,13 +1,85 @@
+import java.awt.*;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+
 public class Componentes extends javax.swing.JFrame {
 
     public Componentes() {
         initComponents();
+        
+        grupoButtons.add(buttonP1);
+        grupoButtons.add(buttonP2);
+        grupoButtons.add(buttonP3);
+        grupoButtons.add(buttonP4);
+        
+        int w1 = f1.getWidth();
+        int h1 = f1.getHeight();
+        
+        ImageIcon icon1 = new javax.swing.ImageIcon(getClass().getResource("Campo.jpg"));
+        
+        Image img1 = icon1.getImage() ;  
+        Image newimg1 = img1.getScaledInstance(w1, h1, java.awt.Image.SCALE_SMOOTH) ;  
+        icon1 = new ImageIcon(newimg1);
+        f1.setIcon(icon1);
+        
+        ImageIcon icon2 = new javax.swing.ImageIcon(getClass().getResource("Ciudad.jpg"));
+        
+        Image img2 = icon2.getImage() ;  
+        Image newimg2 = img2.getScaledInstance(w1, h1, java.awt.Image.SCALE_SMOOTH) ;  
+        icon2 = new ImageIcon(newimg2);
+        f2.setIcon(icon2);
+        
+        ImageIcon icon3 = new javax.swing.ImageIcon(getClass().getResource("Montana.jpg"));
+        
+        Image img3 = icon3.getImage() ;  
+        Image newimg3 = img3.getScaledInstance(w1, h1, java.awt.Image.SCALE_SMOOTH) ;  
+        icon3 = new ImageIcon(newimg3);
+        f3.setIcon(icon3);
+        
+        ImageIcon icon4 = new javax.swing.ImageIcon(getClass().getResource("Playa.jpg"));
+        
+        Image img4 = icon4.getImage() ;  
+        Image newimg4 = img4.getScaledInstance(w1, h1, java.awt.Image.SCALE_SMOOTH) ;  
+        icon4 = new ImageIcon(newimg4);
+        f4.setIcon(icon4);
+        
+        int ww1 = p1.getWidth();
+        int hh1 = p1.getHeight();
+        
+        ImageIcon icon5 = new javax.swing.ImageIcon(getClass().getResource("Vaquero.jpg"));
+        
+        Image img5 = icon5.getImage() ;  
+        Image newimg5 = img5.getScaledInstance(ww1, hh1, java.awt.Image.SCALE_SMOOTH) ;  
+        icon5 = new ImageIcon(newimg5);
+        p1.setIcon(icon5);
+        
+        ImageIcon icon6 = new javax.swing.ImageIcon(getClass().getResource("Astronauta.png"));
+        
+        Image img6 = icon6.getImage() ;  
+        Image newimg6 = img6.getScaledInstance(ww1, hh1, java.awt.Image.SCALE_SMOOTH) ;  
+        icon6 = new ImageIcon(newimg6);
+        p2.setIcon(icon6);
+        
+        ImageIcon icon7 = new javax.swing.ImageIcon(getClass().getResource("Programador.png"));
+        
+        Image img7 = icon7.getImage() ;  
+        Image newimg7 = img7.getScaledInstance(ww1, hh1, java.awt.Image.SCALE_SMOOTH) ;  
+        icon7 = new ImageIcon(newimg7);
+        p3.setIcon(icon7);
+        
+        ImageIcon icon8 = new javax.swing.ImageIcon(getClass().getResource("Cocinero.jpg"));
+        
+        Image img8 = icon8.getImage() ;  
+        Image newimg8 = img8.getScaledInstance(ww1, hh1, java.awt.Image.SCALE_SMOOTH) ;  
+        icon8 = new ImageIcon(newimg8);
+        p4.setIcon(icon8);
     }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        grupoButtons = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         foto = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
@@ -15,28 +87,42 @@ public class Componentes extends javax.swing.JFrame {
         p2 = new javax.swing.JLabel();
         p3 = new javax.swing.JLabel();
         p4 = new javax.swing.JLabel();
+        buttonP1 = new javax.swing.JRadioButton();
+        buttonP2 = new javax.swing.JRadioButton();
+        buttonP3 = new javax.swing.JRadioButton();
+        buttonP4 = new javax.swing.JRadioButton();
         jPanel3 = new javax.swing.JPanel();
+        f2 = new javax.swing.JButton();
+        f3 = new javax.swing.JButton();
+        f4 = new javax.swing.JButton();
+        f1 = new javax.swing.JButton();
         jToggleButton1 = new javax.swing.JToggleButton();
-        jToggleButton2 = new javax.swing.JToggleButton();
-        jToggleButton3 = new javax.swing.JToggleButton();
-        jToggleButton4 = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         foto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel1.add(foto, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 20, 230, 250));
+        jPanel1.add(foto, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 20, 230, 210));
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Personaje"));
 
+        p1.setBackground(new java.awt.Color(255, 255, 255));
         p1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        p1.setOpaque(true);
 
+        p2.setBackground(new java.awt.Color(255, 255, 255));
         p2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        p2.setOpaque(true);
 
+        p3.setBackground(new java.awt.Color(255, 255, 255));
         p3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        p3.setOpaque(true);
 
+        p4.setBackground(new java.awt.Color(255, 255, 255));
         p4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        p4.setOpaque(true);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -44,14 +130,28 @@ public class Componentes extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(p1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(p2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(p3, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(p4, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(p1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addComponent(buttonP1)))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(p2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(p3, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(p4, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(14, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(46, 46, 46)
+                        .addComponent(buttonP2)
+                        .addGap(79, 79, 79)
+                        .addComponent(buttonP3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(buttonP4)
+                        .addGap(48, 48, 48))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -62,20 +162,18 @@ public class Componentes extends javax.swing.JFrame {
                     .addComponent(p3, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(p2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(p1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(buttonP1)
+                    .addComponent(buttonP2)
+                    .addComponent(buttonP3)
+                    .addComponent(buttonP4))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 410, 150));
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Fondo"));
-
-        jToggleButton1.setText("jToggleButton1");
-
-        jToggleButton2.setText("jToggleButton1");
-
-        jToggleButton3.setText("jToggleButton1");
-
-        jToggleButton4.setText("jToggleButton1");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -83,29 +181,33 @@ public class Componentes extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(f1, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jToggleButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(f2, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jToggleButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
-                .addComponent(jToggleButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(f3, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(f4, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jToggleButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
-                        .addComponent(jToggleButton3, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
-                        .addComponent(jToggleButton4, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE))
-                    .addComponent(jToggleButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                    .addComponent(f4, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(f3, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(f2, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(f1, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, -1, -1));
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 410, 110));
+
+        jToggleButton1.setBackground(new java.awt.Color(255, 51, 51));
+        jToggleButton1.setText("BIGOTE");
+        jToggleButton1.setOpaque(true);
+        jPanel1.add(jToggleButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(435, 243, 220, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -115,7 +217,7 @@ public class Componentes extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 291, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 296, Short.MAX_VALUE)
         );
 
         pack();
@@ -131,17 +233,23 @@ public class Componentes extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel foto;
+    public javax.swing.JRadioButton buttonP1;
+    public javax.swing.JRadioButton buttonP2;
+    public javax.swing.JRadioButton buttonP3;
+    public javax.swing.JRadioButton buttonP4;
+    public javax.swing.JButton f1;
+    public javax.swing.JButton f2;
+    public javax.swing.JButton f3;
+    public javax.swing.JButton f4;
+    public javax.swing.JLabel foto;
+    public javax.swing.ButtonGroup grupoButtons;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JToggleButton jToggleButton1;
-    private javax.swing.JToggleButton jToggleButton2;
-    private javax.swing.JToggleButton jToggleButton3;
-    private javax.swing.JToggleButton jToggleButton4;
-    private javax.swing.JLabel p1;
-    private javax.swing.JLabel p2;
-    private javax.swing.JLabel p3;
-    private javax.swing.JLabel p4;
+    public javax.swing.JLabel p1;
+    public javax.swing.JLabel p2;
+    public javax.swing.JLabel p3;
+    public javax.swing.JLabel p4;
     // End of variables declaration//GEN-END:variables
 }
