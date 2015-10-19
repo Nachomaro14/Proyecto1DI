@@ -9,30 +9,21 @@ import javax.swing.JOptionPane;
 
 public class database{
     
-    private String bd;
-    private Connection con;
-    private java.sql.Statement sql;
-    private PreparedStatement pst;
-    private ResultSet reader;
+    Connection connect;
     
-    private void conexionBD(){
+    public database(){
         try{
-            String controlador = "org.sqlite.JDBC";
-            Class.forName(controlador).newInstance();
-            System.out.println("Conexión realizada con éxito");
-        }catch(ClassNotFoundException | InstantiationException | IllegalAccessException e){
-            JOptionPane.showMessageDialog(null,"Error al cargar el controlador.");
+            Class.forName("org.sqlite.JDBC");
+            connect = DriverManager.getConnection("jdbc:sqlite:ProyectoSQLite.db3");
+            System.out.println("Conectado con éxito");
+        }catch(SQLException ex){
+            System.err.println("No se ha podido conectar a la base de datos\n" + ex.getMessage());
+        }catch(ClassNotFoundException e){
+            System.err.println("No se encuentra la clase\n" + e.getMessage());
         }
     }
     
-    private void cargarbd(){
-        try{
-            bd = "jdbc:sqlite:---------------------"; //Aquí he de introducir la ruta de la base de datos local
-            con = DriverManager.getConnection(bd,null,null);
-            System.out.println("BD cargada con éxito.");
-
-        }catch(SQLException e){
-            JOptionPane.showMessageDialog(null,"Error al cargar la BD.");
-        }
+    public Connection getConexion(){
+        return this.connect;
     }
 }
