@@ -21,7 +21,7 @@ public class vista extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         txtTituloLibro = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        txtCodLibro = new javax.swing.JTextField();
+        txtCodigoLibro = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         txtPaginasLibro = new javax.swing.JTextField();
         btnEliminarLibro = new javax.swing.JButton();
@@ -29,6 +29,7 @@ public class vista extends javax.swing.JFrame {
         btnInsertarLibro = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         txtAnoEdicionLibro = new javax.swing.JTextField();
+        btnLimpiarLibro = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tablaLibros = new javax.swing.JTable();
@@ -49,7 +50,8 @@ public class vista extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         txtDireccionSocio = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtTelefonoSocio = new javax.swing.JTextField();
+        btnLimpiarSocio = new javax.swing.JButton();
         jPanel8 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tablaSocios = new javax.swing.JTable();
@@ -66,10 +68,11 @@ public class vista extends javax.swing.JFrame {
         jLabel17 = new javax.swing.JLabel();
         txtCodigoSocioPrestamo = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
-        txtDniSocioPrestamo = new javax.swing.JTextField();
+        txtNombreSocioPrestamo = new javax.swing.JTextField();
         btnEliminarPrestamo = new javax.swing.JButton();
         btnModificarPrestamo = new javax.swing.JButton();
         btnInsertarPrestamo = new javax.swing.JButton();
+        btnLimpiarPrestamo = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -84,18 +87,18 @@ public class vista extends javax.swing.JFrame {
         txtConsultarApellido = new javax.swing.JTextField();
         jLabel21 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
-        jLabel23 = new javax.swing.JLabel();
         txtConsultarTitulo = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
         btnConsultarTitulo = new javax.swing.JButton();
-        btnConsultarAutor = new javax.swing.JButton();
-        btnConsultarLibrosPrestados = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnLibrosFuera = new javax.swing.JButton();
+        btnClientesMorosos = new javax.swing.JButton();
         jLabel24 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
         tablaConsultas = new javax.swing.JTable();
+        jLabel26 = new javax.swing.JLabel();
+        numeroLibros = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
+        codigoSeleccionado = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -107,6 +110,8 @@ public class vista extends javax.swing.JFrame {
 
         jLabel8.setText("Nº de ejemplares");
 
+        txtCodigoLibro.setEditable(false);
+
         jLabel9.setText("Nº de páginas");
 
         btnEliminarLibro.setText("Eliminar");
@@ -117,6 +122,8 @@ public class vista extends javax.swing.JFrame {
 
         jLabel1.setText("Año de edición");
 
+        btnLimpiarLibro.setText("Limpiar");
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -125,13 +132,14 @@ public class vista extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnEliminarLibro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtCodLibro)
+                    .addComponent(txtCodigoLibro)
                     .addComponent(txtTituloLibro)
                     .addComponent(txtEjemplaresLibro)
                     .addComponent(txtEditorialLibro)
                     .addComponent(txtPaginasLibro)
                     .addComponent(btnInsertarLibro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnModificarLibro, javax.swing.GroupLayout.DEFAULT_SIZE, 86, Short.MAX_VALUE)
+                    .addComponent(txtAnoEdicionLibro)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel8)
@@ -139,9 +147,9 @@ public class vista extends javax.swing.JFrame {
                             .addComponent(jLabel6)
                             .addComponent(jLabel5)
                             .addComponent(jLabel9)
-                            .addComponent(jLabel1))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(txtAnoEdicionLibro))
+                            .addComponent(jLabel1)
+                            .addComponent(btnLimpiarLibro))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
@@ -150,7 +158,7 @@ public class vista extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtCodLibro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtCodigoLibro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -171,7 +179,9 @@ public class vista extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtAnoEdicionLibro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 123, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(btnLimpiarLibro)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
                 .addComponent(btnInsertarLibro)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnModificarLibro)
@@ -223,6 +233,8 @@ public class vista extends javax.swing.JFrame {
 
         jLabel10.setText("Nombre");
 
+        txtCodigoSocio.setEditable(false);
+
         jLabel11.setText("Apellidos");
 
         jLabel12.setText("Edad");
@@ -238,6 +250,8 @@ public class vista extends javax.swing.JFrame {
         jLabel2.setText("Dirección");
 
         jLabel3.setText("Teléfono");
+
+        btnLimpiarSocio.setText("Limpiar");
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -276,8 +290,11 @@ public class vista extends javax.swing.JFrame {
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
                             .addComponent(jLabel3)
-                            .addComponent(jTextField1))
-                        .addContainerGap())))
+                            .addComponent(txtTelefonoSocio))
+                        .addContainerGap())
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addComponent(btnLimpiarSocio)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -305,8 +322,10 @@ public class vista extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 123, Short.MAX_VALUE)
+                .addComponent(txtTelefonoSocio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnLimpiarSocio)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
                 .addComponent(btnInsertarSocio)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnModificarSocio)
@@ -375,19 +394,27 @@ public class vista extends javax.swing.JFrame {
 
         jLabel14.setText("Cd. de préstamo");
 
+        txtCodigoPrestamo.setEditable(false);
+
         jLabel15.setText("Código de libro");
 
         jLabel16.setText("Título");
 
+        txtTituloLibroPrestamo.setEditable(false);
+
         jLabel17.setText("Código de socio");
 
         jLabel18.setText("Nombre");
+
+        txtNombreSocioPrestamo.setEditable(false);
 
         btnEliminarPrestamo.setText("Eliminar");
 
         btnModificarPrestamo.setText("Modificar");
 
         btnInsertarPrestamo.setText("Insertar");
+
+        btnLimpiarPrestamo.setText("Limpiar");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -397,21 +424,22 @@ public class vista extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnInsertarPrestamo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtDniSocioPrestamo)
-                    .addComponent(txtCodigoSocioPrestamo)
-                    .addComponent(txtTituloLibroPrestamo)
-                    .addComponent(txtCodigoLibroPrestamo)
                     .addComponent(txtCodigoPrestamo)
                     .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnModificarPrestamo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnEliminarPrestamo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtCodigoLibroPrestamo)
+                    .addComponent(txtTituloLibroPrestamo)
+                    .addComponent(txtCodigoSocioPrestamo)
+                    .addComponent(txtNombreSocioPrestamo)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel15)
                             .addComponent(jLabel16)
                             .addComponent(jLabel17)
-                            .addComponent(jLabel18))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(btnEliminarPrestamo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jLabel18)
+                            .addComponent(btnLimpiarPrestamo))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -421,7 +449,7 @@ public class vista extends javax.swing.JFrame {
                 .addComponent(jLabel14)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtCodigoPrestamo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel15)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtCodigoLibroPrestamo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -429,15 +457,17 @@ public class vista extends javax.swing.JFrame {
                 .addComponent(jLabel16)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtTituloLibroPrestamo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel17)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtCodigoSocioPrestamo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel18)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtDniSocioPrestamo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 169, Short.MAX_VALUE)
+                .addComponent(txtNombreSocioPrestamo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnLimpiarPrestamo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 104, Short.MAX_VALUE)
                 .addComponent(btnInsertarPrestamo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnModificarPrestamo)
@@ -514,17 +544,11 @@ public class vista extends javax.swing.JFrame {
 
         jLabel22.setText("Título:");
 
-        jLabel23.setText("Autor:");
-
         btnConsultarTitulo.setText("Consultar");
 
-        btnConsultarAutor.setText("Consultar");
+        btnLibrosFuera.setText("Mostrar");
 
-        btnConsultarLibrosPrestados.setText("Nº de libros prestados");
-
-        jButton1.setText("Mostrar");
-
-        jButton2.setText("Mostrar");
+        btnClientesMorosos.setText("Mostrar");
 
         jLabel24.setText("Mostrar clientes con libros fuera del plazo del préstamo");
 
@@ -543,6 +567,10 @@ public class vista extends javax.swing.JFrame {
         ));
         jScrollPane4.setViewportView(tablaConsultas);
 
+        jLabel26.setText("Número de libros en posesión del socio seleccionado:");
+
+        jLabel27.setText("Código del socio seleccionado:");
+
         javax.swing.GroupLayout consultasLayout = new javax.swing.GroupLayout(consultas);
         consultas.setLayout(consultasLayout);
         consultasLayout.setHorizontalGroup(
@@ -550,44 +578,45 @@ public class vista extends javax.swing.JFrame {
             .addGroup(consultasLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(consultasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4)
                     .addGroup(consultasLayout.createSequentialGroup()
-                        .addGroup(consultasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(consultasLayout.createSequentialGroup()
-                                .addComponent(jLabel23)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField5))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, consultasLayout.createSequentialGroup()
-                                .addComponent(jLabel22)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtConsultarTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(consultasLayout.createSequentialGroup()
-                                .addComponent(jLabel20)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtConsultarApellido))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, consultasLayout.createSequentialGroup()
-                                .addComponent(jLabel19)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtConsultarNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(consultasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(consultasLayout.createSequentialGroup()
-                                .addComponent(btnConsultarNombre)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnConsultarLibrosPrestados)
-                                .addGap(0, 0, Short.MAX_VALUE))
+                                .addComponent(jLabel22)
+                                .addGap(5, 5, 5)
+                                .addComponent(txtConsultarTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnConsultarTitulo))
+                            .addComponent(btnClientesMorosos)
+                            .addComponent(btnLibrosFuera)
+                            .addComponent(jLabel24)
+                            .addComponent(jLabel25)
+                            .addComponent(jLabel21)
                             .addGroup(consultasLayout.createSequentialGroup()
-                                .addGroup(consultasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnConsultarApellido)
-                                    .addComponent(btnConsultarTitulo)
-                                    .addComponent(btnConsultarAutor))
-                                .addGap(47, 47, 47)
-                                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 556, Short.MAX_VALUE))))
-                    .addComponent(jButton2)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel21)
-                    .addComponent(jButton1)
-                    .addComponent(jLabel24)
-                    .addComponent(jLabel25))
+                                .addComponent(jLabel26)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(numeroLibros, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(consultasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(consultasLayout.createSequentialGroup()
+                                    .addComponent(jLabel27)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(codigoSeleccionado, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, consultasLayout.createSequentialGroup()
+                                    .addGroup(consultasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, consultasLayout.createSequentialGroup()
+                                            .addComponent(jLabel20)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(txtConsultarApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, consultasLayout.createSequentialGroup()
+                                            .addComponent(jLabel19)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(txtConsultarNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addGroup(consultasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(btnConsultarNombre)
+                                        .addComponent(btnConsultarApellido)))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 535, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         consultasLayout.setVerticalGroup(
@@ -597,19 +626,25 @@ public class vista extends javax.swing.JFrame {
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(consultasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(consultasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txtConsultarNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnConsultarNombre)
-                        .addComponent(btnConsultarLibrosPrestados)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(consultasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 456, Short.MAX_VALUE)
                     .addGroup(consultasLayout.createSequentialGroup()
-                        .addGroup(consultasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(consultasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(btnConsultarApellido)
-                                .addComponent(txtConsultarApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(consultasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnConsultarNombre)
+                            .addComponent(txtConsultarNombre, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(consultasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnConsultarApellido)
+                            .addComponent(txtConsultarApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(consultasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(codigoSeleccionado, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(consultasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(numeroLibros, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addComponent(jLabel21)
                         .addGroup(consultasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -618,22 +653,15 @@ public class vista extends javax.swing.JFrame {
                                 .addComponent(btnConsultarTitulo))
                             .addGroup(consultasLayout.createSequentialGroup()
                                 .addGap(3, 3, 3)
-                                .addComponent(jLabel22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(consultasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(consultasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jTextField5)
-                                .addComponent(btnConsultarAutor))
-                            .addComponent(jLabel23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(18, 18, 18)
+                                .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(47, 47, 47)
                         .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnLibrosFuera, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane4))
+                        .addComponent(btnClientesMorosos)))
                 .addContainerGap())
         );
 
@@ -664,23 +692,25 @@ public class vista extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnConsultarApellido;
-    private javax.swing.JButton btnConsultarAutor;
-    private javax.swing.JButton btnConsultarLibrosPrestados;
-    private javax.swing.JButton btnConsultarNombre;
-    private javax.swing.JButton btnConsultarTitulo;
-    private javax.swing.JButton btnEliminarLibro;
-    private javax.swing.JButton btnEliminarPrestamo;
-    private javax.swing.JButton btnEliminarSocio;
-    private javax.swing.JButton btnInsertarLibro;
-    private javax.swing.JButton btnInsertarPrestamo;
-    private javax.swing.JButton btnInsertarSocio;
-    private javax.swing.JButton btnModificarLibro;
-    private javax.swing.JButton btnModificarPrestamo;
-    private javax.swing.JButton btnModificarSocio;
+    public javax.swing.JButton btnClientesMorosos;
+    public javax.swing.JButton btnConsultarApellido;
+    public javax.swing.JButton btnConsultarNombre;
+    public javax.swing.JButton btnConsultarTitulo;
+    public javax.swing.JButton btnEliminarLibro;
+    public javax.swing.JButton btnEliminarPrestamo;
+    public javax.swing.JButton btnEliminarSocio;
+    public javax.swing.JButton btnInsertarLibro;
+    public javax.swing.JButton btnInsertarPrestamo;
+    public javax.swing.JButton btnInsertarSocio;
+    public javax.swing.JButton btnLibrosFuera;
+    public javax.swing.JButton btnLimpiarLibro;
+    public javax.swing.JButton btnLimpiarPrestamo;
+    public javax.swing.JButton btnLimpiarSocio;
+    public javax.swing.JButton btnModificarLibro;
+    public javax.swing.JButton btnModificarPrestamo;
+    public javax.swing.JButton btnModificarSocio;
+    public javax.swing.JLabel codigoSeleccionado;
     private javax.swing.JPanel consultas;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -696,9 +726,10 @@ public class vista extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -723,32 +754,32 @@ public class vista extends javax.swing.JFrame {
     private javax.swing.JSplitPane jSplitPane2;
     private javax.swing.JSplitPane jSplitPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField5;
     private javax.swing.JPanel libros;
+    public javax.swing.JLabel numeroLibros;
     private javax.swing.JPanel socios;
     public javax.swing.JTable tablaConsultas;
     public javax.swing.JTable tablaLibros;
     public javax.swing.JTable tablaPrestamos;
     public javax.swing.JTable tablaSocios;
-    private javax.swing.JTextField txtAnoEdicionLibro;
-    private javax.swing.JTextField txtApellidosSocio;
-    private javax.swing.JTextField txtCodLibro;
-    private javax.swing.JTextField txtCodigoLibroPrestamo;
-    private javax.swing.JTextField txtCodigoPrestamo;
-    private javax.swing.JTextField txtCodigoSocio;
-    private javax.swing.JTextField txtCodigoSocioPrestamo;
-    private javax.swing.JTextField txtConsultarApellido;
-    private javax.swing.JTextField txtConsultarNombre;
-    private javax.swing.JTextField txtConsultarTitulo;
-    private javax.swing.JTextField txtDireccionSocio;
-    private javax.swing.JTextField txtDniSocioPrestamo;
-    private javax.swing.JTextField txtEdadSocio;
-    private javax.swing.JTextField txtEditorialLibro;
-    private javax.swing.JTextField txtEjemplaresLibro;
-    private javax.swing.JTextField txtNombreSocio;
-    private javax.swing.JTextField txtPaginasLibro;
-    private javax.swing.JTextField txtTituloLibro;
-    private javax.swing.JTextField txtTituloLibroPrestamo;
+    public javax.swing.JTextField txtAnoEdicionLibro;
+    public javax.swing.JTextField txtApellidosSocio;
+    public javax.swing.JTextField txtCodigoLibro;
+    public javax.swing.JTextField txtCodigoLibroPrestamo;
+    public javax.swing.JTextField txtCodigoPrestamo;
+    public javax.swing.JTextField txtCodigoSocio;
+    public javax.swing.JTextField txtCodigoSocioPrestamo;
+    public javax.swing.JTextField txtConsultarApellido;
+    public javax.swing.JTextField txtConsultarNombre;
+    public javax.swing.JTextField txtConsultarTitulo;
+    public javax.swing.JTextField txtDireccionSocio;
+    public javax.swing.JTextField txtEdadSocio;
+    public javax.swing.JTextField txtEditorialLibro;
+    public javax.swing.JTextField txtEjemplaresLibro;
+    public javax.swing.JTextField txtNombreSocio;
+    public javax.swing.JTextField txtNombreSocioPrestamo;
+    public javax.swing.JTextField txtPaginasLibro;
+    public javax.swing.JTextField txtTelefonoSocio;
+    public javax.swing.JTextField txtTituloLibro;
+    public javax.swing.JTextField txtTituloLibroPrestamo;
     // End of variables declaration//GEN-END:variables
 }

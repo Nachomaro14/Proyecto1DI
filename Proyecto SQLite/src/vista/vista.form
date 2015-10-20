@@ -77,13 +77,14 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="btnEliminarLibro" max="32767" attributes="0"/>
-                                  <Component id="txtCodLibro" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txtCodigoLibro" alignment="0" max="32767" attributes="0"/>
                                   <Component id="txtTituloLibro" alignment="0" max="32767" attributes="0"/>
                                   <Component id="txtEjemplaresLibro" alignment="0" max="32767" attributes="0"/>
                                   <Component id="txtEditorialLibro" alignment="0" max="32767" attributes="0"/>
                                   <Component id="txtPaginasLibro" alignment="0" max="32767" attributes="0"/>
                                   <Component id="btnInsertarLibro" alignment="0" max="32767" attributes="0"/>
                                   <Component id="btnModificarLibro" alignment="0" pref="86" max="32767" attributes="0"/>
+                                  <Component id="txtAnoEdicionLibro" alignment="0" max="32767" attributes="0"/>
                                   <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -92,10 +93,10 @@
                                           <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabel9" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="btnLimpiarLibro" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
-                                  <Component id="txtAnoEdicionLibro" alignment="0" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
@@ -107,7 +108,7 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="txtCodLibro" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtCodigoLibro" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
@@ -128,7 +129,9 @@
                               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="txtAnoEdicionLibro" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="123" max="32767" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="btnLimpiarLibro" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace pref="82" max="32767" attributes="0"/>
                               <Component id="btnInsertarLibro" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="btnModificarLibro" min="-2" max="-2" attributes="0"/>
@@ -146,6 +149,9 @@
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtEditorialLibro">
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                      </AuxValues>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel6">
                       <Properties>
@@ -153,6 +159,9 @@
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtEjemplaresLibro">
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                      </AuxValues>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel7">
                       <Properties>
@@ -160,13 +169,22 @@
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtTituloLibro">
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                      </AuxValues>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel8">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="N&#xba; de ejemplares"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="txtCodLibro">
+                    <Component class="javax.swing.JTextField" name="txtCodigoLibro">
+                      <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
+                      </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                      </AuxValues>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel9">
                       <Properties>
@@ -174,21 +192,33 @@
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtPaginasLibro">
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                      </AuxValues>
                     </Component>
                     <Component class="javax.swing.JButton" name="btnEliminarLibro">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Eliminar"/>
                       </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                      </AuxValues>
                     </Component>
                     <Component class="javax.swing.JButton" name="btnModificarLibro">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Modificar"/>
                       </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                      </AuxValues>
                     </Component>
                     <Component class="javax.swing.JButton" name="btnInsertarLibro">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Insertar"/>
                       </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                      </AuxValues>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel1">
                       <Properties>
@@ -196,6 +226,17 @@
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtAnoEdicionLibro">
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                      </AuxValues>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="btnLimpiarLibro">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Limpiar"/>
+                      </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                      </AuxValues>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -333,9 +374,13 @@
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jTextField1" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="txtTelefonoSocio" alignment="0" max="32767" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="btnLimpiarSocio" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -367,8 +412,10 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jTextField1" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="123" max="32767" attributes="0"/>
+                              <Component id="txtTelefonoSocio" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="btnLimpiarSocio" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace pref="82" max="32767" attributes="0"/>
                               <Component id="btnInsertarSocio" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="btnModificarSocio" min="-2" max="-2" attributes="0"/>
@@ -386,6 +433,12 @@
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtCodigoSocio">
+                      <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
+                      </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                      </AuxValues>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel11">
                       <Properties>
@@ -393,6 +446,9 @@
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtNombreSocio">
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                      </AuxValues>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel12">
                       <Properties>
@@ -400,6 +456,9 @@
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtApellidosSocio">
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                      </AuxValues>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel13">
                       <Properties>
@@ -407,21 +466,33 @@
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtEdadSocio">
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                      </AuxValues>
                     </Component>
                     <Component class="javax.swing.JButton" name="btnEliminarSocio">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Eliminar"/>
                       </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                      </AuxValues>
                     </Component>
                     <Component class="javax.swing.JButton" name="btnModificarSocio">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Modificar"/>
                       </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                      </AuxValues>
                     </Component>
                     <Component class="javax.swing.JButton" name="btnInsertarSocio">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Insertar"/>
                       </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                      </AuxValues>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel2">
                       <Properties>
@@ -429,13 +500,27 @@
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtDireccionSocio">
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                      </AuxValues>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel3">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Tel&#xe9;fono"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="jTextField1">
+                    <Component class="javax.swing.JTextField" name="txtTelefonoSocio">
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                      </AuxValues>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="btnLimpiarSocio">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Limpiar"/>
+                      </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                      </AuxValues>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -545,27 +630,28 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="btnInsertarPrestamo" max="32767" attributes="0"/>
-                                  <Component id="txtDniSocioPrestamo" max="32767" attributes="0"/>
-                                  <Component id="txtCodigoSocioPrestamo" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="txtTituloLibroPrestamo" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="txtCodigoLibroPrestamo" alignment="0" max="32767" attributes="0"/>
                                   <Component id="txtCodigoPrestamo" alignment="0" max="32767" attributes="0"/>
                                   <Component id="jLabel14" alignment="0" max="32767" attributes="0"/>
                                   <Component id="btnModificarPrestamo" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="btnEliminarPrestamo" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txtCodigoLibroPrestamo" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txtTituloLibroPrestamo" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txtCodigoSocioPrestamo" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txtNombreSocioPrestamo" max="32767" attributes="0"/>
                                   <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="jLabel15" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabel16" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabel17" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabel18" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="btnLimpiarPrestamo" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
-                                  <Component id="btnEliminarPrestamo" alignment="0" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
@@ -578,7 +664,7 @@
                               <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="txtCodigoPrestamo" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="txtCodigoLibroPrestamo" min="-2" max="-2" attributes="0"/>
@@ -586,15 +672,17 @@
                               <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="txtTituloLibroPrestamo" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="txtCodigoSocioPrestamo" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jLabel18" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="txtDniSocioPrestamo" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="169" max="32767" attributes="0"/>
+                              <Component id="txtNombreSocioPrestamo" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="btnLimpiarPrestamo" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace pref="104" max="32767" attributes="0"/>
                               <Component id="btnInsertarPrestamo" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="btnModificarPrestamo" min="-2" max="-2" attributes="0"/>
@@ -612,6 +700,12 @@
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtCodigoPrestamo">
+                      <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
+                      </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                      </AuxValues>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel15">
                       <Properties>
@@ -619,6 +713,9 @@
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtCodigoLibroPrestamo">
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                      </AuxValues>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel16">
                       <Properties>
@@ -626,6 +723,12 @@
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtTituloLibroPrestamo">
+                      <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
+                      </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                      </AuxValues>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel17">
                       <Properties>
@@ -633,28 +736,54 @@
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtCodigoSocioPrestamo">
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                      </AuxValues>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel18">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Nombre"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="txtDniSocioPrestamo">
+                    <Component class="javax.swing.JTextField" name="txtNombreSocioPrestamo">
+                      <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
+                      </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                      </AuxValues>
                     </Component>
                     <Component class="javax.swing.JButton" name="btnEliminarPrestamo">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Eliminar"/>
                       </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                      </AuxValues>
                     </Component>
                     <Component class="javax.swing.JButton" name="btnModificarPrestamo">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Modificar"/>
                       </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                      </AuxValues>
                     </Component>
                     <Component class="javax.swing.JButton" name="btnInsertarPrestamo">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Insertar"/>
                       </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                      </AuxValues>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="btnLimpiarPrestamo">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Limpiar"/>
+                      </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                      </AuxValues>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -743,56 +872,58 @@
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Component id="jLabel23" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jTextField5" max="32767" attributes="0"/>
-                                  </Group>
+                          <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="jLabel22" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="32767" attributes="0"/>
-                                      <Component id="txtConsultarTitulo" min="-2" pref="110" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                                      <Component id="txtConsultarTitulo" min="-2" pref="130" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="btnConsultarTitulo" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Component id="jLabel20" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="txtConsultarApellido" max="32767" attributes="0"/>
-                                  </Group>
+                                  <Component id="btnClientesMorosos" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnLibrosFuera" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel24" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel25" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel21" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jLabel19" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel26" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="txtConsultarNombre" min="-2" pref="100" max="-2" attributes="0"/>
+                                      <Component id="numeroLibros" min="-2" pref="22" max="-2" attributes="0"/>
                                   </Group>
-                              </Group>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Component id="btnConsultarNombre" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="btnConsultarLibrosPrestados" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="btnConsultarApellido" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="btnConsultarTitulo" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="btnConsultarAutor" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <Component id="jLabel27" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="32767" attributes="0"/>
+                                          <Component id="codigoSeleccionado" min="-2" pref="121" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
-                                      <Component id="jScrollPane4" pref="556" max="32767" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="1" attributes="0">
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Component id="jLabel20" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="txtConsultarApellido" min="-2" pref="123" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Component id="jLabel19" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="txtConsultarNombre" min="-2" pref="123" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="btnConsultarNombre" min="-2" max="-2" attributes="0"/>
+                                              <Component id="btnConsultarApellido" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
                                   </Group>
                               </Group>
+                              <EmptySpace pref="22" max="32767" attributes="0"/>
+                              <Component id="jScrollPane4" pref="535" max="32767" attributes="0"/>
                           </Group>
-                          <Component id="jButton2" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel21" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jButton1" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel24" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel25" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -803,55 +934,52 @@
                       <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel19" alignment="0" max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="txtConsultarNombre" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="btnConsultarNombre" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="btnConsultarLibrosPrestados" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace min="-2" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="btnConsultarApellido" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="txtConsultarApellido" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="jLabel20" max="32767" attributes="0"/>
+                          <Component id="jScrollPane4" alignment="0" pref="456" max="32767" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLabel19" alignment="0" min="-2" pref="23" max="-2" attributes="0"/>
+                                  <Component id="btnConsultarNombre" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtConsultarNombre" alignment="1" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="btnConsultarApellido" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtConsultarApellido" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel20" alignment="3" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLabel27" min="-2" pref="22" max="-2" attributes="0"/>
+                                  <Component id="codigoSeleccionado" min="-2" pref="22" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="jLabel26" min="-2" pref="22" max="-2" attributes="0"/>
+                                  <Component id="numeroLibros" min="-2" pref="22" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="jLabel21" min="-2" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Group type="103" groupAlignment="3" attributes="0">
+                                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                                       <Component id="txtConsultarTitulo" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="btnConsultarTitulo" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <Group type="102" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="3" pref="3" max="-2" attributes="0"/>
-                                      <Component id="jLabel22" max="32767" attributes="0"/>
+                                      <Component id="jLabel22" min="-2" pref="20" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace min="-2" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jTextField5" alignment="3" max="32767" attributes="0"/>
-                                      <Component id="btnConsultarAutor" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="jLabel23" max="32767" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
                               <Component id="jLabel25" min="-2" pref="14" max="-2" attributes="0"/>
                               <EmptySpace min="-2" max="-2" attributes="0"/>
-                              <Component id="jButton1" min="-2" pref="23" max="-2" attributes="0"/>
+                              <Component id="btnLibrosFuera" min="-2" pref="23" max="-2" attributes="0"/>
                               <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel24" min="-2" pref="14" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" max="-2" attributes="0"/>
-                              <Component id="jButton2" min="-2" pref="29" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="btnClientesMorosos" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="jScrollPane4" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -868,11 +996,17 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtConsultarNombre">
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JButton" name="btnConsultarNombre">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Consultar"/>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel20">
               <Properties>
@@ -883,8 +1017,14 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Consultar"/>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JTextField" name="txtConsultarApellido">
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel21">
               <Properties>
@@ -896,39 +1036,34 @@
                 <Property name="text" type="java.lang.String" value="T&#xed;tulo:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel23">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Autor:"/>
-              </Properties>
-            </Component>
             <Component class="javax.swing.JTextField" name="txtConsultarTitulo">
-            </Component>
-            <Component class="javax.swing.JTextField" name="jTextField5">
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JButton" name="btnConsultarTitulo">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Consultar"/>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+              </AuxValues>
             </Component>
-            <Component class="javax.swing.JButton" name="btnConsultarAutor">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Consultar"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JButton" name="btnConsultarLibrosPrestados">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="N&#xba; de libros prestados"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JButton" name="jButton1">
+            <Component class="javax.swing.JButton" name="btnLibrosFuera">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Mostrar"/>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+              </AuxValues>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton2">
+            <Component class="javax.swing.JButton" name="btnClientesMorosos">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Mostrar"/>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel24">
               <Properties>
@@ -964,6 +1099,26 @@
                 </Component>
               </SubComponents>
             </Container>
+            <Component class="javax.swing.JLabel" name="jLabel26">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="N&#xfa;mero de libros en posesi&#xf3;n del socio seleccionado:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="numeroLibros">
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel27">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="C&#xf3;digo del socio seleccionado:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="codigoSeleccionado">
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+              </AuxValues>
+            </Component>
           </SubComponents>
         </Container>
       </SubComponents>
