@@ -6,7 +6,7 @@ public class TAC extends Thread{
         while(infinito == 1){
             try{
                 Thread.sleep(1000);
-                System.out.println("PUTAS");
+                System.out.println("TAC");
                 Thread.sleep(1000);
             }catch(InterruptedException ie){
                 System.out.println(ie.getMessage());

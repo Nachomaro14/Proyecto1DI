@@ -4,7 +4,7 @@ public class TIC extends Thread{
     
     public void run(){
         while(infinito == 1){
-            System.out.println("BARCOS");
+            System.out.println("TIC");
             try{
                 Thread.sleep(2000);
             }catch(InterruptedException ie){

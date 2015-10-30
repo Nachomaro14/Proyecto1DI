@@ -23,10 +23,6 @@ public class DobleHilo extends Applet implements ActionListener{
         public void run(){
             
         }
-        
-        public void stop(){
-            h = null;
-        }
     }
     
     public void actionPerformed(ActionEvent e) {
