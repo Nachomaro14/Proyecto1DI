@@ -111,11 +111,14 @@ public class Interfaz extends javax.swing.JFrame {
         txtNuevoDomicilio = new javax.swing.JTextField();
         jLabel21 = new javax.swing.JLabel();
         txtNuevoTelefono = new javax.swing.JTextField();
-        comboNuevoAsignatura = new javax.swing.JComboBox();
+        jLabel23 = new javax.swing.JLabel();
+        txtNuevoAcceso = new javax.swing.JTextField();
+        comboAsignaturasAMatricular = new javax.swing.JComboBox();
         jScrollPane6 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList();
+        listaAsignaturasAMatricular = new javax.swing.JList();
         btnCompletarMatricula = new javax.swing.JButton();
         btnCancelarMatricula = new javax.swing.JButton();
+        btnAnadirAsignaturaMatricula = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         btnLetras = new javax.swing.JButton();
         btnCiencias = new javax.swing.JButton();
@@ -603,8 +606,6 @@ public class Interfaz extends javax.swing.JFrame {
         );
 
         nuevaMatricula.setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
-        nuevaMatricula.setAlwaysOnTop(true);
-        nuevaMatricula.setModal(true);
 
         jPanel13.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -630,25 +631,32 @@ public class Interfaz extends javax.swing.JFrame {
         jPanel12.add(jLabel21);
         jPanel12.add(txtNuevoTelefono);
 
-        jPanel13.add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, 570, 200));
+        jLabel23.setText("Acceso");
+        jPanel12.add(jLabel23);
+        jPanel12.add(txtNuevoAcceso);
 
-        comboNuevoAsignatura.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel13.add(comboNuevoAsignatura, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, -1, -1));
+        jPanel13.add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, 570, 260));
 
-        jList1.setModel(new javax.swing.AbstractListModel() {
+        comboAsignaturasAMatricular.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel13.add(comboAsignaturasAMatricular, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, -1, -1));
+
+        listaAsignaturasAMatricular.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane6.setViewportView(jList1);
+        jScrollPane6.setViewportView(listaAsignaturasAMatricular);
 
-        jPanel13.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 570, 180));
+        jPanel13.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, 570, 160));
 
         btnCompletarMatricula.setText("Completar matrícula");
-        jPanel13.add(btnCompletarMatricula, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 470, -1, -1));
+        jPanel13.add(btnCompletarMatricula, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 520, -1, -1));
 
         btnCancelarMatricula.setText("Cancelar");
-        jPanel13.add(btnCancelarMatricula, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 470, -1, -1));
+        jPanel13.add(btnCancelarMatricula, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 520, -1, -1));
+
+        btnAnadirAsignaturaMatricula.setText("Añadir");
+        jPanel13.add(btnAnadirAsignaturaMatricula, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, -1, -1));
 
         javax.swing.GroupLayout nuevaMatriculaLayout = new javax.swing.GroupLayout(nuevaMatricula.getContentPane());
         nuevaMatricula.getContentPane().setLayout(nuevaMatriculaLayout);
@@ -658,7 +666,7 @@ public class Interfaz extends javax.swing.JFrame {
         );
         nuevaMatriculaLayout.setVerticalGroup(
             nuevaMatriculaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, 504, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, 553, Short.MAX_VALUE)
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -701,6 +709,7 @@ public class Interfaz extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnAnadirAsignatura;
+    public javax.swing.JButton btnAnadirAsignaturaMatricula;
     public javax.swing.JButton btnAnadirAula;
     public javax.swing.JButton btnAnadirProfesor;
     public javax.swing.JButton btnAsignar;
@@ -721,8 +730,8 @@ public class Interfaz extends javax.swing.JFrame {
     public javax.swing.JButton btnSalirInicio;
     public javax.swing.JMenuItem btnVolver;
     public javax.swing.JComboBox comboAsignatura;
+    public javax.swing.JComboBox comboAsignaturasAMatricular;
     public javax.swing.JComboBox comboAula;
-    public javax.swing.JComboBox comboNuevoAsignatura;
     public javax.swing.JComboBox comboProfesor;
     public javax.swing.JDialog consultas;
     private javax.swing.Box.Filler filler1;
@@ -744,6 +753,7 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -751,7 +761,6 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    public javax.swing.JList jList1;
     public javax.swing.JMenu jMenu1;
     public javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
@@ -783,6 +792,7 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JSplitPane jSplitPane3;
     private javax.swing.JSplitPane jSplitPane4;
     private javax.swing.JTabbedPane jTabbedPane1;
+    public javax.swing.JList listaAsignaturasAMatricular;
     public javax.swing.JDialog matriculas;
     public javax.swing.JDialog nuevaMatricula;
     public javax.swing.JTable tablaAlumnos;
@@ -802,6 +812,7 @@ public class Interfaz extends javax.swing.JFrame {
     public javax.swing.JTextField txtEdificio;
     public javax.swing.JTextField txtNombreProfesor;
     public javax.swing.JTextField txtNotaAsignatura;
+    public javax.swing.JTextField txtNuevoAcceso;
     public javax.swing.JTextField txtNuevoApellidos;
     public javax.swing.JTextField txtNuevoDni;
     public javax.swing.JTextField txtNuevoDomicilio;

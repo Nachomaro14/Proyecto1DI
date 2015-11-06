@@ -268,4 +268,79 @@ public class ModeloSQLite extends ConexionSQLite{
         }
         return tablemodel;
     }
+    
+    public String[] getNombreAsignaturasAMatricular(){
+        int registros = 0;
+        try{
+            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT count(Codigo) as total FROM Asignaturas");
+            ResultSet res = pstm.executeQuery();
+            res.next();
+            registros = res.getInt("total");
+            res.close();
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "Error al contar tuplas\n" + e.getMessage());
+        }
+        String[] asignaturas = new String[registros];
+        try{
+          
+            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT Titulo FROM Asignaturas");
+            ResultSet res = pstm.executeQuery();
+            int i=0;
+            while(res.next()){
+                asignaturas[i] = res.getString("Titulo");
+            i++;
+            }
+            res.close();
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "Error al obtener datos\n" + e.getMessage());
+        }
+        return asignaturas;
+    }
+    
+    public void nuevaMatricula(String dni, String apellidos, String nombre, String domicilio, int telefono, String acceso){
+        String q = "INSERT INTO Matriculas (DNI, Apellidos, Nombre, Domicilio, Telefono, Acceso)"
+                + "VALUES('"+dni+"','"+apellidos+"','"+nombre+"','"+domicilio+"',"+telefono+",'"+acceso+"')";
+        try {
+            PreparedStatement pstm = this.getConexion().prepareStatement(q);
+            pstm.execute();
+            pstm.close();
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "Error al introducir nueva matrícula\n" + e.getMessage());
+        }
+    }
+    
+    public void nuevoAlumno(String dni, String apellidos, String nombre, String domicilio, int telefono, String acceso){
+        String q = "INSERT INTO Alumnos (DNI, Apellidos, Nombre, Domicilio, Telefono, Acceso)"
+                + "VALUES('"+dni+"','"+apellidos+"','"+nombre+"','"+domicilio+"',"+telefono+",'"+acceso+"')";
+        try {
+            PreparedStatement pstm = this.getConexion().prepareStatement(q);
+            pstm.execute();
+            pstm.close();
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "Error al introducir nuevo alumno\n" + e.getMessage());
+        }
+    }
+    
+    public void nuevaAsignaturaMatriculada(String dni, String titulo){
+        int num = 0;
+        String q1 = "SELECT NumCreditos FROM Asignaturas WHERE Titulo = '"+titulo+"'";
+        try{
+            PreparedStatement pstm = this.getConexion().prepareStatement(q1);
+            ResultSet res = pstm.executeQuery();
+            res.next();
+            num = res.getInt("NumCreditos");
+            res.close();
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "Error al obtener el número de créditos\n" + e.getMessage());
+        }
+        String q2 = "INSERT INTO AsigMat (DNI, Titulo, NumCreditos, Nota)"
+                + "VALUES('"+dni+"','"+titulo+"',"+num+",0)";
+        try {
+            PreparedStatement pstm = this.getConexion().prepareStatement(q2);
+            pstm.execute();
+            pstm.close();
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "Error al introducir nuevo alumno\n" + e.getMessage());
+        }
+    }
 }
