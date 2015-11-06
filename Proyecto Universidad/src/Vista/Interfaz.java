@@ -13,9 +13,9 @@ public class Interfaz extends javax.swing.JFrame {
         matriculas = new javax.swing.JDialog();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
-        jTable5 = new javax.swing.JTable();
+        tablaMatriculas = new javax.swing.JTable();
         jScrollPane7 = new javax.swing.JScrollPane();
-        jTable7 = new javax.swing.JTable();
+        tablaAsigMat = new javax.swing.JTable();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         btnNuevaMatricula = new javax.swing.JMenuItem();
@@ -33,9 +33,9 @@ public class Interfaz extends javax.swing.JFrame {
         txtDniAlumno = new javax.swing.JTextField();
         jPanel9 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tablaAlumnos = new javax.swing.JTable();
         jScrollPane8 = new javax.swing.JScrollPane();
-        jTable8 = new javax.swing.JTable();
+        tablaAsigMatAlum = new javax.swing.JTable();
         jSplitPane2 = new javax.swing.JSplitPane();
         jPanel5 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -49,10 +49,10 @@ public class Interfaz extends javax.swing.JFrame {
         btnModificarAsignatura = new javax.swing.JButton();
         btnAnadirAsignatura = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
+        tablaAsignaturas = new javax.swing.JTable();
         jSplitPane3 = new javax.swing.JSplitPane();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTable4 = new javax.swing.JTable();
+        tablaProfesores = new javax.swing.JTable();
         jPanel6 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         txtDniProfesor = new javax.swing.JTextField();
@@ -68,6 +68,8 @@ public class Interfaz extends javax.swing.JFrame {
         btnAnadirProfesor = new javax.swing.JButton();
         btnModificarProfesor = new javax.swing.JButton();
         btnEliminarProfesor = new javax.swing.JButton();
+        jLabel22 = new javax.swing.JLabel();
+        txtSupervisorProfesor = new javax.swing.JTextField();
         jSplitPane4 = new javax.swing.JSplitPane();
         jPanel7 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
@@ -79,10 +81,10 @@ public class Interfaz extends javax.swing.JFrame {
         btnModificarAula = new javax.swing.JButton();
         btnEliminarAula = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        tablaAulas = new javax.swing.JTable();
         jPanel8 = new javax.swing.JPanel();
         jScrollPane9 = new javax.swing.JScrollPane();
-        jTable9 = new javax.swing.JTable();
+        tablaAsignaciones = new javax.swing.JTable();
         jPanel10 = new javax.swing.JPanel();
         comboProfesor = new javax.swing.JComboBox();
         comboAsignatura = new javax.swing.JComboBox();
@@ -124,7 +126,7 @@ public class Interfaz extends javax.swing.JFrame {
 
         jPanel1.setLayout(new java.awt.GridLayout(0, 1));
 
-        jTable5.setModel(new javax.swing.table.DefaultTableModel(
+        tablaMatriculas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -135,11 +137,11 @@ public class Interfaz extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane5.setViewportView(jTable5);
+        jScrollPane5.setViewportView(tablaMatriculas);
 
         jPanel1.add(jScrollPane5);
 
-        jTable7.setModel(new javax.swing.table.DefaultTableModel(
+        tablaAsigMat.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -150,7 +152,7 @@ public class Interfaz extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane7.setViewportView(jTable7);
+        jScrollPane7.setViewportView(tablaAsigMat);
 
         jPanel1.add(jScrollPane7);
 
@@ -224,7 +226,7 @@ public class Interfaz extends javax.swing.JFrame {
                 .addComponent(jLabel16)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtDniAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 269, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 280, Short.MAX_VALUE)
                 .addComponent(jLabel14)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtNotaAsignatura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -239,7 +241,7 @@ public class Interfaz extends javax.swing.JFrame {
 
         jPanel9.setLayout(new java.awt.GridLayout(0, 1));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tablaAlumnos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -250,11 +252,11 @@ public class Interfaz extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tablaAlumnos);
 
         jPanel9.add(jScrollPane1);
 
-        jTable8.setModel(new javax.swing.table.DefaultTableModel(
+        tablaAsigMatAlum.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -265,7 +267,7 @@ public class Interfaz extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane8.setViewportView(jTable8);
+        jScrollPane8.setViewportView(tablaAsigMatAlum);
 
         jPanel9.add(jScrollPane8);
 
@@ -323,7 +325,7 @@ public class Interfaz extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtNumCreditos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 165, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 176, Short.MAX_VALUE)
                 .addComponent(btnAnadirAsignatura)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnModificarAsignatura)
@@ -336,7 +338,7 @@ public class Interfaz extends javax.swing.JFrame {
 
         jSplitPane2.setLeftComponent(jPanel5);
 
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+        tablaAsignaturas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -347,13 +349,13 @@ public class Interfaz extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane3.setViewportView(jTable3);
+        jScrollPane3.setViewportView(tablaAsignaturas);
 
         jSplitPane2.setRightComponent(jScrollPane3);
 
         jTabbedPane1.addTab("Asignaturas", jSplitPane2);
 
-        jTable4.setModel(new javax.swing.table.DefaultTableModel(
+        tablaProfesores.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -364,7 +366,7 @@ public class Interfaz extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane4.setViewportView(jTable4);
+        jScrollPane4.setViewportView(tablaProfesores);
 
         jSplitPane3.setRightComponent(jScrollPane4);
 
@@ -386,6 +388,8 @@ public class Interfaz extends javax.swing.JFrame {
 
         btnEliminarProfesor.setText("Eliminar");
 
+        jLabel22.setText("Supervisor");
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
@@ -398,20 +402,22 @@ public class Interfaz extends javax.swing.JFrame {
                     .addComponent(txtNombreProfesor)
                     .addComponent(txtDomicilioProfesor)
                     .addComponent(txtTelefonoProfesor)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel13))
+                    .addComponent(btnEliminarProfesor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnModificarProfesor, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
+                    .addComponent(btnAnadirProfesor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4)
                             .addComponent(jLabel5)
                             .addComponent(jLabel6)
                             .addComponent(jLabel7)
-                            .addComponent(jLabel8))
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel22))
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel13))
-                    .addComponent(btnEliminarProfesor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnModificarProfesor, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
-                    .addComponent(btnAnadirProfesor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(txtSupervisorProfesor))
                 .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
@@ -437,7 +443,11 @@ public class Interfaz extends javax.swing.JFrame {
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtTelefonoProfesor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel22)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtSupervisorProfesor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
                 .addComponent(btnAnadirProfesor)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnModificarProfesor)
@@ -454,7 +464,7 @@ public class Interfaz extends javax.swing.JFrame {
 
         jLabel9.setText("Edificio");
 
-        jLabel10.setText("Aula");
+        jLabel10.setText("Número");
 
         jLabel12.setText("<- ->");
 
@@ -497,7 +507,7 @@ public class Interfaz extends javax.swing.JFrame {
                 .addComponent(jLabel10)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtAula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 211, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 222, Short.MAX_VALUE)
                 .addComponent(btnAnadirAula)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnModificarAula)
@@ -510,7 +520,7 @@ public class Interfaz extends javax.swing.JFrame {
 
         jSplitPane4.setLeftComponent(jPanel7);
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        tablaAulas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -521,7 +531,7 @@ public class Interfaz extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane2.setViewportView(jTable2);
+        jScrollPane2.setViewportView(tablaAulas);
 
         jSplitPane4.setRightComponent(jScrollPane2);
 
@@ -529,7 +539,7 @@ public class Interfaz extends javax.swing.JFrame {
 
         jPanel8.setLayout(new java.awt.BorderLayout());
 
-        jTable9.setModel(new javax.swing.table.DefaultTableModel(
+        tablaAsignaciones.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -540,7 +550,7 @@ public class Interfaz extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane9.setViewportView(jTable9);
+        jScrollPane9.setViewportView(tablaAsignaciones);
 
         jPanel8.add(jScrollPane9, java.awt.BorderLayout.CENTER);
 
@@ -570,7 +580,7 @@ public class Interfaz extends javax.swing.JFrame {
 
         jPanel8.add(jPanel11, java.awt.BorderLayout.PAGE_END);
 
-        jTabbedPane1.addTab("Profesor-Asignatura-Aula", jPanel8);
+        jTabbedPane1.addTab("Asignaciones", jPanel8);
 
         jMenu3.setText("Opciones");
 
@@ -589,7 +599,7 @@ public class Interfaz extends javax.swing.JFrame {
         );
         consultasLayout.setVerticalGroup(
             consultasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 450, Short.MAX_VALUE)
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 461, Short.MAX_VALUE)
         );
 
         nuevaMatricula.setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
@@ -638,7 +648,7 @@ public class Interfaz extends javax.swing.JFrame {
         jPanel13.add(btnCompletarMatricula, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 470, -1, -1));
 
         btnCancelarMatricula.setText("Cancelar");
-        jPanel13.add(btnCancelarMatricula, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 470, -1, -1));
+        jPanel13.add(btnCancelarMatricula, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 470, -1, -1));
 
         javax.swing.GroupLayout nuevaMatriculaLayout = new javax.swing.GroupLayout(nuevaMatricula.getContentPane());
         nuevaMatricula.getContentPane().setLayout(nuevaMatriculaLayout);
@@ -733,6 +743,7 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -772,16 +783,16 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JSplitPane jSplitPane3;
     private javax.swing.JSplitPane jSplitPane4;
     private javax.swing.JTabbedPane jTabbedPane1;
-    public javax.swing.JTable jTable1;
-    public javax.swing.JTable jTable2;
-    public javax.swing.JTable jTable3;
-    public javax.swing.JTable jTable4;
-    public javax.swing.JTable jTable5;
-    public javax.swing.JTable jTable7;
-    private javax.swing.JTable jTable8;
-    public javax.swing.JTable jTable9;
     public javax.swing.JDialog matriculas;
     public javax.swing.JDialog nuevaMatricula;
+    public javax.swing.JTable tablaAlumnos;
+    public javax.swing.JTable tablaAsigMat;
+    public javax.swing.JTable tablaAsigMatAlum;
+    public javax.swing.JTable tablaAsignaciones;
+    public javax.swing.JTable tablaAsignaturas;
+    public javax.swing.JTable tablaAulas;
+    public javax.swing.JTable tablaMatriculas;
+    public javax.swing.JTable tablaProfesores;
     public javax.swing.JTextField txtApellidosProfesor;
     public javax.swing.JTextField txtAula;
     public javax.swing.JTextField txtCodigo;
@@ -797,6 +808,7 @@ public class Interfaz extends javax.swing.JFrame {
     public javax.swing.JTextField txtNuevoNombre;
     public javax.swing.JTextField txtNuevoTelefono;
     public javax.swing.JTextField txtNumCreditos;
+    private javax.swing.JTextField txtSupervisorProfesor;
     public javax.swing.JTextField txtTelefonoProfesor;
     public javax.swing.JTextField txtTitulo;
     // End of variables declaration//GEN-END:variables

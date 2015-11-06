@@ -1,4 +1,4 @@
-package Modelo;
+package ModeloLetras;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -18,13 +18,13 @@ public class ConexionMySQL {
         try{
             Class.forName("com.mysql.jdbc.Driver");
             conn = DriverManager.getConnection( this.url, this.user , this.password );    
-            System.out.println("Conexion realizada con exito.");
+            System.out.println("Conexion MySQL realizada con exito.");
         }catch(SQLException e){
             System.out.println("Conexion NO realizada con exito por error de SQL.");
-            System.err.println( e.getMessage() );
+            System.err.println(e.getMessage());
         }catch(ClassNotFoundException e){
             System.out.println("Conexion NO realizada con exito por error de Class.");
-            System.err.println( e.getMessage() );
+            System.err.println(e.getMessage());
         } 
     }
 
