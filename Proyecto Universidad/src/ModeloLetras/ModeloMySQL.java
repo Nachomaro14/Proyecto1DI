@@ -16,6 +16,14 @@ public class ModeloMySQL extends ConexionMySQL{
     public void nuevaAsignatura(int codigo, String titulo, int creditos) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    public void modificarAsignatura(int codigo, String titulo, int creditos) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void eliminarAsignatura(int codigoEA, String tituloEA) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     public class ModeloTablaNoEditable extends DefaultTableModel {
 

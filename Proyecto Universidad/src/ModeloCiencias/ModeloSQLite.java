@@ -75,9 +75,9 @@ public class ModeloSQLite extends ConexionSQLite{
             ResultSet res = pstm.executeQuery();
             int i=0;
             while(res.next()){
-                data[i][0] = res.getInt("Codigo");
+                data[i][0] = res.getString("Codigo");
                 data[i][1] = res.getString("Titulo");
-                data[i][2] = res.getInt("NumCreditos");
+                data[i][2] = res.getString("NumCreditos");
             i++;
             }
             res.close();
@@ -347,7 +347,7 @@ public class ModeloSQLite extends ConexionSQLite{
     public boolean comprobarExistenciaAsignatura(int codigo, String titulo){
         String q = "SELECT Titulo FROM Asignaturas WHERE Codigo = "+codigo+" AND Titulo = '"+titulo+"'";
         boolean resu = false;
-        String t = "";
+        String t;
         try{
             PreparedStatement pstm = this.getConexion().prepareStatement(q);
             ResultSet res = pstm.executeQuery();
@@ -372,6 +372,29 @@ public class ModeloSQLite extends ConexionSQLite{
             pstm.close();
         }catch(SQLException e){
             JOptionPane.showMessageDialog(null, "Error al introducir nueva asignatura\n" + e.getMessage());
+        }
+    }
+    
+    public void modificarAsignatura(int codigo, String titulo, int creditos){
+        String q = "UPDATE Asignaturas SET Codigo = "+codigo+", Titulo = '"+titulo+"', NumCreditos = "+creditos
+                + " WHERE Codigo = "+codigo+" AND Titulo = '"+titulo+"'";
+        try {
+            PreparedStatement pstm = this.getConexion().prepareStatement(q);
+            pstm.execute();
+            pstm.close();
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "Error al modificar la asignatura\n" + e.getMessage());
+        }
+    }
+    
+    public void eliminarAsignatura(int codigo, String titulo){
+        String q = "DELETE FROM Asignaturas WHERE Codigo = "+codigo+" AND Titulo ='"+titulo+"'";
+        try {
+            PreparedStatement pstm = this.getConexion().prepareStatement(q);
+            pstm.execute();
+            pstm.close();
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "Error al eliminar la asignatura\n" + e.getMessage());
         }
     }
 }

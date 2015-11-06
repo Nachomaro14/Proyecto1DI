@@ -145,9 +145,11 @@ public class Controlador implements ActionListener, MouseListener{
                 if(ciencias == 1){
                     vista.tablaMatriculas.setModel(modeloSQLite.getTablaMatriculas());
                     vista.tablaAsigMat.setModel(modeloSQLite.getTablaAsignaturas());
+                    vista.tablaAsigMat.setVisible(false);
                 }else{
                     vista.tablaMatriculas.setModel(modeloMySQL.getTablaMatriculas());
                     vista.tablaAsigMat.setModel(modeloMySQL.getTablaAsignaturas());
+                    vista.tablaAsigMat.setVisible(false);
                 }
                 vista.matriculas.pack();
                 vista.matriculas.setLocationRelativeTo(null);
@@ -175,14 +177,14 @@ public class Controlador implements ActionListener, MouseListener{
                 vista.matriculas.setVisible(false);
                 if(ciencias == 1){
                     vista.tablaAlumnos.setModel(modeloSQLite.getTablaAlumnos());
-                    vista.tablaAsigMatAlum.setModel(modeloSQLite.getTablaAsignaturas());
+                    vista.tablaAsigMatAlum.setVisible(false);
                     vista.tablaAsignaturas.setModel(modeloSQLite.getTablaAsignaturas());
                     vista.tablaProfesores.setModel(modeloSQLite.getTablaProfesores());
                     vista.tablaAulas.setModel(modeloSQLite.getTablaAulas());
                     vista.tablaAsignaciones.setModel(modeloSQLite.getTablaAsignaciones());
                 }else if(letras == 1){
                     vista.tablaAlumnos.setModel(modeloMySQL.getTablaAlumnos());
-                    vista.tablaAsigMatAlum.setModel(modeloMySQL.getTablaAsignaturas());
+                    vista.tablaAsigMatAlum.setVisible(false);
                     vista.tablaAsignaturas.setModel(modeloMySQL.getTablaAsignaturas());
                     vista.tablaProfesores.setModel(modeloMySQL.getTablaProfesores());
                     vista.tablaAulas.setModel(modeloMySQL.getTablaAulas());
@@ -316,6 +318,41 @@ public class Controlador implements ActionListener, MouseListener{
                     }
                 }
                 break;
+            case btnModificarAsignatura:
+                int codigo = Integer.parseInt(vista.txtCodigo.getText());
+                String titulo = vista.txtTitulo.getText();
+                int creditos = Integer.parseInt(vista.txtNumCreditos.getText());
+                if(ciencias == 1){
+                    if(modeloSQLite.comprobarExistenciaAsignatura(codigo, titulo) == true){
+                        JOptionPane.showMessageDialog(null, "Si quiere modificar los datos introduzca unos diferentes");
+                    }else{
+                        modeloSQLite.modificarAsignatura(codigo, titulo, creditos);
+                        vista.tablaAsignaturas.setModel(modeloSQLite.getTablaAsignaturas());
+                        vista.txtCodigo.setText("");
+                        vista.txtTitulo.setText("");
+                        vista.txtNumCreditos.setText("");
+                    }
+                }else if(letras == 1){
+                    if(modeloMySQL.comprobarExistenciaAsignatura(codigo, titulo) == true){
+                        JOptionPane.showMessageDialog(null, "Si quiere modificar los datos introduzca unos diferentes");
+                    }else{
+                        modeloMySQL.modificarAsignatura(codigo, titulo, creditos);
+                    }
+                }
+                break;
+            case btnEliminarAsignatura:
+                int codigoEA = Integer.parseInt(vista.txtCodigo.getText());
+                String tituloEA = vista.txtTitulo.getText();
+                if(ciencias == 1){
+                    modeloSQLite.eliminarAsignatura(codigoEA, tituloEA);
+                    vista.tablaAsignaturas.setModel(modeloSQLite.getTablaAsignaturas());
+                    vista.txtCodigo.setText("");
+                    vista.txtTitulo.setText("");
+                    vista.txtNumCreditos.setText("");
+                }else if(letras == 1){
+                    modeloMySQL.eliminarAsignatura(codigoEA, tituloEA);
+                }
+                break;
         }
     }
     
@@ -352,29 +389,36 @@ public class Controlador implements ActionListener, MouseListener{
                     JOptionPane.showMessageDialog(null, "Error al intentar actualizar la tabla de Asignaturas"+ex.getMessage());
                     ex.printStackTrace();
                 }
-            }else if(alumno > -1){
+            }
+            if(alumno > -1){
                 try{
                     String dni = String.valueOf(vista.tablaAlumnos.getValueAt(alumno, 0));
                     if(ciencias == 1){
                         vista.tablaAsigMatAlum.setModel(modeloSQLite.getTablaAsignaturasMatriculadas(dni));
+                        vista.tablaAsigMatAlum.setVisible(true);
                     }else if(letras == 1){
                         vista.tablaAsigMatAlum.setModel(modeloMySQL.getTablaAsignaturasMatriculadas(dni));
+                        vista.tablaAsigMatAlum.setVisible(true);
                     }
                     alumno = -1;
                 }catch(Exception ex){
                     JOptionPane.showMessageDialog(null, "Error al intentar actualizar la tabla de Asignaturas"+ex.getMessage());
                     ex.printStackTrace();
                 }
-            }else if(asigMatAlum > -1){
+            }
+            if(asigMatAlum > -1){
                 try{
-                    vista.txtTituloAsignatura.setText(String.valueOf(vista.tablaAsigMatAlum.getValueAt(asigMatAlum, 1)));
-                    vista.txtNotaAsignatura.setText(String.valueOf(vista.tablaAsigMatAlum.getValueAt(asigMatAlum, 3)));
+                    if(vista.tablaAsigMatAlum.getModel().getColumnCount() == 4){
+                        vista.txtTituloAsignatura.setText(String.valueOf(vista.tablaAsigMatAlum.getValueAt(asigMatAlum, 1)));
+                        vista.txtNotaAsignatura.setText(String.valueOf(vista.tablaAsigMatAlum.getValueAt(asigMatAlum, 3)));
+                    }
                     asigMatAlum = -1;
                 }catch(Exception ex){
                     JOptionPane.showMessageDialog(null, "Error al intentar obtener los datos"+ex.getMessage());
                     ex.printStackTrace();
                 }
-            }else if(asignatura > -1){
+            }
+            if(asignatura > -1){
                 try{
                     vista.txtCodigo.setText(String.valueOf(vista.tablaAsignaturas.getValueAt(asignatura, 0)));
                     vista.txtTitulo.setText(String.valueOf(vista.tablaAsignaturas.getValueAt(asignatura, 1)));
@@ -384,7 +428,8 @@ public class Controlador implements ActionListener, MouseListener{
                     JOptionPane.showMessageDialog(null, "Error al intentar obtener los datos"+ex.getMessage());
                     ex.printStackTrace();
                 }
-            }else if(profesor > -1){
+            }
+            if(profesor > -1){
                 try{
                     vista.txtDniProfesor.setText(String.valueOf(vista.tablaProfesores.getValueAt(profesor, 0)));
                     vista.txtApellidosProfesor.setText(String.valueOf(vista.tablaProfesores.getValueAt(profesor, 1)));
@@ -397,7 +442,8 @@ public class Controlador implements ActionListener, MouseListener{
                     JOptionPane.showMessageDialog(null, "Error al intentar obtener los datos"+ex.getMessage());
                     ex.printStackTrace();
                 }
-            }else if(aula > -1){
+            }
+            if(aula > -1){
                 try{
                     vista.txtEdificio.setText(String.valueOf(vista.tablaAulas.getValueAt(aula, 0)));
                     vista.txtAula.setText(String.valueOf(vista.tablaAulas.getValueAt(aula, 1))); 
@@ -406,7 +452,8 @@ public class Controlador implements ActionListener, MouseListener{
                     JOptionPane.showMessageDialog(null, "Error al intentar obtener los datos"+ex.getMessage());
                     ex.printStackTrace();
                 }
-            }else if(asignacion > -1){
+            }
+            if(asignacion > -1){
                 try{
                     vista.txtCodigoAsignacion.setText(String.valueOf(vista.tablaAsignaciones.getValueAt(asignacion, 0)));
                 }catch(Exception ex){
