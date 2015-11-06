@@ -31,6 +31,8 @@ public class Interfaz extends javax.swing.JFrame {
         btnModificarNota = new javax.swing.JButton();
         jLabel16 = new javax.swing.JLabel();
         txtDniAlumno = new javax.swing.JTextField();
+        txtTituloAsignatura = new javax.swing.JTextField();
+        jLabel24 = new javax.swing.JLabel();
         jPanel9 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaAlumnos = new javax.swing.JTable();
@@ -92,6 +94,8 @@ public class Interfaz extends javax.swing.JFrame {
         jPanel11 = new javax.swing.JPanel();
         filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(32767, 32767));
         btnAsignar = new javax.swing.JButton();
+        filler4 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(32767, 32767));
+        txtCodigoAsignacion = new javax.swing.JLabel();
         filler3 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(32767, 32767));
         btnEliminarAsignacion = new javax.swing.JButton();
         filler2 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(32767, 32767));
@@ -202,6 +206,8 @@ public class Interfaz extends javax.swing.JFrame {
 
         txtDniAlumno.setEditable(false);
 
+        jLabel24.setText("Asignatura");
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -214,12 +220,14 @@ public class Interfaz extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jLabel15))
                     .addComponent(btnModificarNota, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
+                    .addComponent(txtDniAlumno)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel14)
-                            .addComponent(jLabel16))
+                            .addComponent(jLabel16)
+                            .addComponent(jLabel24))
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(txtDniAlumno))
+                    .addComponent(txtTituloAsignatura))
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
@@ -229,7 +237,11 @@ public class Interfaz extends javax.swing.JFrame {
                 .addComponent(jLabel16)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtDniAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 280, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 234, Short.MAX_VALUE)
+                .addComponent(jLabel24)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtTituloAsignatura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel14)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtNotaAsignatura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -575,6 +587,10 @@ public class Interfaz extends javax.swing.JFrame {
 
         btnAsignar.setText("Asignar");
         jPanel11.add(btnAsignar);
+        jPanel11.add(filler4);
+
+        txtCodigoAsignacion.setEnabled(false);
+        jPanel11.add(txtCodigoAsignacion);
         jPanel11.add(filler3);
 
         btnEliminarAsignacion.setText("Eliminar");
@@ -669,11 +685,13 @@ public class Interfaz extends javax.swing.JFrame {
             .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, 553, Short.MAX_VALUE)
         );
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setResizable(false);
 
         jPanel3.setLayout(new java.awt.GridLayout(1, 0));
 
         btnLetras.setText("LETRAS");
+        btnLetras.setEnabled(false);
         jPanel3.add(btnLetras);
 
         btnCiencias.setText("CIENCIAS");
@@ -737,6 +755,7 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.Box.Filler filler1;
     private javax.swing.Box.Filler filler2;
     private javax.swing.Box.Filler filler3;
+    private javax.swing.Box.Filler filler4;
     public javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -754,6 +773,7 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -806,6 +826,7 @@ public class Interfaz extends javax.swing.JFrame {
     public javax.swing.JTextField txtApellidosProfesor;
     public javax.swing.JTextField txtAula;
     public javax.swing.JTextField txtCodigo;
+    public javax.swing.JLabel txtCodigoAsignacion;
     public javax.swing.JTextField txtDniAlumno;
     public javax.swing.JTextField txtDniProfesor;
     public javax.swing.JTextField txtDomicilioProfesor;
@@ -819,8 +840,9 @@ public class Interfaz extends javax.swing.JFrame {
     public javax.swing.JTextField txtNuevoNombre;
     public javax.swing.JTextField txtNuevoTelefono;
     public javax.swing.JTextField txtNumCreditos;
-    private javax.swing.JTextField txtSupervisorProfesor;
+    public javax.swing.JTextField txtSupervisorProfesor;
     public javax.swing.JTextField txtTelefonoProfesor;
     public javax.swing.JTextField txtTitulo;
+    public javax.swing.JTextField txtTituloAsignatura;
     // End of variables declaration//GEN-END:variables
 }

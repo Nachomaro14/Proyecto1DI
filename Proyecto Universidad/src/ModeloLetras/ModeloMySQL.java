@@ -8,6 +8,14 @@ public class ModeloMySQL extends ConexionMySQL{
     public TableModel getTablaAsignaturasMatriculadas(String dni) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    public boolean comprobarExistenciaAsignatura(int codigo, String titulo) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void nuevaAsignatura(int codigo, String titulo, int creditos) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     public class ModeloTablaNoEditable extends DefaultTableModel {
 

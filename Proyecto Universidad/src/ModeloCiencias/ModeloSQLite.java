@@ -343,4 +343,35 @@ public class ModeloSQLite extends ConexionSQLite{
             JOptionPane.showMessageDialog(null, "Error al introducir nuevo alumno\n" + e.getMessage());
         }
     }
+    
+    public boolean comprobarExistenciaAsignatura(int codigo, String titulo){
+        String q = "SELECT Titulo FROM Asignaturas WHERE Codigo = "+codigo+" AND Titulo = '"+titulo+"'";
+        boolean resu = false;
+        String t = "";
+        try{
+            PreparedStatement pstm = this.getConexion().prepareStatement(q);
+            ResultSet res = pstm.executeQuery();
+            res.next();
+            t = res.getString("Titulo");
+            res.close();
+            if(!t.equals("") || t != null){
+                resu = true;
+            }
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "Error al comprobar existencia\n" + e.getMessage());
+        }
+        return resu;
+    }
+    
+    public void nuevaAsignatura(int codigo, String titulo, int creditos){
+        String q = "INSERT INTO Asignaturas (Codigo, Titulo, NumCreditos)"
+                + "VALUES("+codigo+",'"+titulo+"',"+creditos+")";
+        try {
+            PreparedStatement pstm = this.getConexion().prepareStatement(q);
+            pstm.execute();
+            pstm.close();
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "Error al introducir nueva asignatura\n" + e.getMessage());
+        }
+    }
 }

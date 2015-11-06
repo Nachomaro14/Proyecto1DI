@@ -39,7 +39,10 @@ public class Controlador implements ActionListener, MouseListener{
         btnCompletarMatricula,
         btnCancelarMatricula,
         
-        btnVolver
+        btnVolver,
+        btnAnadirAsignatura,
+        btnModificarAsignatura,
+        btnEliminarAsignatura
     }
     
     public void iniciar(){
@@ -81,6 +84,8 @@ public class Controlador implements ActionListener, MouseListener{
         
         this.vista.btnVolver.setActionCommand("btnVolver");
         this.vista.btnVolver.addActionListener(this);
+        this.vista.btnAnadirAsignatura.setActionCommand("btnAnadirAsignatura");
+        this.vista.btnAnadirAsignatura.addActionListener(this);
         
         this.vista.tablaMatriculas.addMouseListener(this);
         this.vista.tablaMatriculas.getTableHeader().setReorderingAllowed(false);
@@ -281,6 +286,36 @@ public class Controlador implements ActionListener, MouseListener{
                 }
                 vista.matriculas.setVisible(true);
                 break;
+            case btnAnadirAsignatura:
+                if(vista.txtCodigo.getText().equals("") || vista.txtTitulo.getText().equals("") || vista.txtNumCreditos.getText().equals("")){
+                    JOptionPane.showMessageDialog(null, "Introduzca los datos necesarios para crear una nueva asignatura");
+                }else{
+                    int codigo = Integer.parseInt(vista.txtCodigo.getText());
+                    String titulo = vista.txtTitulo.getText();
+                    int creditos = Integer.parseInt(vista.txtNumCreditos.getText());
+                    if(ciencias == 1){
+                        if(modeloSQLite.comprobarExistenciaAsignatura(codigo, titulo) == true){
+                            JOptionPane.showMessageDialog(null, "Esta asignatura ya existe");
+                        }else{
+                            modeloSQLite.nuevaAsignatura(codigo, titulo, creditos);
+                            vista.tablaAsignaturas.setModel(modeloSQLite.getTablaAsignaturas());
+                            vista.txtCodigo.setText("");
+                            vista.txtTitulo.setText("");
+                            vista.txtNumCreditos.setText("");
+                        }
+                    }else if(letras == 1){
+                        if(modeloMySQL.comprobarExistenciaAsignatura(codigo, titulo) == true){
+                            JOptionPane.showMessageDialog(null, "Esta asignatura ya existe");
+                        }else{
+                            modeloMySQL.nuevaAsignatura(codigo, titulo, creditos);
+                            vista.tablaAsignaturas.setModel(modeloMySQL.getTablaAsignaturas());
+                            vista.txtCodigo.setText("");
+                            vista.txtTitulo.setText("");
+                            vista.txtNumCreditos.setText("");
+                        }
+                    }
+                }
+                break;
         }
     }
     
@@ -298,12 +333,85 @@ public class Controlador implements ActionListener, MouseListener{
     public void mouseClicked(MouseEvent e) {
         if(e.getButton()== 1){
             int matricula = vista.tablaMatriculas.rowAtPoint(e.getPoint());
+            int alumno = vista.tablaAlumnos.rowAtPoint(e.getPoint());
+            int asigMatAlum = vista.tablaAsigMatAlum.rowAtPoint(e.getPoint());
+            int asignatura = vista.tablaAsignaturas.rowAtPoint(e.getPoint());
+            int profesor = vista.tablaProfesores.rowAtPoint(e.getPoint());
+            int aula = vista.tablaAulas.rowAtPoint(e.getPoint());
+            int asignacion = vista.tablaAsignaciones.rowAtPoint(e.getPoint());
             if (matricula > -1){
-                String dni = String.valueOf(vista.tablaMatriculas.getValueAt(matricula, 1));
-                if(ciencias == 1){
-                    vista.tablaAsigMat.setModel(modeloSQLite.getTablaAsignaturasMatriculadas(dni));
-                }else if(letras == 1){
-                    vista.tablaAsigMat.setModel(modeloMySQL.getTablaAsignaturasMatriculadas(dni));
+                try{
+                    String dni = String.valueOf(vista.tablaMatriculas.getValueAt(matricula, 1));
+                    if(ciencias == 1){
+                        vista.tablaAsigMat.setModel(modeloSQLite.getTablaAsignaturasMatriculadas(dni));
+                    }else if(letras == 1){
+                        vista.tablaAsigMat.setModel(modeloMySQL.getTablaAsignaturasMatriculadas(dni));
+                    }
+                    matricula = -1;
+                }catch(Exception ex){
+                    JOptionPane.showMessageDialog(null, "Error al intentar actualizar la tabla de Asignaturas"+ex.getMessage());
+                    ex.printStackTrace();
+                }
+            }else if(alumno > -1){
+                try{
+                    String dni = String.valueOf(vista.tablaAlumnos.getValueAt(alumno, 0));
+                    if(ciencias == 1){
+                        vista.tablaAsigMatAlum.setModel(modeloSQLite.getTablaAsignaturasMatriculadas(dni));
+                    }else if(letras == 1){
+                        vista.tablaAsigMatAlum.setModel(modeloMySQL.getTablaAsignaturasMatriculadas(dni));
+                    }
+                    alumno = -1;
+                }catch(Exception ex){
+                    JOptionPane.showMessageDialog(null, "Error al intentar actualizar la tabla de Asignaturas"+ex.getMessage());
+                    ex.printStackTrace();
+                }
+            }else if(asigMatAlum > -1){
+                try{
+                    vista.txtTituloAsignatura.setText(String.valueOf(vista.tablaAsigMatAlum.getValueAt(asigMatAlum, 1)));
+                    vista.txtNotaAsignatura.setText(String.valueOf(vista.tablaAsigMatAlum.getValueAt(asigMatAlum, 3)));
+                    asigMatAlum = -1;
+                }catch(Exception ex){
+                    JOptionPane.showMessageDialog(null, "Error al intentar obtener los datos"+ex.getMessage());
+                    ex.printStackTrace();
+                }
+            }else if(asignatura > -1){
+                try{
+                    vista.txtCodigo.setText(String.valueOf(vista.tablaAsignaturas.getValueAt(asignatura, 0)));
+                    vista.txtTitulo.setText(String.valueOf(vista.tablaAsignaturas.getValueAt(asignatura, 1)));
+                    vista.txtNumCreditos.setText(String.valueOf(vista.tablaAsignaturas.getValueAt(asignatura, 2)));
+                    asignatura = -1;
+                }catch(Exception ex){
+                    JOptionPane.showMessageDialog(null, "Error al intentar obtener los datos"+ex.getMessage());
+                    ex.printStackTrace();
+                }
+            }else if(profesor > -1){
+                try{
+                    vista.txtDniProfesor.setText(String.valueOf(vista.tablaProfesores.getValueAt(profesor, 0)));
+                    vista.txtApellidosProfesor.setText(String.valueOf(vista.tablaProfesores.getValueAt(profesor, 1)));
+                    vista.txtNombreProfesor.setText(String.valueOf(vista.tablaProfesores.getValueAt(profesor, 2)));
+                    vista.txtDomicilioProfesor.setText(String.valueOf(vista.tablaProfesores.getValueAt(profesor, 3)));
+                    vista.txtTelefonoProfesor.setText(String.valueOf(vista.tablaProfesores.getValueAt(profesor, 4)));
+                    vista.txtSupervisorProfesor.setText(String.valueOf(vista.tablaProfesores.getValueAt(profesor, 5)));
+                    profesor = -1;
+                }catch(Exception ex){
+                    JOptionPane.showMessageDialog(null, "Error al intentar obtener los datos"+ex.getMessage());
+                    ex.printStackTrace();
+                }
+            }else if(aula > -1){
+                try{
+                    vista.txtEdificio.setText(String.valueOf(vista.tablaAulas.getValueAt(aula, 0)));
+                    vista.txtAula.setText(String.valueOf(vista.tablaAulas.getValueAt(aula, 1))); 
+                    aula = -1;
+                }catch(Exception ex){
+                    JOptionPane.showMessageDialog(null, "Error al intentar obtener los datos"+ex.getMessage());
+                    ex.printStackTrace();
+                }
+            }else if(asignacion > -1){
+                try{
+                    vista.txtCodigoAsignacion.setText(String.valueOf(vista.tablaAsignaciones.getValueAt(asignacion, 0)));
+                }catch(Exception ex){
+                    JOptionPane.showMessageDialog(null, "Error al intentar obtener los datos"+ex.getMessage());
+                    ex.printStackTrace();
                 }
             }
         }
