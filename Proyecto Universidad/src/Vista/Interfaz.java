@@ -758,7 +758,6 @@ public class Interfaz extends javax.swing.JFrame {
         jPanel3.setLayout(new java.awt.GridLayout(1, 0));
 
         btnLetras.setText("LETRAS");
-        btnLetras.setEnabled(false);
         jPanel3.add(btnLetras);
 
         btnCiencias.setText("CIENCIAS");

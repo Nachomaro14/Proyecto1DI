@@ -250,6 +250,9 @@ public class Controlador implements ActionListener, MouseListener{
                     vista.tablaProfesores.setModel(modeloMySQL.getTablaProfesores());
                     vista.tablaAulas.setModel(modeloMySQL.getTablaAulas());
                     vista.tablaAsignaciones.setModel(modeloMySQL.getTablaAsignaciones());
+                    vista.comboProfesor.setModel(new DefaultComboBoxModel(modeloMySQL.getNombresProfesoresAAsignar()));
+                    vista.comboAsignatura.setModel(new DefaultComboBoxModel(modeloMySQL.getNombreAsignaturasAMatricular()));
+                    vista.comboEdificio.setModel(new DefaultComboBoxModel(modeloMySQL.getNombresEdificiosAAsignar()));
                 }
                 vista.consultas.pack();
                 vista.consultas.setLocationRelativeTo(null);
@@ -292,7 +295,6 @@ public class Controlador implements ActionListener, MouseListener{
                         modeloSQLite.nuevoAlumno(dni, apellidos, nombre, domicilio, telefono, acceso);
                     }else if(letras == 1){
                         modeloMySQL.nuevaMatricula(dni, apellidos, nombre, domicilio, telefono, acceso);
-                        modeloMySQL.nuevoAlumno(dni, apellidos, nombre, domicilio, telefono, acceso);
                     }
                     int nel = vista.listaAsignaturasAMatricular.getModel().getSize();
                     if(nel != 0){
@@ -359,18 +361,18 @@ public class Controlador implements ActionListener, MouseListener{
                 String dniMN = vista.txtDniAlumno.getText();
                 String tituloMN = vista.txtTituloAsignatura.getText();
                 if(ciencias == 1){
-                    if(notaMN > 0){
+                    if(notaMN >= 0){
                         modeloSQLite.modificarNota(dniMN, tituloMN, notaMN);
                         vista.tablaAsigMatAlum.setModel(modeloSQLite.getTablaAsignaturasMatriculadas(dniMN));
                     }else{
-                        JOptionPane.showMessageDialog(null, "Introduzca una nueva nota mayor que 0");
+                        JOptionPane.showMessageDialog(null, "Introduzca una nueva nota mayor o igual que 0");
                     }
                 }else if(letras == 1){
-                    if(notaMN > 0){
+                    if(notaMN >= 0){
                         modeloMySQL.modificarNota(dniMN, tituloMN, notaMN);
                         vista.tablaAsigMatAlum.setModel(modeloMySQL.getTablaAsignaturasMatriculadas(dniMN));
                     }else{
-                        JOptionPane.showMessageDialog(null, "Introduzca una nueva nota mayor que 0");
+                        JOptionPane.showMessageDialog(null, "Introduzca una nueva nota mayor o igual que 0");
                     }
                 }
                 break;
@@ -552,7 +554,7 @@ public class Controlador implements ActionListener, MouseListener{
                         if(modeloMySQL.comprobarExistenciaProfesor(nDni) == true){
                             JOptionPane.showMessageDialog(null, "El profesor ya existe");
                         }else{
-                            modeloMySQL.modificarProfesor(nDni, apellidos, nombre, domicilio, telefono, supervisor);
+                            modeloMySQL.modificarProfesor(dni, nDni, apellidos, nombre, domicilio, telefono, supervisor);
                         }
                     }else{
                         if(modeloMySQL.comprobarExistenciaProfesor(supervisor) == false){
@@ -561,7 +563,7 @@ public class Controlador implements ActionListener, MouseListener{
                             if(modeloMySQL.comprobarExistenciaProfesor(nDni) == true){
                                 JOptionPane.showMessageDialog(null, "El profesor ya existe");
                             }else{
-                                modeloMySQL.modificarProfesor(nDni, apellidos, nombre, domicilio, telefono, supervisor);
+                                modeloMySQL.modificarProfesor(dni, nDni, apellidos, nombre, domicilio, telefono, supervisor);
                             }
                         }
                     }
@@ -683,8 +685,45 @@ public class Controlador implements ActionListener, MouseListener{
                 
                 
             case btnAsignar:
+                String dniAsig = vista.comboProfesor.getSelectedItem().toString();
+                String tituloAsig = vista.comboAsignatura.getSelectedItem().toString();
+                String edificioAsig = vista.comboEdificio.getSelectedItem().toString();
+                int aulaAsig = Integer.parseInt(vista.comboAula.getSelectedItem().toString());
+                if(ciencias == 1){
+                    String apellidosAsig = modeloSQLite.getInfoProfesor(dniAsig)[0];
+                    String nombreAsig = modeloSQLite.getInfoProfesor(dniAsig)[1];
+                    if(modeloSQLite.comprobarExistenciaAsignacion(dniAsig, apellidosAsig, nombreAsig, tituloAsig, edificioAsig, aulaAsig) == true){
+                        JOptionPane.showMessageDialog(null, "Ya existe esa asignación");
+                    }else{
+                        modeloSQLite.nuevaAsignacion(dniAsig, apellidosAsig, nombreAsig, tituloAsig, edificioAsig, aulaAsig);
+                        vista.tablaAsignaciones.setModel(modeloSQLite.getTablaAsignaciones());
+                    }
+                }else if(letras == 1){
+                    String apellidosAsig = modeloMySQL.getInfoProfesor(dniAsig)[0];
+                    String nombreAsig = modeloMySQL.getInfoProfesor(dniAsig)[1];
+                    if(modeloMySQL.comprobarExistenciaAsignacion(dniAsig, apellidosAsig, nombreAsig, tituloAsig, edificioAsig, aulaAsig) == true){
+                        JOptionPane.showMessageDialog(null, "Ya existe esa asignación");
+                    }else{
+                        modeloMySQL.nuevaAsignacion(dniAsig, apellidosAsig, nombreAsig, tituloAsig, edificioAsig, aulaAsig);
+                        vista.tablaAsignaciones.setModel(modeloMySQL.getTablaAsignaciones());
+                    }
+                }
                 break;
             case btnEliminarAsignacion:
+                String cod = vista.txtCodigoAsignacion.getText();
+                if(cod.equals("")){
+                    JOptionPane.showMessageDialog(null, "Seleccione una asignación");
+                }else{
+                    if(ciencias == 1){
+                        modeloSQLite.eliminarAsignacion(cod);
+                        vista.txtCodigoAsignacion.setText("");
+                        vista.tablaAsignaciones.setModel(modeloSQLite.getTablaAsignaciones());
+                    }else if(letras == 1){
+                        modeloMySQL.eliminarAsignacion(Integer.parseInt(cod));
+                        vista.txtCodigoAsignacion.setText("");
+                        vista.tablaAsignaciones.setModel(modeloMySQL.getTablaAsignaciones());
+                    }
+                }
                 break;
         }
     }
@@ -713,10 +752,10 @@ public class Controlador implements ActionListener, MouseListener{
                 try{
                     String dni = String.valueOf(vista.tablaMatriculas.getValueAt(matricula, 0));
                     if(ciencias == 1){
-                        vista.tablaAsigMat.setModel(modeloSQLite.getTablaAsignaturasMatriculadas(dni));
+                        vista.tablaAsigMat.setModel(modeloSQLite.getTablaAsignaturasMatriculadasSinNota(dni));
                         vista.tablaAsigMat.setVisible(true);
                     }else if(letras == 1){
-                        vista.tablaAsigMat.setModel(modeloMySQL.getTablaAsignaturasMatriculadas(dni));
+                        vista.tablaAsigMat.setModel(modeloMySQL.getTablaAsignaturasMatriculadasSinNota(dni));
                         vista.tablaAsigMat.setVisible(true);
                     }
                     matricula = -1;
@@ -745,7 +784,7 @@ public class Controlador implements ActionListener, MouseListener{
             }
             if(asigMatAlum > -1){
                 try{
-                    vista.txtTituloAsignatura.setText(String.valueOf(vista.tablaAsigMatAlum.getValueAt(asigMatAlum, 1)));
+                    vista.txtTituloAsignatura.setText(String.valueOf(vista.tablaAsigMatAlum.getValueAt(asigMatAlum, 2)));
                     vista.txtNotaAsignatura.setText(String.valueOf(vista.tablaAsigMatAlum.getValueAt(asigMatAlum, 4)));
                     asigMatAlum = -1;
                 }catch(Exception ex){

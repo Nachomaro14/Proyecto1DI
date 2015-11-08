@@ -125,6 +125,42 @@ public class ModeloSQLite extends ConexionSQLite{
         return tablemodel;
     }
     
+    public DefaultTableModel getTablaAsignaturasMatriculadasSinNota(String DNI){
+        DefaultTableModel tablemodel = new ModeloTablaNoEditable();
+        int registros = 0;
+        String[] columNames = {"Código","DNI","Título","Créditos"};
+      
+        try{
+            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT count(Codigo) as total FROM AsigMat WHERE DNI = '" + DNI + "'");
+            ResultSet res = pstm.executeQuery();
+            res.next();
+            registros = res.getInt("total");
+            res.close();
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "Error al contar tuplas\n" + e.getMessage());
+        }
+        Object[][] data = new String[registros][4];
+        try{
+          
+            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT Codigo, DNI, Titulo, NumCreditos FROM AsigMat WHERE DNI = '" + DNI + "'");
+            ResultSet res = pstm.executeQuery();
+            int i=0;
+            while(res.next()){
+                data[i][0] = res.getString("Codigo");
+                data[i][1] = res.getString("DNI");
+                data[i][2] = res.getString("Titulo");
+                data[i][3] = res.getString("NumCreditos");
+            i++;
+            }
+            res.close();
+            tablemodel.setDataVector(data, columNames);
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "Error al obtener datos\n" + e.getMessage());
+            e.printStackTrace();
+        }
+        return tablemodel;
+    }
+    
     public DefaultTableModel getTablaAlumnos(){
         DefaultTableModel tablemodel = new ModeloTablaNoEditable();
         int registros = 0;
@@ -603,5 +639,65 @@ public class ModeloSQLite extends ConexionSQLite{
             JOptionPane.showMessageDialog(null, "Error al obtener datos\n" + e.getMessage());
         }
         return numeros;
+    }
+    
+    public String[] getInfoProfesor(String dni){
+        String[] info = new String[2];
+        String q = "SELECT Apellidos, Nombre FROM Profesores WHERE DNI = '"+dni+"'";
+        try{
+            PreparedStatement pstm = this.getConexion().prepareStatement(q);
+            ResultSet res = pstm.executeQuery();
+            res.next();
+            info[0] = res.getString("Apellidos");
+            info[1] = res.getString("Nombre");
+            res.close();
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "Error al obtener información\n" + e.getMessage());
+        }
+        return info;
+    }
+    
+    public boolean comprobarExistenciaAsignacion(String dni, String apellidos, String nombre, String titulo, String edificio, int numero){
+        String q = "SELECT DNI, Apellidos, Nombre, Titulo, NombreEdificio, NumAula FROM PAA WHERE DNI = '"+dni+"' AND Apellidos = '"+apellidos+"' AND"
+                + " Nombre = '"+nombre+"' AND Titulo = '"+titulo+"' AND NombreEdificio = '"+edificio+"' AND NumAula = "+numero;
+        boolean resu = false;
+        try{
+            PreparedStatement pstm = this.getConexion().prepareStatement(q);
+            ResultSet res = pstm.executeQuery();
+            res.next();
+            if(res.getRow() == 0){
+                resu = false;
+            }else{
+                resu = true;
+            }
+            res.close();
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "Error al comprobar existencia\n" + e.getMessage());
+            e.printStackTrace();
+        }
+        return resu;
+    }
+    
+    public void nuevaAsignacion(String dni, String apellidos, String nombre, String titulo, String edificio, int numero){
+        String q = "INSERT INTO PAA (DNI, Apellidos, Nombre, Titulo, NombreEdificio, NumAula) "
+                + "VALUES('"+dni+"','"+apellidos+"','"+nombre+"','"+titulo+"','"+edificio+"',"+numero+")";
+        try {
+            PreparedStatement pstm = this.getConexion().prepareStatement(q);
+            pstm.execute();
+            pstm.close();
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "Error al eliminar el aula\n" + e.getMessage());
+        }
+    }
+    
+    public void eliminarAsignacion(String cod){
+        String q = "DELETE FROM PAA WHERE CodAsignacion = '"+cod+"'";
+        try {
+            PreparedStatement pstm = this.getConexion().prepareStatement(q);
+            pstm.execute();
+            pstm.close();
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "Error al eliminar la asignación\n" + e.getMessage());
+        }
     }
 }
