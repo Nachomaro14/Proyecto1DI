@@ -1,5 +1,8 @@
 package Vista;
 
+import java.awt.event.ItemEvent;
+import javax.swing.DefaultComboBoxModel;
+
 public class Interfaz extends javax.swing.JFrame {
 
     public Interfaz() {
@@ -47,9 +50,11 @@ public class Interfaz extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         txtNumCreditos = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        btnEliminarAsignatura = new javax.swing.JButton();
         btnModificarAsignatura = new javax.swing.JButton();
         btnAnadirAsignatura = new javax.swing.JButton();
+        jLabel25 = new javax.swing.JLabel();
+        txtNuevoCodigoAsignatura = new javax.swing.JTextField();
         jScrollPane3 = new javax.swing.JScrollPane();
         tablaAsignaturas = new javax.swing.JTable();
         jSplitPane3 = new javax.swing.JSplitPane();
@@ -72,6 +77,8 @@ public class Interfaz extends javax.swing.JFrame {
         btnEliminarProfesor = new javax.swing.JButton();
         jLabel22 = new javax.swing.JLabel();
         txtSupervisorProfesor = new javax.swing.JTextField();
+        jLabel26 = new javax.swing.JLabel();
+        txtNuevoDniProfesor = new javax.swing.JTextField();
         jSplitPane4 = new javax.swing.JSplitPane();
         jPanel7 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
@@ -82,6 +89,10 @@ public class Interfaz extends javax.swing.JFrame {
         btnAnadirAula = new javax.swing.JButton();
         btnModificarAula = new javax.swing.JButton();
         btnEliminarAula = new javax.swing.JButton();
+        jLabel27 = new javax.swing.JLabel();
+        txtNuevoEdificio = new javax.swing.JTextField();
+        jLabel28 = new javax.swing.JLabel();
+        txtNuevoNumero = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         tablaAulas = new javax.swing.JTable();
         jPanel8 = new javax.swing.JPanel();
@@ -90,6 +101,7 @@ public class Interfaz extends javax.swing.JFrame {
         jPanel10 = new javax.swing.JPanel();
         comboProfesor = new javax.swing.JComboBox();
         comboAsignatura = new javax.swing.JComboBox();
+        comboEdificio = new javax.swing.JComboBox();
         comboAula = new javax.swing.JComboBox();
         jPanel11 = new javax.swing.JPanel();
         filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(32767, 32767));
@@ -237,7 +249,7 @@ public class Interfaz extends javax.swing.JFrame {
                 .addComponent(jLabel16)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtDniAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 234, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 342, Short.MAX_VALUE)
                 .addComponent(jLabel24)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtTituloAsignatura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -292,17 +304,21 @@ public class Interfaz extends javax.swing.JFrame {
 
         jLabel1.setText("Código");
 
+        txtCodigo.setEditable(false);
+
         jLabel2.setText("Título");
 
         jLabel3.setText("Núm. Créditos");
 
         jLabel11.setText("<- ->");
 
-        jButton2.setText("Eliminar");
+        btnEliminarAsignatura.setText("Eliminar");
 
         btnModificarAsignatura.setText("Modificar");
 
         btnAnadirAsignatura.setText("Añadir");
+
+        jLabel25.setText("Nuevo Código");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -311,18 +327,23 @@ public class Interfaz extends javax.swing.JFrame {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtTitulo)
-                    .addComponent(txtNumCreditos)
+                    .addComponent(btnEliminarAsignatura, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txtCodigo)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jLabel11))
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3)
                     .addComponent(btnModificarAsignatura, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnAnadirAsignatura, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnAnadirAsignatura, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtNuevoCodigoAsignatura)
+                    .addComponent(txtTitulo)
+                    .addComponent(txtNumCreditos)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel25)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
@@ -333,6 +354,10 @@ public class Interfaz extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel25)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtNuevoCodigoAsignatura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -340,12 +365,12 @@ public class Interfaz extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtNumCreditos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 176, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 238, Short.MAX_VALUE)
                 .addComponent(btnAnadirAsignatura)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnModificarAsignatura)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2)
+                .addComponent(btnEliminarAsignatura)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel11)
                 .addContainerGap())
@@ -387,6 +412,8 @@ public class Interfaz extends javax.swing.JFrame {
 
         jLabel4.setText("DNI");
 
+        txtDniProfesor.setEditable(false);
+
         jLabel5.setText("Apellidos");
 
         jLabel6.setText("Nombre");
@@ -403,7 +430,9 @@ public class Interfaz extends javax.swing.JFrame {
 
         btnEliminarProfesor.setText("Eliminar");
 
-        jLabel22.setText("Supervisor");
+        jLabel22.setText("DNI Supervisor");
+
+        jLabel26.setText("Nuevo DNI");
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -413,26 +442,28 @@ public class Interfaz extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtDniProfesor)
-                    .addComponent(txtApellidosProfesor)
-                    .addComponent(txtNombreProfesor)
-                    .addComponent(txtDomicilioProfesor)
-                    .addComponent(txtTelefonoProfesor)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jLabel13))
                     .addComponent(btnEliminarProfesor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnModificarProfesor, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
                     .addComponent(btnAnadirProfesor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtNuevoDniProfesor)
+                    .addComponent(txtApellidosProfesor)
+                    .addComponent(txtNombreProfesor)
+                    .addComponent(txtDomicilioProfesor)
+                    .addComponent(txtTelefonoProfesor)
+                    .addComponent(txtSupervisorProfesor)
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4)
+                            .addComponent(jLabel26)
                             .addComponent(jLabel5)
                             .addComponent(jLabel6)
                             .addComponent(jLabel7)
                             .addComponent(jLabel8)
                             .addComponent(jLabel22))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(txtSupervisorProfesor))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
@@ -442,6 +473,10 @@ public class Interfaz extends javax.swing.JFrame {
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtDniProfesor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel26)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtNuevoDniProfesor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -462,7 +497,7 @@ public class Interfaz extends javax.swing.JFrame {
                 .addComponent(jLabel22)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtSupervisorProfesor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 100, Short.MAX_VALUE)
                 .addComponent(btnAnadirProfesor)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnModificarProfesor)
@@ -479,7 +514,11 @@ public class Interfaz extends javax.swing.JFrame {
 
         jLabel9.setText("Edificio");
 
+        txtEdificio.setEditable(false);
+
         jLabel10.setText("Número");
+
+        txtAula.setEditable(false);
 
         jLabel12.setText("<- ->");
 
@@ -488,6 +527,10 @@ public class Interfaz extends javax.swing.JFrame {
         btnModificarAula.setText("Modificar");
 
         btnEliminarAula.setText("Eliminar");
+
+        jLabel27.setText("Nuevo Edificio");
+
+        jLabel28.setText("Nuevo Número");
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -498,17 +541,21 @@ public class Interfaz extends javax.swing.JFrame {
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtEdificio)
                     .addComponent(txtAula)
-                    .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel9)
-                            .addComponent(jLabel10))
-                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jLabel12))
                     .addComponent(btnEliminarAula, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnModificarAula, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
-                    .addComponent(btnAnadirAula, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnAnadirAula, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel10)
+                            .addComponent(jLabel27)
+                            .addComponent(jLabel28))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(txtNuevoEdificio)
+                    .addComponent(txtNuevoNumero))
                 .addContainerGap())
         );
         jPanel7Layout.setVerticalGroup(
@@ -522,7 +569,15 @@ public class Interfaz extends javax.swing.JFrame {
                 .addComponent(jLabel10)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtAula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 222, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel27)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtNuevoEdificio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel28)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtNuevoNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 238, Short.MAX_VALUE)
                 .addComponent(btnAnadirAula)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnModificarAula)
@@ -577,7 +632,15 @@ public class Interfaz extends javax.swing.JFrame {
         comboAsignatura.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jPanel10.add(comboAsignatura);
 
+        comboEdificio.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel10.add(comboEdificio);
+
         comboAula.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboAula.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                comboAulaItemStateChanged(evt);
+            }
+        });
         jPanel10.add(comboAula);
 
         jPanel8.add(jPanel10, java.awt.BorderLayout.PAGE_START);
@@ -614,11 +677,15 @@ public class Interfaz extends javax.swing.JFrame {
         consultas.getContentPane().setLayout(consultasLayout);
         consultasLayout.setHorizontalGroup(
             consultasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1)
+            .addGroup(consultasLayout.createSequentialGroup()
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 626, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         consultasLayout.setVerticalGroup(
             consultasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 461, Short.MAX_VALUE)
+            .addGroup(consultasLayout.createSequentialGroup()
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 569, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         nuevaMatricula.setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
@@ -691,7 +758,6 @@ public class Interfaz extends javax.swing.JFrame {
         jPanel3.setLayout(new java.awt.GridLayout(1, 0));
 
         btnLetras.setText("LETRAS");
-        btnLetras.setEnabled(false);
         jPanel3.add(btnLetras);
 
         btnCiencias.setText("CIENCIAS");
@@ -724,6 +790,10 @@ public class Interfaz extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnNuevaMatriculaActionPerformed
 
+    private void comboAulaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_comboAulaItemStateChanged
+        
+    }//GEN-LAST:event_comboAulaItemStateChanged
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnAnadirAsignatura;
@@ -736,6 +806,7 @@ public class Interfaz extends javax.swing.JFrame {
     public javax.swing.JButton btnCompletarMatricula;
     public javax.swing.JMenuItem btnConsultas;
     public javax.swing.JButton btnEliminarAsignacion;
+    public javax.swing.JButton btnEliminarAsignatura;
     public javax.swing.JButton btnEliminarAula;
     public javax.swing.JButton btnEliminarProfesor;
     public javax.swing.JButton btnLetras;
@@ -750,13 +821,13 @@ public class Interfaz extends javax.swing.JFrame {
     public javax.swing.JComboBox comboAsignatura;
     public javax.swing.JComboBox comboAsignaturasAMatricular;
     public javax.swing.JComboBox comboAula;
+    public javax.swing.JComboBox comboEdificio;
     public javax.swing.JComboBox comboProfesor;
     public javax.swing.JDialog consultas;
     private javax.swing.Box.Filler filler1;
     private javax.swing.Box.Filler filler2;
     private javax.swing.Box.Filler filler3;
     private javax.swing.Box.Filler filler4;
-    public javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -774,6 +845,10 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -835,9 +910,13 @@ public class Interfaz extends javax.swing.JFrame {
     public javax.swing.JTextField txtNotaAsignatura;
     public javax.swing.JTextField txtNuevoAcceso;
     public javax.swing.JTextField txtNuevoApellidos;
+    public javax.swing.JTextField txtNuevoCodigoAsignatura;
     public javax.swing.JTextField txtNuevoDni;
+    public javax.swing.JTextField txtNuevoDniProfesor;
     public javax.swing.JTextField txtNuevoDomicilio;
+    public javax.swing.JTextField txtNuevoEdificio;
     public javax.swing.JTextField txtNuevoNombre;
+    public javax.swing.JTextField txtNuevoNumero;
     public javax.swing.JTextField txtNuevoTelefono;
     public javax.swing.JTextField txtNumCreditos;
     public javax.swing.JTextField txtSupervisorProfesor;
