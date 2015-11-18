@@ -15,6 +15,8 @@ public class Modelo extends Database{
         }
     }
     
+    //MÉTODOS DE PROVEEDORES
+    
     public String[] getProveedores(){
         int registros = 0;
         try{
@@ -112,6 +114,65 @@ public class Modelo extends Database{
         }
         return tablemodel;
     }
+    
+    public boolean comprobarExistenciaProveedor(String cif){
+        String q = "SELECT CIF FROM Proveedores WHERE CIF = '"+cif+"'";
+        boolean resu = false;
+        try{
+            PreparedStatement pstm = this.getConexion().prepareStatement(q);
+            ResultSet res = pstm.executeQuery();
+            res.next();
+            if(res.getRow() == 0){
+                resu = false;
+            }else{
+                resu = true;
+            }
+            res.close();
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "Error al comprobar existencia\n\n" + e.getMessage());
+            e.printStackTrace();
+        }
+        return resu;
+    }
+    
+    public void crearProveedor(String cif, String nombre, String direccion, String telefono, String correo){
+        String q = "INSERT INTO Proveedores (CIF, Nombre, Direccion, Telefono, Correo) "
+                + "VALUES('"+cif+"','"+nombre+"','"+direccion+"','"+telefono+"','"+correo+"')";
+        try {
+            PreparedStatement pstm = this.getConexion().prepareStatement(q);
+            pstm.execute();
+            pstm.close();
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "Error al introducir nuevo proveedor\n\n" + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+    
+    public void modificarProveedor(String cif, String ncif, String nombre, String direccion, String telefono, String correo){
+        String q = "UPDATE Proveedores SET CIF = '"+ncif+"', Nombre = '"+nombre+"', Direccion = '"+direccion
+                + "', Telefono = '"+telefono+"', Correo = '"+correo+"' WHERE CIF = '"+cif+"'";
+        try {
+            PreparedStatement pstm = this.getConexion().prepareStatement(q);
+            pstm.execute();
+            pstm.close();
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "Error al modificar el proveedor\n\n" + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+    
+    public void eliminarProveedor(String cif){
+        String q = "DELETE FROM Proveedores WHERE CIF = '"+cif+"'";
+        try {
+            PreparedStatement pstm = this.getConexion().prepareStatement(q);
+            pstm.execute();
+            pstm.close();
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "Error al eliminar el proveedor\n" + e.getMessage());
+        }
+    }
+    
+    //MÉTODOS DE CLIENTES
     
     public String[] getClientes(){
         int registros = 0;
@@ -212,5 +273,62 @@ public class Modelo extends Database{
             e.printStackTrace();
         }
         return tablemodel;
+    }
+    
+    public boolean comprobarExistenciaCliente(String dni){
+        String q = "SELECT DNI FROM Clientes WHERE DNI = '"+dni+"'";
+        boolean resu = false;
+        try{
+            PreparedStatement pstm = this.getConexion().prepareStatement(q);
+            ResultSet res = pstm.executeQuery();
+            res.next();
+            if(res.getRow() == 0){
+                resu = false;
+            }else{
+                resu = true;
+            }
+            res.close();
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "Error al comprobar existencia\n\n" + e.getMessage());
+            e.printStackTrace();
+        }
+        return resu;
+    }
+    
+    public void crearCliente(String dni, String nombre, String apellidos, String direccion, String telefono, String correo){
+        String q = "INSERT INTO Clientes (DNI, Nombre, Apellidos, Direccion, Telefono, Correo) "
+                + "VALUES('"+dni+"','"+nombre+"', '"+apellidos+"','"+direccion+"','"+telefono+"','"+correo+"')";
+        try {
+            PreparedStatement pstm = this.getConexion().prepareStatement(q);
+            pstm.execute();
+            pstm.close();
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "Error al introducir nuevo cliente\n\n" + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+    
+    public void modificarCliente(String dni, String ndni, String nombre, String apellidos, String direccion, String telefono, String correo){
+        String q = "UPDATE Clientes SET DNI = '"+ndni+"', Nombre = '"+nombre+"', Apellidos = '"+apellidos+"', Direccion = '"+direccion
+                + "', Telefono = '"+telefono+"', Correo = '"+correo+"' WHERE DNI = '"+dni+"'";
+        try {
+            PreparedStatement pstm = this.getConexion().prepareStatement(q);
+            pstm.execute();
+            pstm.close();
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "Error al modificar el cliente\n\n" + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+    
+    public void eliminarCliente(String dni){
+        String q = "DELETE FROM Clientes WHERE DNI = '"+dni+"'";
+        try {
+            PreparedStatement pstm = this.getConexion().prepareStatement(q);
+            pstm.execute();
+            pstm.close();
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "Error al eliminar el cliente\n" + e.getMessage());
+        }
     }
 }
