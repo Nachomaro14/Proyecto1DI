@@ -24,7 +24,7 @@ public class Modelo extends Database{
             registros = res.getInt("total");
             res.close();
         }catch(SQLException e){
-            JOptionPane.showMessageDialog(null, "Error al contar tuplas\n" + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Error al contar tuplas\n\n" + e.getMessage());
             e.printStackTrace();
         }
         String[] proveedores = new String[registros];
@@ -73,7 +73,7 @@ public class Modelo extends Database{
             registros = res.getInt("total");
             res.close();
         }catch(SQLException e){
-            JOptionPane.showMessageDialog(null, "Error al contar tuplas\n" + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Error al contar tuplas\n\n" + e.getMessage());
             e.printStackTrace();
         }
         Object[][] data = new String[registros][5];
@@ -124,7 +124,7 @@ public class Modelo extends Database{
             registros = res.getInt("total");
             res.close();
         }catch(SQLException e){
-            JOptionPane.showMessageDialog(null, "Error al contar tuplas\n" + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Error al contar tuplas\n\n" + e.getMessage());
             e.printStackTrace();
         }
         Object[][] data = new String[registros][6];
