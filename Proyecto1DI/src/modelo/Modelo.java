@@ -113,6 +113,55 @@ public class Modelo extends Database{
         return tablemodel;
     }
     
+    public String[] getClientes(){
+        int registros = 0;
+        try{
+            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT count(DNI) as total FROM Clientes");
+            ResultSet res = pstm.executeQuery();
+            res.next();
+            registros = res.getInt("total");
+            res.close();
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "Error al contar tuplas\n\n" + e.getMessage());
+            e.printStackTrace();
+        }
+        String[] clientes = new String[registros];
+        try{
+            String q = "SELECT DNI FROM Proveedores";
+            PreparedStatement pstm = this.getConexion().prepareStatement(q);
+            ResultSet res = pstm.executeQuery();
+            int i=0;
+            while(res.next()){
+                clientes[i] = res.getString("DNI");
+            i++;
+            }
+            res.close();
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "Error al obtener datos\n\n" + e.getMessage());
+            e.printStackTrace();
+        }
+        return clientes;
+    }
+    
+    public String getNombreCliente(String dni){
+        String nombre = "";
+        String apellidos = "";
+        try{
+            String q = "SELECT Nombre, Apellidos FROM Clientes WHERE DNI = '"+dni+"'";
+            PreparedStatement pstm = this.getConexion().prepareStatement(q);
+            ResultSet res = pstm.executeQuery();
+            while(res.next()){
+                nombre = res.getString("Nombre");
+                apellidos = res.getString("Apellidos");
+            }
+            res.close();
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "Error al obtener el nombre y los apellidos\n\n" + e.getMessage());
+            e.printStackTrace();
+        }
+        return nombre + " " + apellidos;
+    }
+    
     public DefaultTableModel tablaClientes(){
         DefaultTableModel tablemodel = new ModeloTablaNoEditable();
         int registros = 0;
