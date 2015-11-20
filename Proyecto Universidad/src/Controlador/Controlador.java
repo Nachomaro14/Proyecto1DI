@@ -291,10 +291,18 @@ public class Controlador implements ActionListener, MouseListener{
                     String telefono = vista.txtNuevoTelefono.getText();
                     String acceso = vista.txtNuevoAcceso.getText();
                     if(ciencias == 1){
-                        modeloSQLite.nuevaMatricula(dni, apellidos, nombre, domicilio, telefono, acceso);
-                        modeloSQLite.nuevoAlumno(dni, apellidos, nombre, domicilio, telefono, acceso);
+                        if(dni.equals("") || apellidos.equals("") || nombre.equals("") || domicilio.equals("") || telefono.equals("") || acceso.equals("")){
+                            JOptionPane.showMessageDialog(null, "Introduzca todos los datos del alumno");
+                        }else{
+                            modeloSQLite.nuevaMatricula(dni, apellidos, nombre, domicilio, telefono, acceso);
+                            modeloSQLite.nuevoAlumno(dni, apellidos, nombre, domicilio, telefono, acceso);
+                        }
                     }else if(letras == 1){
-                        modeloMySQL.nuevaMatricula(dni, apellidos, nombre, domicilio, telefono, acceso);
+                        if(dni.equals("") || apellidos.equals("") || nombre.equals("") || domicilio.equals("") || telefono.equals("") || acceso.equals("")){
+                            JOptionPane.showMessageDialog(null, "Introduzca todos los datos del alumno");
+                        }else{
+                            modeloMySQL.nuevaMatricula(dni, apellidos, nombre, domicilio, telefono, acceso);
+                        }
                     }
                     int nel = vista.listaAsignaturasAMatricular.getModel().getSize();
                     if(nel != 0){
