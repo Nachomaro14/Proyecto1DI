@@ -168,7 +168,8 @@ public class Modelo extends Database{
             pstm.execute();
             pstm.close();
         }catch(SQLException e){
-            JOptionPane.showMessageDialog(null, "Error al eliminar el proveedor\n" + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Error al eliminar el proveedor\n\n" + e.getMessage());
+            e.printStackTrace();
         }
     }
     
@@ -328,7 +329,173 @@ public class Modelo extends Database{
             pstm.execute();
             pstm.close();
         }catch(SQLException e){
-            JOptionPane.showMessageDialog(null, "Error al eliminar el cliente\n" + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Error al eliminar el cliente\n\n" + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+    
+    //MÉTODOS DE EMPRESAS
+    
+    public String[] infoEmpresa(){
+        String[] empresa = new String[6];
+        try{
+            String q = "SELECT * FROM Empresas";
+            PreparedStatement pstm = this.getConexion().prepareStatement(q);
+            ResultSet res = pstm.executeQuery();
+            while(res.next()){
+                empresa[0] = res.getString("CIF");
+                empresa[1] = res.getString("Nombre");
+                empresa[2] = res.getString("Direccion");
+                empresa[3] = res.getString("Telefono");
+                empresa[4] = res.getString("Correo");
+                empresa[5] = res.getString("Web");
+            }
+            res.close();
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "Error al obtener los datos de la empresa\n\n" + e.getMessage());
+            e.printStackTrace();
+        }
+        return empresa;
+    }
+    
+    //MÉTODOS DE ARTÍCULOS
+    
+    public DefaultTableModel tablaArticulos(){
+        DefaultTableModel tablemodel = new ModeloTablaNoEditable();
+        int registros = 0;
+        String[] columNames = {"Código","Proveedor","Nombre","PrecioP","PrecioC"};
+        try{
+            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT count(Codigo) as total FROM Articulos");
+            ResultSet res = pstm.executeQuery();
+            res.next();
+            registros = res.getInt("total");
+            res.close();
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "Error al contar tuplas\n\n" + e.getMessage());
+            e.printStackTrace();
+        }
+        Object[][] data = new String[registros][5];
+        try{
+            String q = "SELECT Codigo, Proveedor, Nombre, PrecioP, PrecioC FROM Articulos";
+            PreparedStatement pstm = this.getConexion().prepareStatement(q);
+            ResultSet res = pstm.executeQuery();
+            int i=0;
+            while(res.next()){
+                data[i][0] = res.getString("Codigo");
+                data[i][1] = res.getString("Proveedor");
+                data[i][2] = res.getString("Nombre");
+                data[i][3] = res.getDouble("PrecioP");
+                data[i][4] = res.getDouble("PrecioC");
+            i++;
+            }
+            res.close();
+            tablemodel.setDataVector(data, columNames);
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "Error al obtener datos\n\n" + e.getMessage());
+            e.printStackTrace();
+        }
+        return tablemodel;
+    }
+    
+    public String[] getArticulos(){
+        int registros = 0;
+        try{
+            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT count(Codigo) as total FROM Articulos");
+            ResultSet res = pstm.executeQuery();
+            res.next();
+            registros = res.getInt("total");
+            res.close();
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "Error al contar tuplas\n\n" + e.getMessage());
+            e.printStackTrace();
+        }
+        String[] proveedores = new String[registros];
+        try{
+            String q = "SELECT Codigo FROM Articulos";
+            PreparedStatement pstm = this.getConexion().prepareStatement(q);
+            ResultSet res = pstm.executeQuery();
+            int i=0;
+            while(res.next()){
+                proveedores[i] = res.getString("Codigo");
+            i++;
+            }
+            res.close();
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "Error al obtener datos\n\n" + e.getMessage());
+            e.printStackTrace();
+        }
+        return proveedores;
+    }
+    
+    public DefaultTableModel tablaArticulosVacia(){
+        DefaultTableModel tablemodel = new ModeloTablaNoEditable();
+        int registros = 0;
+        String[] columNames = {"Código","Proveedor","Nombre","PrecioP","PrecioC"};
+        Object[][] data = new String[registros][5];
+        try{
+            tablemodel.setDataVector(data, columNames);
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Error al construir tabla\n\n" + e.getMessage());
+            e.printStackTrace();
+        }
+        return tablemodel;
+    }
+    
+    public boolean comprobarExistenciaArticulo(String codigo){
+        String q = "SELECT Codigo FROM Articulos WHERE Codigo = '"+codigo+"'";
+        boolean resu = false;
+        try{
+            PreparedStatement pstm = this.getConexion().prepareStatement(q);
+            ResultSet res = pstm.executeQuery();
+            res.next();
+            if(res.getRow() == 0){
+                resu = false;
+            }else{
+                resu = true;
+            }
+            res.close();
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "Error al comprobar existencia\n\n" + e.getMessage());
+            e.printStackTrace();
+        }
+        return resu;
+    }
+    
+    public void crearArticulo(String codigo, String proveedor, String nombre, String descripcion, double precioP, double precioC){
+        String q = "INSERT INTO Articulos (Codigo, Proveedor, Nombre, Descripcion, PrecioP, PrecioC) "
+                + "VALUES('"+codigo+"','"+proveedor+"', '"+nombre+"','"+descripcion+"',"+precioP+","+precioC+")";
+        try {
+            PreparedStatement pstm = this.getConexion().prepareStatement(q);
+            pstm.execute();
+            pstm.close();
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "Error al introducir nuevo artículo\n\n" + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+    
+    public void modificarArticulo(String codigo, String ncodigo, String proveedor, String nombre, String descripcion, double precioP, double precioC){
+        String q = "UPDATE Articulos SET Codigo = '"+ncodigo+"', Proveedor = '"+proveedor+"', Nombre = '"+nombre+"', Descripcion = '"+descripcion
+                + "', PrecioP = "+precioP+", PrecioC = "+precioC+" WHERE Codigo = '"+codigo+"'";
+        try {
+            PreparedStatement pstm = this.getConexion().prepareStatement(q);
+            pstm.execute();
+            pstm.close();
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "Error al modificar el artículo\n\n" + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+    
+    public void eliminarArticulo(String codigo){
+        String q = "DELETE FROM Articulos WHERE Codigo = '"+codigo+"'";
+        try {
+            PreparedStatement pstm = this.getConexion().prepareStatement(q);
+            pstm.execute();
+            pstm.close();
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "Error al eliminar el artículo\n\n" + e.getMessage());
+            e.printStackTrace();
         }
     }
 }
