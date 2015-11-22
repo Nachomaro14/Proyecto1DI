@@ -153,15 +153,15 @@ public class Interfaz extends javax.swing.JFrame {
         jPanel2.add(txtClientesCorreo);
         jPanel2.add(filler3);
 
-        btnClientesAgregar.setText("jButton1");
+        btnClientesAgregar.setText("Agregar");
         jPanel2.add(btnClientesAgregar);
         jPanel2.add(filler4);
 
-        btnClientesModificar.setText("jButton2");
+        btnClientesModificar.setText("Modificar");
         jPanel2.add(btnClientesModificar);
         jPanel2.add(filler5);
 
-        btnClientesBorrar.setText("jButton3");
+        btnClientesBorrar.setText("Borrar");
         jPanel2.add(btnClientesBorrar);
         jPanel2.add(filler6);
 
