@@ -30,12 +30,26 @@ public class Interfaz extends javax.swing.JFrame {
         clientes = new javax.swing.JPanel();
         jSplitPane1 = new javax.swing.JSplitPane();
         jPanel2 = new javax.swing.JPanel();
+        filler7 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 20), new java.awt.Dimension(0, 20), new java.awt.Dimension(32767, 32767));
         jLabel1 = new javax.swing.JLabel();
+        txtClientesNif = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
+        txtClientesNombre = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
+        txtClientesApellidos = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
+        txtClientesDireccion = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
+        txtClientesTelefono = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
+        txtClientesCorreo = new javax.swing.JTextField();
+        filler3 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 20), new java.awt.Dimension(0, 20), new java.awt.Dimension(32767, 32767));
+        btnClientesAgregar = new javax.swing.JButton();
+        filler4 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 20), new java.awt.Dimension(0, 20), new java.awt.Dimension(32767, 32767));
+        btnClientesModificar = new javax.swing.JButton();
+        filler5 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 20), new java.awt.Dimension(0, 20), new java.awt.Dimension(32767, 32767));
+        btnClientesBorrar = new javax.swing.JButton();
+        filler6 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 20), new java.awt.Dimension(0, 20), new java.awt.Dimension(32767, 32767));
         jPanel1 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTable3 = new javax.swing.JTable();
@@ -73,50 +87,47 @@ public class Interfaz extends javax.swing.JFrame {
         jMenuItem6 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
 
+        jPanel2.setMinimumSize(new java.awt.Dimension(150, 353));
+        jPanel2.setPreferredSize(new java.awt.Dimension(150, 552));
+        jPanel2.setLayout(new javax.swing.BoxLayout(jPanel2, javax.swing.BoxLayout.PAGE_AXIS));
+        jPanel2.add(filler7);
+
         jLabel1.setText("NIF:");
+        jPanel2.add(jLabel1);
+        jPanel2.add(txtClientesNif);
 
         jLabel2.setText("Nombre:");
+        jPanel2.add(jLabel2);
+        jPanel2.add(txtClientesNombre);
 
         jLabel3.setText("Apellidos:");
+        jPanel2.add(jLabel3);
+        jPanel2.add(txtClientesApellidos);
 
         jLabel4.setText("Dirección:");
+        jPanel2.add(jLabel4);
+        jPanel2.add(txtClientesDireccion);
 
         jLabel5.setText("Teléfono:");
+        jPanel2.add(jLabel5);
+        jPanel2.add(txtClientesTelefono);
 
         jLabel6.setText("Correo:");
+        jPanel2.add(jLabel6);
+        jPanel2.add(txtClientesCorreo);
+        jPanel2.add(filler3);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel6))
-                .addContainerGap(43, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel6)
-                .addContainerGap(427, Short.MAX_VALUE))
-        );
+        btnClientesAgregar.setText("jButton1");
+        jPanel2.add(btnClientesAgregar);
+        jPanel2.add(filler4);
+
+        btnClientesModificar.setText("jButton2");
+        jPanel2.add(btnClientesModificar);
+        jPanel2.add(filler5);
+
+        btnClientesBorrar.setText("jButton3");
+        jPanel2.add(btnClientesBorrar);
+        jPanel2.add(filler6);
 
         jSplitPane1.setLeftComponent(jPanel2);
 
@@ -379,8 +390,16 @@ public class Interfaz extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel articulos;
+    private javax.swing.JButton btnClientesAgregar;
+    private javax.swing.JButton btnClientesBorrar;
+    private javax.swing.JButton btnClientesModificar;
     private javax.swing.JPanel clientes;
     private javax.swing.JComboBox<String> comboProveedores;
+    private javax.swing.Box.Filler filler3;
+    private javax.swing.Box.Filler filler4;
+    private javax.swing.Box.Filler filler5;
+    private javax.swing.Box.Filler filler6;
+    private javax.swing.Box.Filler filler7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -417,6 +436,12 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JTable jTable3;
     private javax.swing.JTable jTable4;
     private javax.swing.JTable tablaArticulos;
+    private javax.swing.JTextField txtClientesApellidos;
+    private javax.swing.JTextField txtClientesCorreo;
+    private javax.swing.JTextField txtClientesDireccion;
+    private javax.swing.JTextField txtClientesNif;
+    private javax.swing.JTextField txtClientesNombre;
+    private javax.swing.JTextField txtClientesTelefono;
     private javax.swing.JTextArea txtDescripcionArt;
     private javax.swing.JTextField txtNombreArt;
     private javax.swing.JLabel txtNuevoCodigo;
