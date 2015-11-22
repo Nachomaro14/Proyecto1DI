@@ -31,8 +31,10 @@ public class Interfaz extends javax.swing.JFrame {
         jSplitPane1 = new javax.swing.JSplitPane();
         jPanel2 = new javax.swing.JPanel();
         filler7 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 20), new java.awt.Dimension(0, 20), new java.awt.Dimension(32767, 32767));
+        txtClientesNif = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        txtClientesNif = new javax.swing.JTextField();
+        txtClientesNNif = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         txtClientesNombre = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
@@ -74,6 +76,34 @@ public class Interfaz extends javax.swing.JFrame {
         txtDescripcionArt = new javax.swing.JTextArea();
         jLabel12 = new javax.swing.JLabel();
         txtNuevoCodigo = new javax.swing.JLabel();
+        proveedores = new javax.swing.JPanel();
+        jSplitPane2 = new javax.swing.JSplitPane();
+        jPanel6 = new javax.swing.JPanel();
+        filler8 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 20), new java.awt.Dimension(0, 20), new java.awt.Dimension(32767, 32767));
+        txtProveedoresCif = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        txtProveedoresNCif = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
+        txtProveedoresNombre = new javax.swing.JTextField();
+        jLabel16 = new javax.swing.JLabel();
+        txtProveedoresDireccion = new javax.swing.JTextField();
+        jLabel17 = new javax.swing.JLabel();
+        txtProveedoresTelefono = new javax.swing.JTextField();
+        jLabel18 = new javax.swing.JLabel();
+        txtProveedoresCorreo = new javax.swing.JTextField();
+        filler9 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 20), new java.awt.Dimension(0, 20), new java.awt.Dimension(32767, 32767));
+        btnProveedoresAgregar = new javax.swing.JButton();
+        filler10 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 20), new java.awt.Dimension(0, 20), new java.awt.Dimension(32767, 32767));
+        btnProveedoresModificar = new javax.swing.JButton();
+        filler11 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 20), new java.awt.Dimension(0, 20), new java.awt.Dimension(32767, 32767));
+        btnProveedoresBorrar = new javax.swing.JButton();
+        filler12 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 20), new java.awt.Dimension(0, 20), new java.awt.Dimension(32767, 32767));
+        jPanel7 = new javax.swing.JPanel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jTable5 = new javax.swing.JTable();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        jTable6 = new javax.swing.JTable();
         jPanel5 = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
@@ -92,9 +122,15 @@ public class Interfaz extends javax.swing.JFrame {
         jPanel2.setLayout(new javax.swing.BoxLayout(jPanel2, javax.swing.BoxLayout.PAGE_AXIS));
         jPanel2.add(filler7);
 
-        jLabel1.setText("NIF:");
-        jPanel2.add(jLabel1);
+        txtClientesNif.setText("NIF:");
         jPanel2.add(txtClientesNif);
+
+        jTextField2.setEditable(false);
+        jPanel2.add(jTextField2);
+
+        jLabel1.setText("Nuevo NIF:");
+        jPanel2.add(jLabel1);
+        jPanel2.add(txtClientesNNif);
 
         jLabel2.setText("Nombre:");
         jPanel2.add(jLabel2);
@@ -292,6 +328,97 @@ public class Interfaz extends javax.swing.JFrame {
 
         articulos.add(jPanel4, java.awt.BorderLayout.LINE_END);
 
+        jPanel6.setMinimumSize(new java.awt.Dimension(150, 353));
+        jPanel6.setPreferredSize(new java.awt.Dimension(150, 552));
+        jPanel6.setLayout(new javax.swing.BoxLayout(jPanel6, javax.swing.BoxLayout.PAGE_AXIS));
+        jPanel6.add(filler8);
+
+        txtProveedoresCif.setText("CIF:");
+        jPanel6.add(txtProveedoresCif);
+
+        jTextField1.setEditable(false);
+        jPanel6.add(jTextField1);
+
+        jLabel13.setText("Nuevo CIF:");
+        jPanel6.add(jLabel13);
+        jPanel6.add(txtProveedoresNCif);
+
+        jLabel14.setText("Nombre:");
+        jPanel6.add(jLabel14);
+        jPanel6.add(txtProveedoresNombre);
+
+        jLabel16.setText("Dirección:");
+        jPanel6.add(jLabel16);
+        jPanel6.add(txtProveedoresDireccion);
+
+        jLabel17.setText("Teléfono:");
+        jPanel6.add(jLabel17);
+        jPanel6.add(txtProveedoresTelefono);
+
+        jLabel18.setText("Correo:");
+        jPanel6.add(jLabel18);
+        jPanel6.add(txtProveedoresCorreo);
+        jPanel6.add(filler9);
+
+        btnProveedoresAgregar.setText("Agregar");
+        jPanel6.add(btnProveedoresAgregar);
+        jPanel6.add(filler10);
+
+        btnProveedoresModificar.setText("Modificar");
+        jPanel6.add(btnProveedoresModificar);
+        jPanel6.add(filler11);
+
+        btnProveedoresBorrar.setText("Borrar");
+        jPanel6.add(btnProveedoresBorrar);
+        jPanel6.add(filler12);
+
+        jSplitPane2.setLeftComponent(jPanel6);
+
+        jPanel7.setLayout(new javax.swing.BoxLayout(jPanel7, javax.swing.BoxLayout.Y_AXIS));
+
+        jTable5.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane5.setViewportView(jTable5);
+
+        jPanel7.add(jScrollPane5);
+
+        jTable6.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane6.setViewportView(jTable6);
+
+        jPanel7.add(jScrollPane6);
+
+        jSplitPane2.setRightComponent(jPanel7);
+
+        javax.swing.GroupLayout proveedoresLayout = new javax.swing.GroupLayout(proveedores);
+        proveedores.setLayout(proveedoresLayout);
+        proveedoresLayout.setHorizontalGroup(
+            proveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jSplitPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 848, Short.MAX_VALUE)
+        );
+        proveedoresLayout.setVerticalGroup(
+            proveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jSplitPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 554, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
@@ -393,17 +520,30 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JButton btnClientesAgregar;
     private javax.swing.JButton btnClientesBorrar;
     private javax.swing.JButton btnClientesModificar;
+    private javax.swing.JButton btnProveedoresAgregar;
+    private javax.swing.JButton btnProveedoresBorrar;
+    private javax.swing.JButton btnProveedoresModificar;
     private javax.swing.JPanel clientes;
     private javax.swing.JComboBox<String> comboProveedores;
+    private javax.swing.Box.Filler filler10;
+    private javax.swing.Box.Filler filler11;
+    private javax.swing.Box.Filler filler12;
     private javax.swing.Box.Filler filler3;
     private javax.swing.Box.Filler filler4;
     private javax.swing.Box.Filler filler5;
     private javax.swing.Box.Filler filler6;
     private javax.swing.Box.Filler filler7;
+    private javax.swing.Box.Filler filler8;
+    private javax.swing.Box.Filler filler9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -428,18 +568,29 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JSplitPane jSplitPane1;
+    private javax.swing.JSplitPane jSplitPane2;
     private javax.swing.JTable jTable3;
     private javax.swing.JTable jTable4;
+    private javax.swing.JTable jTable5;
+    private javax.swing.JTable jTable6;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JPanel proveedores;
     private javax.swing.JTable tablaArticulos;
     private javax.swing.JTextField txtClientesApellidos;
     private javax.swing.JTextField txtClientesCorreo;
     private javax.swing.JTextField txtClientesDireccion;
-    private javax.swing.JTextField txtClientesNif;
+    private javax.swing.JTextField txtClientesNNif;
+    private javax.swing.JLabel txtClientesNif;
     private javax.swing.JTextField txtClientesNombre;
     private javax.swing.JTextField txtClientesTelefono;
     private javax.swing.JTextArea txtDescripcionArt;
@@ -448,5 +599,11 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JTextField txtNuevoCodigoArt;
     private javax.swing.JFormattedTextField txtPCPArt;
     private javax.swing.JFormattedTextField txtPVPArt;
+    private javax.swing.JLabel txtProveedoresCif;
+    private javax.swing.JTextField txtProveedoresCorreo;
+    private javax.swing.JTextField txtProveedoresDireccion;
+    private javax.swing.JTextField txtProveedoresNCif;
+    private javax.swing.JTextField txtProveedoresNombre;
+    private javax.swing.JTextField txtProveedoresTelefono;
     // End of variables declaration//GEN-END:variables
 }
