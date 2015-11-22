@@ -653,19 +653,6 @@ public class Modelo extends Database{
         }
     }
     
-    public void modificarPedido(String codigo, String ncodigo, String fecha, String precio, String cliente){
-        String q = "UPDATE Pedidos SET Codigo = '"+ncodigo+"', Fecha = '"+fecha+"', Precio = "+precio+", Cliente = '"+cliente
-                + "' WHERE Codigo = '"+codigo+"'";
-        try {
-            PreparedStatement pstm = this.getConexion().prepareStatement(q);
-            pstm.execute();
-            pstm.close();
-        }catch(SQLException e){
-            JOptionPane.showMessageDialog(null, "Error al modificar el artículo\n\n" + e.getMessage());
-            e.printStackTrace();
-        }
-    }
-    
     public void eliminarPedido(String codigo){
         String q = "DELETE FROM Pedidos WHERE Codigo = '"+codigo+"'";
         try {
@@ -791,7 +778,130 @@ public class Modelo extends Database{
         return tablemodel;
     }
     
+    public String[] getPresupuestos(){
+        int registros = 0;
+        try{
+            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT count(Codigo) as total FROM Presupuestos");
+            ResultSet res = pstm.executeQuery();
+            res.next();
+            registros = res.getInt("total");
+            res.close();
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "Error al contar tuplas\n\n" + e.getMessage());
+            e.printStackTrace();
+        }
+        String[] pedidos = new String[registros];
+        try{
+            String q = "SELECT Codigo FROM Presupuestos";
+            PreparedStatement pstm = this.getConexion().prepareStatement(q);
+            ResultSet res = pstm.executeQuery();
+            int i=0;
+            while(res.next()){
+                pedidos[i] = res.getString("Codigo");
+            i++;
+            }
+            res.close();
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "Error al obtener datos\n\n" + e.getMessage());
+            e.printStackTrace();
+        }
+        return pedidos;
+    }
+    
+    public DefaultTableModel tablaPresupuestosVacia(){
+        DefaultTableModel tablemodel = new ModeloTablaNoEditable();
+        int registros = 0;
+        String[] columNames = {"Código","Cliente","Precio","Fecha"};
+        Object[][] data = new String[registros][4];
+        try{
+            tablemodel.setDataVector(data, columNames);
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Error al construir tabla\n\n" + e.getMessage());
+            e.printStackTrace();
+        }
+        return tablemodel;
+    }
+    
+    public boolean comprobarExistenciaPresupuesto(String codigo){
+        String q = "SELECT Codigo FROM Presupuestos WHERE Codigo = '"+codigo+"'";
+        boolean resu = false;
+        try{
+            PreparedStatement pstm = this.getConexion().prepareStatement(q);
+            ResultSet res = pstm.executeQuery();
+            res.next();
+            if(res.getRow() == 0){
+                resu = false;
+            }else{
+                resu = true;
+            }
+            res.close();
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "Error al comprobar existencia\n\n" + e.getMessage());
+            e.printStackTrace();
+        }
+        return resu;
+    }
+    
+    public void crearPresupuesto(String codigo, String fecha, String precio, String cliente){
+        String q = "INSERT INTO Presupuestos (Codigo, Fecha, Precio, Cliente) "
+                + "VALUES('"+codigo+"','"+fecha+"',"+precio+",'"+cliente+"')";
+        try {
+            PreparedStatement pstm = this.getConexion().prepareStatement(q);
+            pstm.execute();
+            pstm.close();
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "Error al introducir nuevo artículo\n\n" + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+    
+    public void eliminarPresupuesto(String codigo){
+        String q = "DELETE FROM Presupuestos WHERE Codigo = '"+codigo+"'";
+        try {
+            PreparedStatement pstm = this.getConexion().prepareStatement(q);
+            pstm.execute();
+            pstm.close();
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "Error al eliminar el artículo\n\n" + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+    
     //MÉTODOS DE ARTÍCULOS DE PRESUPUESTOS
     
-    
+    public DefaultTableModel tablaArticulosPresupuestos(String presupuesto){
+        DefaultTableModel tablemodel = new ModeloTablaNoEditable();
+        int registros = 0;
+        String[] columNames = {"Código","Nombre","PrecioC","Cantidad"};
+        try{
+            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT count(CodigoArt) as total FROM ArtPresupuestos WHERE CodigoPre = '"+presupuesto+"'");
+            ResultSet res = pstm.executeQuery();
+            res.next();
+            registros = res.getInt("total");
+            res.close();
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "Error al contar tuplas\n\n" + e.getMessage());
+            e.printStackTrace();
+        }
+        Object[][] data = new String[registros][4];
+        try{
+            String q = "SELECT CodigoArt, Nombre, PrecioC, Cantidad FROM ArtPresupuestos WHERE CodigoPre = '"+presupuesto+"'";
+            PreparedStatement pstm = this.getConexion().prepareStatement(q);
+            ResultSet res = pstm.executeQuery();
+            int i=0;
+            while(res.next()){
+                data[i][0] = res.getString("CodigoArt");
+                data[i][1] = res.getString("Nombre");
+                data[i][2] = res.getDouble("PrecioC");
+                data[i][3] = res.getInt("Cantidad");
+            i++;
+            }
+            res.close();
+            tablemodel.setDataVector(data, columNames);
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "Error al obtener datos\n\n" + e.getMessage());
+            e.printStackTrace();
+        }
+        return tablemodel;
+    }
 }
