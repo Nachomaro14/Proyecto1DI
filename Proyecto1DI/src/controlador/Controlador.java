@@ -189,6 +189,7 @@ public class Controlador implements ActionListener, MouseListener{
                 vista.proveedores.setVisible(false);
                 vista.articulos.setVisible(false);
                 vista.inicio.setVisible(true);
+                vista.pedidos.setVisible(false);
                 break;
             case menuClientes:
                 vista.presupuestos.setVisible(false);
@@ -196,6 +197,7 @@ public class Controlador implements ActionListener, MouseListener{
                 vista.articulos.setVisible(false);
                 vista.inicio.setVisible(false);
                 vista.clientes.setVisible(true);
+                vista.pedidos.setVisible(false);
                 break;
             case menuProveedores:
                 vista.presupuestos.setVisible(false);
@@ -203,6 +205,7 @@ public class Controlador implements ActionListener, MouseListener{
                 vista.inicio.setVisible(false);
                 vista.clientes.setVisible(false);
                 vista.proveedores.setVisible(true);
+                vista.pedidos.setVisible(false);
                 break;
             case menuArticulos:
                 vista.presupuestos.setVisible(false);
@@ -210,6 +213,7 @@ public class Controlador implements ActionListener, MouseListener{
                 vista.clientes.setVisible(false);
                 vista.proveedores.setVisible(false);
                 vista.articulos.setVisible(true);
+                vista.pedidos.setVisible(false);
                 break;
             case menuPedidos:
                 vista.presupuestos.setVisible(false);
@@ -217,6 +221,7 @@ public class Controlador implements ActionListener, MouseListener{
                 vista.clientes.setVisible(false);
                 vista.proveedores.setVisible(false);
                 vista.articulos.setVisible(false);
+                vista.pedidos.setVisible(true);
                 break;
             case menuPresupuestos:
                 vista.inicio.setVisible(false);
@@ -224,6 +229,7 @@ public class Controlador implements ActionListener, MouseListener{
                 vista.proveedores.setVisible(false);
                 vista.articulos.setVisible(false);
                 vista.presupuestos.setVisible(true);
+                vista.pedidos.setVisible(false);
                 break;
             case menuSalir:
                 System.exit(0);
