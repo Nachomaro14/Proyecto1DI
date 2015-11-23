@@ -797,7 +797,7 @@ public class Modelo extends Database{
     public DefaultTableModel tablaPresupuestos(){
         DefaultTableModel tablemodel = new ModeloTablaNoEditable();
         int registros = 0;
-        String[] columNames = {"Código","Cliente","Precio","Fecha"};
+        String[] columNames = {"Código","Precio","Fecha"};
         try{
             PreparedStatement pstm = this.getConexion().prepareStatement("SELECT count(Codigo) as total FROM Presupuestos'");
             ResultSet res = pstm.executeQuery();
@@ -808,17 +808,16 @@ public class Modelo extends Database{
             JOptionPane.showMessageDialog(null, "Error al contar tuplas\n\n" + e.getMessage());
             e.printStackTrace();
         }
-        Object[][] data = new String[registros][4];
+        Object[][] data = new String[registros][3];
         try{
-            String q = "SELECT Codigo, NIF, Precio, Fecha FROM Pedidos'";
+            String q = "SELECT Codigo, Precio, Fecha FROM Pedidos'";
             PreparedStatement pstm = this.getConexion().prepareStatement(q);
             ResultSet res = pstm.executeQuery();
             int i=0;
             while(res.next()){
                 data[i][0] = res.getString("Codigo");
-                data[i][1] = res.getString("NIF");
-                data[i][2] = res.getDouble("Precio");
-                data[i][3] = res.getString("Fecha");
+                data[i][1] = res.getDouble("Precio");
+                data[i][2] = res.getString("Fecha");
             i++;
             }
             res.close();
@@ -863,7 +862,7 @@ public class Modelo extends Database{
     public DefaultTableModel tablaPresupuestosVacia(){
         DefaultTableModel tablemodel = new ModeloTablaNoEditable();
         int registros = 0;
-        String[] columNames = {"Código","Cliente","Precio","Fecha"};
+        String[] columNames = {"Código","Precio","Fecha"};
         Object[][] data = new String[registros][4];
         try{
             tablemodel.setDataVector(data, columNames);
@@ -895,8 +894,8 @@ public class Modelo extends Database{
     }
     
     public void crearPresupuesto(String codigo, String fecha, String precio, String cliente){
-        String q = "INSERT INTO Presupuestos (Codigo, Fecha, Precio, Cliente) "
-                + "VALUES('"+codigo+"','"+fecha+"',"+precio+",'"+cliente+"')";
+        String q = "INSERT INTO Presupuestos (Codigo, Fecha, Precio) "
+                + "VALUES('"+codigo+"','"+fecha+"',"+precio+")";
         try {
             PreparedStatement pstm = this.getConexion().prepareStatement(q);
             pstm.execute();

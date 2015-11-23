@@ -7,6 +7,8 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import javax.swing.ComboBoxModel;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
@@ -104,6 +106,9 @@ public class Controlador implements ActionListener, MouseListener{
             vista.proveedores.setVisible(false);
             vista.articulos.setVisible(false);
             vista.inicio.setVisible(true);
+            
+            //INICIALIZAMOS LOS MODELOS DE LOS COMBOBOX
+            vista.comboProveedores.setModel(new DefaultComboBoxModel(modelo.getProveedores()));
             
         } catch (UnsupportedLookAndFeelException ex){}
           catch (ClassNotFoundException ex){}
@@ -254,6 +259,12 @@ public class Controlador implements ActionListener, MouseListener{
                 }
                 break;
             case btnClientesBorrar:
+                String nifCE = vista.txtClientesNif.getText();
+                if(nifCE.equals("")){
+                    JOptionPane.showMessageDialog(null, "Seleccione un cliente de la tabla");
+                }else{
+                    modelo.eliminarCliente(nifCE);
+                }
                 break;
                 
             case btnArticulosAgregar:
