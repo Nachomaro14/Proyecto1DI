@@ -105,6 +105,7 @@ public class Controlador implements ActionListener, MouseListener{
             vista.presupuestos.setVisible(false);
             vista.proveedores.setVisible(false);
             vista.articulos.setVisible(false);
+            vista.pedidos.setVisible(false);
             vista.inicio.setVisible(true);
             
             //INICIALIZAMOS LOS MODELOS DE LOS COMBOBOX
@@ -274,10 +275,47 @@ public class Controlador implements ActionListener, MouseListener{
                 break;
                 
             case btnArticulosAgregar:
+                String ncodigoA = vista.txtNuevoCodigoArt.getText();
+                String nombreA = vista.txtNombreArt.getText();
+                double PCPA = Double.parseDouble(vista.txtPCPArt.getText());
+                double PVPA = Double.parseDouble(vista.txtPVPArt.getText());
+                String proveedorA = vista.comboProveedores.getSelectedItem().toString();
+                String descripcionA = vista.txtDescripcionArt.getText();
+                if(ncodigoA.equals("") || nombreA.equals("") || vista.txtPCPArt.getText().equals("") || vista.txtPVPArt.getText().equals("")
+                        || PCPA <= 0.0 || PVPA <= 0.0 || proveedorA.equals("") || descripcionA.equals("")){
+                    if(vista.comboProveedores.getSelectedItem().toString().equals("")){
+                        JOptionPane.showMessageDialog(null, "Primero debe crearse al menos un proveedor");
+                    }
+                    JOptionPane.showMessageDialog(null, "Introduzca todos los valores necesarios\n(Incluida una descripción)");
+                }else{
+                    modelo.crearArticulo(ncodigoA, proveedorA, nombreA, descripcionA, PCPA, PVPA);
+                }
                 break;
             case btnArticulosModificar:
+                String codigoAM = vista.txtCodigoCodigo.getText();
+                String ncodigoAM = vista.txtNuevoCodigoArt.getText();
+                String nombreAM = vista.txtNombreArt.getText();
+                double PCPAM = Double.parseDouble(vista.txtPCPArt.getText());
+                double PVPAM = Double.parseDouble(vista.txtPVPArt.getText());
+                String proveedorAM = vista.comboProveedores.getSelectedItem().toString();
+                String descripcionAM = vista.txtDescripcionArt.getText();
+                if(ncodigoAM.equals("") || nombreAM.equals("") || vista.txtPCPArt.getText().equals("") || vista.txtPVPArt.getText().equals("")
+                        || PCPAM <= 0.0 || PVPAM <= 0.0 || proveedorAM.equals("") || descripcionAM.equals("") || codigoAM.equals("")){
+                    if(codigoAM.equals("")){
+                        JOptionPane.showMessageDialog(null, "Primero debe seleccionarse un artículo a modificar");
+                    }
+                    JOptionPane.showMessageDialog(null, "Introduzca todos los valores necesarios\n(Incluida una descripción)");
+                }else{
+                    modelo.modificarArticulo(codigoAM, ncodigoAM, proveedorAM, nombreAM, descripcionAM, PCPAM, PVPAM);
+                }
                 break;
             case btnArticulosEliminar:
+                String codigoAE = vista.txtCodigoCodigo.getText();
+                if(codigoAE.equals("")){
+                    JOptionPane.showMessageDialog(null, "Primero debe seleccionarse un artículo a eliminar");
+                }else{
+                    modelo.eliminarArticulo(codigoAE);
+                }
                 break;
                 
             case btnProveedoresAgregar:
