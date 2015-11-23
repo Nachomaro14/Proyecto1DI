@@ -162,6 +162,7 @@ public class Interfaz extends javax.swing.JFrame {
         txtEmpresaCorreo = new javax.swing.JLabel();
         txtEmpresaWeb = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
+        menuInicio = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
         menuClientes = new javax.swing.JMenuItem();
         menuProveedores = new javax.swing.JMenuItem();
@@ -887,7 +888,10 @@ public class Interfaz extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jMenu1.setText("Personas/Artículos*");
+        menuInicio.setText("Inicio");
+        jMenuBar1.add(menuInicio);
+
+        jMenu1.setText("Información");
 
         menuClientes.setText("Clientes");
         jMenu1.add(menuClientes);
@@ -967,8 +971,8 @@ public class Interfaz extends javax.swing.JFrame {
     public javax.swing.JButton btnAgregarPedCrear;
     public javax.swing.JButton btnAgregarPedQuitarArt;
     public javax.swing.JButton btnAgregarPresuArt;
-    private javax.swing.JButton btnAgregarPresuCancelar;
-    private javax.swing.JButton btnAgregarPresuCrear;
+    public javax.swing.JButton btnAgregarPresuCancelar;
+    public javax.swing.JButton btnAgregarPresuCrear;
     public javax.swing.JButton btnAgregarPresuQuitarArt;
     public javax.swing.JButton btnArticulosAgregar;
     public javax.swing.JButton btnArticulosEliminar;
@@ -1063,6 +1067,7 @@ public class Interfaz extends javax.swing.JFrame {
     public javax.swing.JTextField jTextField2;
     public javax.swing.JMenuItem menuArticulos;
     public javax.swing.JMenuItem menuClientes;
+    public javax.swing.JMenu menuInicio;
     public javax.swing.JMenuItem menuPedidos;
     public javax.swing.JMenuItem menuPresupuestos;
     public javax.swing.JMenuItem menuProveedores;
