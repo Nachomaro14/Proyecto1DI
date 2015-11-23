@@ -499,6 +499,57 @@ public class Modelo extends Database{
         }
     }
     
+    public double precioArticuloProveedor(String codigo){
+        double precio = 0.0;
+        try{
+            String q = "SELECT PrecioP FROM Articulos WHERE Codigo = '"+ codigo +"'";
+            PreparedStatement pstm = this.getConexion().prepareStatement(q);
+            ResultSet res = pstm.executeQuery();
+            while(res.next()){
+                precio = res.getDouble("Codigo");
+            }
+            res.close();
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "Error al obtener datos\n\n" + e.getMessage());
+            e.printStackTrace();
+        }
+        return precio;
+    }
+    
+    public double precioArticuloCliente(String codigo){
+        double precio = 0.0;
+        try{
+            String q = "SELECT PrecioC FROM Articulos WHERE Codigo = '"+ codigo +"'";
+            PreparedStatement pstm = this.getConexion().prepareStatement(q);
+            ResultSet res = pstm.executeQuery();
+            while(res.next()){
+                precio = res.getDouble("Codigo");
+            }
+            res.close();
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "Error al obtener datos\n\n" + e.getMessage());
+            e.printStackTrace();
+        }
+        return precio;
+    }
+    
+    public int ivaArticulo(String codigo){
+        int iva = 0;
+        try{
+            String q = "SELECT IVA FROM Articulos WHERE Codigo = '"+ codigo +"'";
+            PreparedStatement pstm = this.getConexion().prepareStatement(q);
+            ResultSet res = pstm.executeQuery();
+            while(res.next()){
+                iva = res.getInt("Codigo");
+            }
+            res.close();
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "Error al obtener datos\n\n" + e.getMessage());
+            e.printStackTrace();
+        }
+        return iva;
+    }
+    
     //MÉTODOS DE ARTÍCULOS DE PROVEEDORES
     
     public DefaultTableModel tablaArticulosProveedores(String cif){

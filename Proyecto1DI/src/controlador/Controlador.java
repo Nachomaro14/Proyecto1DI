@@ -37,6 +37,9 @@ public class Controlador implements ActionListener, MouseListener{
             vista.setVisible(true);
             vista.setTitle("Gestión de compras");
             
+            //LIMITAMOS LA INTRODUCCIÓN DE DATOS DE LOS TEXTFIELD
+            SLetras(vista.txtClientesNNif);
+            
         } catch (UnsupportedLookAndFeelException ex){}
           catch (ClassNotFoundException ex){}
           catch (InstantiationException ex){}
@@ -55,7 +58,12 @@ public class Controlador implements ActionListener, MouseListener{
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //int A = vista.tablaT.rowAtPoint(e.getPoint());
+        //  if (A > -1){
+        //      try{
+        //          String B = String.valueOf(vista.tablaT.getValueAt(A, 0));
+        //      }
+        //  }
     }
 
     @Override
