@@ -594,7 +594,7 @@ public class Modelo extends Database{
     public DefaultTableModel tablaPedidos(){
         DefaultTableModel tablemodel = new ModeloTablaNoEditable();
         int registros = 0;
-        String[] columNames = {"Código","Cliente","Precio","Fecha"};
+        String[] columNames = {"Código","Cliente","Precio","Fecha","Beneficios"};
         try{
             PreparedStatement pstm = this.getConexion().prepareStatement("SELECT count(Codigo) as total FROM Pedidos");
             ResultSet res = pstm.executeQuery();
@@ -605,9 +605,9 @@ public class Modelo extends Database{
             JOptionPane.showMessageDialog(null, "Error al contar tuplas\n\n" + e.getMessage());
             e.printStackTrace();
         }
-        Object[][] data = new String[registros][4];
+        Object[][] data = new String[registros][5];
         try{
-            String q = "SELECT Codigo, Cliente, Precio, Fecha FROM Pedidos";
+            String q = "SELECT Codigo, Cliente, Precio, Fecha, Beneficio FROM Pedidos";
             PreparedStatement pstm = this.getConexion().prepareStatement(q);
             ResultSet res = pstm.executeQuery();
             int i=0;
@@ -616,6 +616,7 @@ public class Modelo extends Database{
                 data[i][1] = res.getString("Cliente");
                 data[i][2] = res.getDouble("Precio");
                 data[i][3] = res.getString("Fecha");
+                data[i][4] = res.getDouble("Beneficio");
             i++;
             }
             res.close();
@@ -660,7 +661,7 @@ public class Modelo extends Database{
     public DefaultTableModel tablaPedidosVacia(){
         DefaultTableModel tablemodel = new ModeloTablaNoEditable();
         int registros = 0;
-        String[] columNames = {"Código","Cliente","Precio","Fecha"};
+        String[] columNames = {"Código","Cliente","Precio","Fecha","Beneficios"};
         Object[][] data = new String[registros][4];
         try{
             tablemodel.setDataVector(data, columNames);
@@ -691,9 +692,9 @@ public class Modelo extends Database{
         return resu;
     }
     
-    public void crearPedido(String codigo, String fecha, String precio, String cliente){
-        String q = "INSERT INTO Pedidos (Codigo, Fecha, Precio, Cliente) "
-                + "VALUES('"+codigo+"','"+fecha+"',"+precio+",'"+cliente+"')";
+    public void crearPedido(String codigo, String fecha, double precio, String cliente, double beneficio){
+        String q = "INSERT INTO Pedidos (Codigo, Fecha, Precio, Cliente, Beneficio) "
+                + "VALUES('"+codigo+"','"+fecha+"',"+precio+",'"+cliente+"',"+beneficio+")";
         try {
             PreparedStatement pstm = this.getConexion().prepareStatement(q);
             pstm.execute();
