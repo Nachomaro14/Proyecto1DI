@@ -65,13 +65,26 @@ public class Controlador implements ActionListener, MouseListener{
         try {
             UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
             SwingUtilities.updateComponentTreeUI(vista);
+            
+            //CAMBIAMOS EL LOGO DE LA APLICACIÓN
+            
             Toolkit t = Toolkit.getDefaultToolkit();
-            vista.setIconImage(t.getImage(getClass().getResource("imagenes/logo.png")));
+            vista.setIconImage(t.getImage(getClass().getResource("/imagenes/logo.png")));
             
             vista.pack();
             vista.setLocationRelativeTo(null);
             vista.setVisible(true);
             vista.setTitle("Gestión de compras");
+            
+            //MODIFICAMOS LA INFORMACIÓN INICIAL DE LA EMPRESA
+            
+            String[] empresa = modelo.infoEmpresa();
+            vista.txtEmpresaCIF.setText(empresa[0]);
+            vista.txtEmpresaNombre.setText(empresa[1]);
+            vista.txtEmpresaDireccion.setText(empresa[2]);
+            vista.txtEmpresaCorreo.setText(empresa[3]);
+            vista.txtEmpresaTelefono.setText(empresa[4]);
+            vista.txtEmpresaWeb.setText(empresa[5]);
             
             //LIMITAMOS LA INTRODUCCIÓN DE SOLO LETRAS DE ALGUNOS TEXTFIELD
             SLetras(vista.txtClientesNombre);
