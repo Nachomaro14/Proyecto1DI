@@ -171,18 +171,49 @@ public class Controlador implements ActionListener, MouseListener{
     public void actionPerformed(ActionEvent e) {
         switch(AccionMVC.valueOf(e.getActionCommand())){
             case menuInicio:
+                vista.clientes.setVisible(false);
+                vista.presupuestos.setVisible(false);
+                vista.proveedores.setVisible(false);
+                vista.articulos.setVisible(false);
+                vista.jPanel5.setVisible(true);
                 break;
             case menuClientes:
+                vista.presupuestos.setVisible(false);
+                vista.proveedores.setVisible(false);
+                vista.articulos.setVisible(false);
+                vista.jPanel5.setVisible(false);
+                vista.clientes.setVisible(true);
                 break;
             case menuProveedores:
+                vista.presupuestos.setVisible(false);
+                vista.articulos.setVisible(false);
+                vista.jPanel5.setVisible(false);
+                vista.clientes.setVisible(false);
+                vista.proveedores.setVisible(true);
                 break;
             case menuArticulos:
+                vista.presupuestos.setVisible(false);
+                vista.jPanel5.setVisible(false);
+                vista.clientes.setVisible(false);
+                vista.proveedores.setVisible(false);
+                vista.articulos.setVisible(true);
                 break;
             case menuPedidos:
+                vista.presupuestos.setVisible(false);
+                vista.jPanel5.setVisible(false);
+                vista.clientes.setVisible(false);
+                vista.proveedores.setVisible(false);
+                vista.articulos.setVisible(false);
                 break;
             case menuPresupuestos:
+                vista.jPanel5.setVisible(false);
+                vista.clientes.setVisible(false);
+                vista.proveedores.setVisible(false);
+                vista.articulos.setVisible(false);
+                vista.presupuestos.setVisible(true);
                 break;
             case menuSalir:
+                System.exit(0);
                 break;
                 
             case btnClientesAgregar:
