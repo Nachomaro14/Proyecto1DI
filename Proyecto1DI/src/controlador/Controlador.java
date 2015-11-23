@@ -97,6 +97,13 @@ public class Controlador implements ActionListener, MouseListener{
             SCifras(vista.txtProveedoresTelefono);
             SCifras(vista.txtAgregarPresuCantidad);
             
+            //ESTABLECEMOS LA VISIBILIDAD DE LOS PANELES AL INICIAR
+            vista.clientes.setVisible(false);
+            vista.presupuestos.setVisible(false);
+            vista.proveedores.setVisible(false);
+            vista.articulos.setVisible(false);
+            vista.inicio.setVisible(true);
+            
         } catch (UnsupportedLookAndFeelException ex){}
           catch (ClassNotFoundException ex){}
           catch (InstantiationException ex){}
@@ -175,38 +182,38 @@ public class Controlador implements ActionListener, MouseListener{
                 vista.presupuestos.setVisible(false);
                 vista.proveedores.setVisible(false);
                 vista.articulos.setVisible(false);
-                vista.jPanel5.setVisible(true);
+                vista.inicio.setVisible(true);
                 break;
             case menuClientes:
                 vista.presupuestos.setVisible(false);
                 vista.proveedores.setVisible(false);
                 vista.articulos.setVisible(false);
-                vista.jPanel5.setVisible(false);
+                vista.inicio.setVisible(false);
                 vista.clientes.setVisible(true);
                 break;
             case menuProveedores:
                 vista.presupuestos.setVisible(false);
                 vista.articulos.setVisible(false);
-                vista.jPanel5.setVisible(false);
+                vista.inicio.setVisible(false);
                 vista.clientes.setVisible(false);
                 vista.proveedores.setVisible(true);
                 break;
             case menuArticulos:
                 vista.presupuestos.setVisible(false);
-                vista.jPanel5.setVisible(false);
+                vista.inicio.setVisible(false);
                 vista.clientes.setVisible(false);
                 vista.proveedores.setVisible(false);
                 vista.articulos.setVisible(true);
                 break;
             case menuPedidos:
                 vista.presupuestos.setVisible(false);
-                vista.jPanel5.setVisible(false);
+                vista.inicio.setVisible(false);
                 vista.clientes.setVisible(false);
                 vista.proveedores.setVisible(false);
                 vista.articulos.setVisible(false);
                 break;
             case menuPresupuestos:
-                vista.jPanel5.setVisible(false);
+                vista.inicio.setVisible(false);
                 vista.clientes.setVisible(false);
                 vista.proveedores.setVisible(false);
                 vista.articulos.setVisible(false);
