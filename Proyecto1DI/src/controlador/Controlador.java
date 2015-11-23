@@ -1,5 +1,6 @@
 package controlador;
 
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
@@ -29,6 +30,7 @@ public class Controlador implements ActionListener, MouseListener{
         menuArticulos,
         menuPedidos,
         menuPresupuestos,
+        menuSalir,
         
         btnClientesAgregar,
         btnClientesModificar,
@@ -63,6 +65,8 @@ public class Controlador implements ActionListener, MouseListener{
         try {
             UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
             SwingUtilities.updateComponentTreeUI(vista);
+            Toolkit t = Toolkit.getDefaultToolkit();
+            vista.setIconImage(t.getImage(getClass().getResource("imagenes/logo.png")));
             
             vista.pack();
             vista.setLocationRelativeTo(null);
@@ -99,6 +103,8 @@ public class Controlador implements ActionListener, MouseListener{
         this.vista.menuPedidos.addActionListener(this);
         this.vista.menuPresupuestos.setActionCommand("menuPresupuestos");
         this.vista.menuPresupuestos.addActionListener(this);
+        this.vista.menuSalir.setActionCommand("menuSalir");
+        this.vista.menuSalir.addActionListener(this);
         
         this.vista.btnClientesAgregar.setActionCommand("btnClientesAgregar");
         this.vista.btnClientesAgregar.addActionListener(this);
@@ -162,6 +168,8 @@ public class Controlador implements ActionListener, MouseListener{
             case menuPedidos:
                 break;
             case menuPresupuestos:
+                break;
+            case menuSalir:
                 break;
                 
             case btnClientesAgregar:

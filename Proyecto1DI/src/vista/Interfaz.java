@@ -68,7 +68,7 @@ public class Interfaz extends javax.swing.JFrame {
         txtPCPArt = new javax.swing.JFormattedTextField();
         txtPVPArt = new javax.swing.JFormattedTextField();
         jLabel11 = new javax.swing.JLabel();
-        comboProveedores = new javax.swing.JComboBox<>();
+        comboProveedores = new javax.swing.JComboBox<String>();
         jPanel16 = new javax.swing.JPanel();
         btnArticulosAgregar = new javax.swing.JButton();
         btnArticulosModificar = new javax.swing.JButton();
@@ -278,7 +278,7 @@ public class Interfaz extends javax.swing.JFrame {
 
         jLabel11.setText("Proveedor:");
 
-        comboProveedores.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboProveedores.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jPanel16.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
