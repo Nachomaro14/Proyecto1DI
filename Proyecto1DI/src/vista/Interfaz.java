@@ -148,17 +148,27 @@ public class Interfaz extends javax.swing.JFrame {
         btnAgregarPedCrear = new javax.swing.JButton();
         btnAgregarPedCancelar = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
+        jPanel17 = new javax.swing.JPanel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        txtEmpresaCIF = new javax.swing.JLabel();
+        txtEmpresaNombre = new javax.swing.JLabel();
+        txtEmpresaDireccion = new javax.swing.JLabel();
+        txtEmpresaTelefono = new javax.swing.JLabel();
+        txtEmpresaCorreo = new javax.swing.JLabel();
+        txtEmpresaWeb = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem7 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
-        jMenuItem5 = new javax.swing.JMenuItem();
-        jMenuItem6 = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
+        menuClientes = new javax.swing.JMenuItem();
+        menuProveedores = new javax.swing.JMenuItem();
+        menuArticulos = new javax.swing.JMenuItem();
+        menuPedidos = new javax.swing.JMenuItem();
+        menuPresupuestos = new javax.swing.JMenuItem();
+        menuSalir = new javax.swing.JMenu();
 
         jPanel2.setMinimumSize(new java.awt.Dimension(150, 353));
         jPanel2.setPreferredSize(new java.awt.Dimension(150, 552));
@@ -783,48 +793,121 @@ public class Interfaz extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel17.setBorder(javax.swing.BorderFactory.createTitledBorder("Datos de la empresa"));
+
+        jLabel20.setText("CIF:");
+
+        jLabel21.setText("Nombre:");
+
+        jLabel22.setText("Dirección:");
+
+        jLabel23.setText("Teléfono:");
+
+        jLabel24.setText("Correo:");
+
+        jLabel25.setText("Web:");
+
+        javax.swing.GroupLayout jPanel17Layout = new javax.swing.GroupLayout(jPanel17);
+        jPanel17.setLayout(jPanel17Layout);
+        jPanel17Layout.setHorizontalGroup(
+            jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel17Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel17Layout.createSequentialGroup()
+                        .addComponent(jLabel20)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtEmpresaCIF, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel17Layout.createSequentialGroup()
+                        .addComponent(jLabel25)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtEmpresaWeb, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel17Layout.createSequentialGroup()
+                        .addComponent(jLabel21)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtEmpresaNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel17Layout.createSequentialGroup()
+                        .addComponent(jLabel22)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtEmpresaDireccion, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE))
+                    .addGroup(jPanel17Layout.createSequentialGroup()
+                        .addComponent(jLabel23)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtEmpresaTelefono, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel17Layout.createSequentialGroup()
+                        .addComponent(jLabel24)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtEmpresaCorreo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        jPanel17Layout.setVerticalGroup(
+            jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel17Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel20)
+                    .addComponent(txtEmpresaCIF))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel21)
+                    .addComponent(txtEmpresaNombre))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel22)
+                    .addComponent(txtEmpresaDireccion))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel23)
+                    .addComponent(txtEmpresaTelefono))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel24)
+                    .addComponent(txtEmpresaCorreo))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel25)
+                    .addComponent(txtEmpresaWeb))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addContainerGap(507, Short.MAX_VALUE)
+                .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 279, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addContainerGap(335, Short.MAX_VALUE)
+                .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         jMenu1.setText("Personas/Artículos*");
 
-        jMenuItem1.setText("Clientes");
-        jMenu1.add(jMenuItem1);
+        menuClientes.setText("Clientes");
+        jMenu1.add(menuClientes);
 
-        jMenuItem2.setText("Proveedores");
-        jMenu1.add(jMenuItem2);
+        menuProveedores.setText("Proveedores");
+        jMenu1.add(menuProveedores);
 
-        jMenuItem3.setText("Artículos");
-        jMenu1.add(jMenuItem3);
+        menuArticulos.setText("Artículos");
+        jMenu1.add(menuArticulos);
 
-        jMenuItem4.setText("Pedidos");
-        jMenu1.add(jMenuItem4);
+        menuPedidos.setText("Pedidos");
+        jMenu1.add(menuPedidos);
 
-        jMenuItem7.setText("Presupuestos");
-        jMenu1.add(jMenuItem7);
+        menuPresupuestos.setText("Presupuestos");
+        jMenu1.add(menuPresupuestos);
 
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setText("Gastos/Cobros*");
-
-        jMenuItem5.setText("jMenuItem5");
-        jMenu2.add(jMenuItem5);
-
-        jMenuItem6.setText("jMenuItem6");
-        jMenu2.add(jMenuItem6);
-
-        jMenuBar1.add(jMenu2);
-
-        jMenu3.setText("Salir");
-        jMenuBar1.add(jMenu3);
+        menuSalir.setText("Salir");
+        jMenuBar1.add(menuSalir);
 
         setJMenuBar(jMenuBar1);
 
@@ -926,6 +1009,12 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -934,16 +1023,7 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     public javax.swing.JMenu jMenu1;
-    public javax.swing.JMenu jMenu2;
-    public javax.swing.JMenu jMenu3;
-    private javax.swing.JMenuBar jMenuBar1;
-    public javax.swing.JMenuItem jMenuItem1;
-    public javax.swing.JMenuItem jMenuItem2;
-    public javax.swing.JMenuItem jMenuItem3;
-    public javax.swing.JMenuItem jMenuItem4;
-    public javax.swing.JMenuItem jMenuItem5;
-    public javax.swing.JMenuItem jMenuItem6;
-    public javax.swing.JMenuItem jMenuItem7;
+    public javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
@@ -952,10 +1032,11 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
     public javax.swing.JPanel jPanel16;
+    private javax.swing.JPanel jPanel17;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
+    public javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     public javax.swing.JPanel jPanel8;
@@ -980,6 +1061,12 @@ public class Interfaz extends javax.swing.JFrame {
     public javax.swing.JTable jTable6;
     public javax.swing.JTextField jTextField1;
     public javax.swing.JTextField jTextField2;
+    public javax.swing.JMenuItem menuArticulos;
+    public javax.swing.JMenuItem menuClientes;
+    public javax.swing.JMenuItem menuPedidos;
+    public javax.swing.JMenuItem menuPresupuestos;
+    public javax.swing.JMenuItem menuProveedores;
+    public javax.swing.JMenu menuSalir;
     public javax.swing.JPanel presupuestos;
     public javax.swing.JPanel proveedores;
     public javax.swing.JTable tablaAgregarPedArt;
@@ -1000,6 +1087,12 @@ public class Interfaz extends javax.swing.JFrame {
     public javax.swing.JTextField txtClientesTelefono;
     public javax.swing.JLabel txtCodigoCodigo;
     public javax.swing.JTextArea txtDescripcionArt;
+    public javax.swing.JLabel txtEmpresaCIF;
+    public javax.swing.JLabel txtEmpresaCorreo;
+    public javax.swing.JLabel txtEmpresaDireccion;
+    public javax.swing.JLabel txtEmpresaNombre;
+    public javax.swing.JLabel txtEmpresaTelefono;
+    public javax.swing.JLabel txtEmpresaWeb;
     public javax.swing.JTextField txtNombreArt;
     public javax.swing.JTextField txtNuevoCodigoArt;
     public javax.swing.JFormattedTextField txtPCPArt;
