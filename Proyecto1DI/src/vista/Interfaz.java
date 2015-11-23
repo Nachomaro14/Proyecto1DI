@@ -128,6 +128,20 @@ public class Interfaz extends javax.swing.JFrame {
         jPanel12 = new javax.swing.JPanel();
         btnAgregarPresuCrear = new javax.swing.JButton();
         btnAgregarPresuCancelar = new javax.swing.JButton();
+        dialogAgregarPedido = new javax.swing.JDialog();
+        jScrollPane11 = new javax.swing.JScrollPane();
+        tablaAgregarPedArt = new javax.swing.JTable();
+        jPanel13 = new javax.swing.JPanel();
+        btnAgregarPedArt = new javax.swing.JButton();
+        jLabel19 = new javax.swing.JLabel();
+        txtAgregarPedCantidad = new javax.swing.JTextField();
+        jScrollPane12 = new javax.swing.JScrollPane();
+        tablaAgregarPedArtPed = new javax.swing.JTable();
+        jPanel14 = new javax.swing.JPanel();
+        btnAgregarPedQuitarArt = new javax.swing.JButton();
+        jPanel15 = new javax.swing.JPanel();
+        btnAgregarPedCrear = new javax.swing.JButton();
+        btnAgregarPedCancelar = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
@@ -608,6 +622,120 @@ public class Interfaz extends javax.swing.JFrame {
 
         dialogAgregarPresupuesto.getContentPane().add(jPanel12);
 
+        dialogAgregarPedido.getContentPane().setLayout(new javax.swing.BoxLayout(dialogAgregarPedido.getContentPane(), javax.swing.BoxLayout.Y_AXIS));
+
+        tablaAgregarPedArt.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane11.setViewportView(tablaAgregarPedArt);
+
+        dialogAgregarPedido.getContentPane().add(jScrollPane11);
+
+        btnAgregarPedArt.setText("Agregar artículo");
+
+        jLabel19.setText("Cantidad:");
+
+        javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
+        jPanel13.setLayout(jPanel13Layout);
+        jPanel13Layout.setHorizontalGroup(
+            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel13Layout.createSequentialGroup()
+                .addGap(231, 231, 231)
+                .addComponent(btnAgregarPedArt)
+                .addGap(40, 40, 40)
+                .addComponent(jLabel19)
+                .addGap(18, 18, 18)
+                .addComponent(txtAgregarPedCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(259, Short.MAX_VALUE))
+        );
+        jPanel13Layout.setVerticalGroup(
+            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel13Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAgregarPedArt)
+                    .addComponent(jLabel19)
+                    .addComponent(txtAgregarPedCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
+
+        dialogAgregarPedido.getContentPane().add(jPanel13);
+
+        tablaAgregarPedArtPed.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane12.setViewportView(tablaAgregarPedArtPed);
+
+        dialogAgregarPedido.getContentPane().add(jScrollPane12);
+
+        btnAgregarPedQuitarArt.setText("Quitar artículo");
+
+        javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
+        jPanel14.setLayout(jPanel14Layout);
+        jPanel14Layout.setHorizontalGroup(
+            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 795, Short.MAX_VALUE)
+            .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel14Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(btnAgregarPedQuitarArt)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        jPanel14Layout.setVerticalGroup(
+            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 23, Short.MAX_VALUE)
+            .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel14Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(btnAgregarPedQuitarArt)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+
+        dialogAgregarPedido.getContentPane().add(jPanel14);
+
+        jPanel15.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        btnAgregarPedCrear.setText("Crear pedido");
+
+        btnAgregarPedCancelar.setText("Cancelar");
+
+        javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
+        jPanel15.setLayout(jPanel15Layout);
+        jPanel15Layout.setHorizontalGroup(
+            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel15Layout.createSequentialGroup()
+                .addGap(190, 190, 190)
+                .addComponent(btnAgregarPedCrear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(42, 42, 42)
+                .addComponent(btnAgregarPedCancelar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(275, 275, 275))
+        );
+        jPanel15Layout.setVerticalGroup(
+            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel15Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(btnAgregarPedCrear)
+                    .addComponent(btnAgregarPedCancelar)))
+        );
+
+        dialogAgregarPedido.getContentPane().add(jPanel15);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
@@ -705,7 +833,11 @@ public class Interfaz extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel articulos;
+    public javax.swing.JPanel articulos;
+    public javax.swing.JButton btnAgregarPedArt;
+    public javax.swing.JButton btnAgregarPedCancelar;
+    public javax.swing.JButton btnAgregarPedCrear;
+    public javax.swing.JButton btnAgregarPedQuitarArt;
     public javax.swing.JButton btnAgregarPresuArt;
     private javax.swing.JButton btnAgregarPresuCancelar;
     private javax.swing.JButton btnAgregarPresuCrear;
@@ -716,9 +848,10 @@ public class Interfaz extends javax.swing.JFrame {
     public javax.swing.JButton btnProveedoresAgregar;
     public javax.swing.JButton btnProveedoresBorrar;
     public javax.swing.JButton btnProveedoresModificar;
-    private javax.swing.JPanel clientes;
+    public javax.swing.JPanel clientes;
     public javax.swing.JComboBox<String> comboProveedores;
-    private javax.swing.JDialog dialogAgregarPresupuesto;
+    public javax.swing.JDialog dialogAgregarPedido;
+    public javax.swing.JDialog dialogAgregarPresupuesto;
     private javax.swing.Box.Filler filler10;
     private javax.swing.Box.Filler filler11;
     private javax.swing.Box.Filler filler12;
@@ -742,6 +875,7 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -765,6 +899,9 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
+    private javax.swing.JPanel jPanel13;
+    private javax.swing.JPanel jPanel14;
+    private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -775,6 +912,8 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
+    private javax.swing.JScrollPane jScrollPane11;
+    private javax.swing.JScrollPane jScrollPane12;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -793,11 +932,14 @@ public class Interfaz extends javax.swing.JFrame {
     public javax.swing.JTable jTable6;
     public javax.swing.JTextField jTextField1;
     public javax.swing.JTextField jTextField2;
-    private javax.swing.JPanel presupuestos;
-    private javax.swing.JPanel proveedores;
+    public javax.swing.JPanel presupuestos;
+    public javax.swing.JPanel proveedores;
+    public javax.swing.JTable tablaAgregarPedArt;
+    public javax.swing.JTable tablaAgregarPedArtPed;
     public javax.swing.JTable tablaAgregarPresuArt;
     public javax.swing.JTable tablaAgregarPresuArtPre;
     public javax.swing.JTable tablaArticulos;
+    public javax.swing.JTextField txtAgregarPedCantidad;
     public javax.swing.JTextField txtAgregarPresuCantidad;
     public javax.swing.JTextField txtClientesApellidos;
     public javax.swing.JTextField txtClientesCorreo;
