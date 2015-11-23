@@ -7,6 +7,7 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
@@ -224,8 +225,33 @@ public class Controlador implements ActionListener, MouseListener{
                 break;
                 
             case btnClientesAgregar:
+                String nnifC = vista.txtClientesNNif.getText();
+                String nombreC = vista.txtClientesNombre.getText();
+                String apellidosC = vista.txtClientesApellidos.getText();
+                String direccionC = vista.txtClientesDireccion.getText();
+                String telefonoC = vista.txtClientesTelefono.getText();
+                String correoC = vista.txtClientesCorreo.getText();
+                if(nnifC.equals("") || nombreC.equals("") || direccionC.equals("")
+                        || telefonoC.equals("") || correoC.equals("")){
+                    JOptionPane.showMessageDialog(null, "Introduzca todos los valores necesarios");
+                }else{
+                    modelo.crearCliente(nnifC, nombreC, apellidosC, direccionC, telefonoC, correoC);
+                }
                 break;
             case btnClientesModificar:
+                String nifCM = vista.txtClientesNif.getText();
+                String nnifCM = vista.txtClientesNNif.getText();
+                String nombreCM = vista.txtClientesNombre.getText();
+                String apellidosCM = vista.txtClientesApellidos.getText();
+                String direccionCM = vista.txtClientesDireccion.getText();
+                String telefonoCM = vista.txtClientesTelefono.getText();
+                String correoCM = vista.txtClientesCorreo.getText();
+                if(nifCM.equals("") || nnifCM.equals("") || nombreCM.equals("") || direccionCM.equals("")
+                        || telefonoCM.equals("") || correoCM.equals("")){
+                    JOptionPane.showMessageDialog(null, "Introduzca todos los valores necesarios");
+                }else{
+                    modelo.modificarCliente(nifCM, nnifCM, nombreCM, apellidosCM, direccionCM, telefonoCM, correoCM);
+                }
                 break;
             case btnClientesBorrar:
                 break;

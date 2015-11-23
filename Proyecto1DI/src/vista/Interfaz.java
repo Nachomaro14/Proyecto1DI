@@ -73,8 +73,8 @@ public class Interfaz extends javax.swing.JFrame {
         jSplitPane1 = new javax.swing.JSplitPane();
         jPanel2 = new javax.swing.JPanel();
         filler7 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 20), new java.awt.Dimension(0, 20), new java.awt.Dimension(32767, 32767));
-        txtClientesNif = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        jLabel0 = new javax.swing.JLabel();
+        txtClientesNif = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         txtClientesNNif = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
@@ -493,11 +493,11 @@ public class Interfaz extends javax.swing.JFrame {
         jPanel2.setLayout(new javax.swing.BoxLayout(jPanel2, javax.swing.BoxLayout.PAGE_AXIS));
         jPanel2.add(filler7);
 
-        txtClientesNif.setText("NIF:");
-        jPanel2.add(txtClientesNif);
+        jLabel0.setText("NIF:");
+        jPanel2.add(jLabel0);
 
-        jTextField2.setEditable(false);
-        jPanel2.add(jTextField2);
+        txtClientesNif.setEditable(false);
+        jPanel2.add(txtClientesNif);
 
         jLabel1.setText("Nuevo NIF:");
         jPanel2.add(jLabel1);
@@ -1015,6 +1015,7 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.Box.Filler filler8;
     private javax.swing.Box.Filler filler9;
     public javax.swing.JPanel inicio;
+    private javax.swing.JLabel jLabel0;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1076,7 +1077,6 @@ public class Interfaz extends javax.swing.JFrame {
     public javax.swing.JTable jTable5;
     public javax.swing.JTable jTable6;
     public javax.swing.JTextField jTextField1;
-    public javax.swing.JTextField jTextField2;
     public javax.swing.JMenuItem menuArticulos;
     public javax.swing.JMenuItem menuClientes;
     public javax.swing.JMenu menuInformacion;
@@ -1101,7 +1101,7 @@ public class Interfaz extends javax.swing.JFrame {
     public javax.swing.JTextField txtClientesCorreo;
     public javax.swing.JTextField txtClientesDireccion;
     public javax.swing.JTextField txtClientesNNif;
-    private javax.swing.JLabel txtClientesNif;
+    public javax.swing.JTextField txtClientesNif;
     public javax.swing.JTextField txtClientesNombre;
     public javax.swing.JTextField txtClientesTelefono;
     public javax.swing.JLabel txtCodigoCodigo;
