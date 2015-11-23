@@ -324,10 +324,40 @@ public class Controlador implements ActionListener, MouseListener{
                 break;
                 
             case btnProveedoresAgregar:
+                String ncifP = vista.txtProveedoresNCif.getText();
+                String nombreP = vista.txtProveedoresNombre.getText();
+                String direccionP = vista.txtProveedoresDireccion.getText();
+                String telefonoP = vista.txtProveedoresTelefono.getText();
+                String correoP = vista.txtProveedoresCorreo.getText();
+                if(ncifP.equals("") || nombreP.equals("") || direccionP.equals("") || telefonoP.equals("") || correoP.equals("")){
+                    JOptionPane.showMessageDialog(null, "Introduzca todos los valores necesarios");
+                }else{
+                    modelo.crearProveedor(ncifP, nombreP, direccionP, telefonoP, correoP);
+                }
                 break;
             case btnProveedoresModificar:
+                String cifPM = vista.txtProveedoresCif.getText();
+                String ncifPM = vista.txtProveedoresNCif.getText();
+                String nombrePM = vista.txtProveedoresNombre.getText();
+                String direccionPM = vista.txtProveedoresDireccion.getText();
+                String telefonoPM = vista.txtProveedoresTelefono.getText();
+                String correoPM = vista.txtProveedoresCorreo.getText();
+                if(cifPM.equals("") || ncifPM.equals("") || nombrePM.equals("") || direccionPM.equals("") || telefonoPM.equals("") || correoPM.equals("")){
+                    if(cifPM.equals("")){
+                        JOptionPane.showMessageDialog(null, "Primero debe seleccionarse un proveedor a modificar");
+                    }
+                    JOptionPane.showMessageDialog(null, "Introduzca todos los valores necesarios");
+                }else{
+                    modelo.modificarProveedor(cifPM, ncifPM, nombrePM, direccionPM, telefonoPM, correoPM);
+                }
                 break;
             case btnProveedoresBorrar:
+                String cifPE = vista.txtProveedoresCif.getText();
+                if(cifPE.equals("")){
+                    JOptionPane.showMessageDialog(null, "Primero debe seleccionarse un proveedor a eliminar");
+                }else{
+                    modelo.eliminarProveedor(cifPE);
+                }
                 break;
                 
             case btnPresuAgregar:
