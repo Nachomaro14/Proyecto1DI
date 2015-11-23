@@ -114,6 +114,20 @@ public class Interfaz extends javax.swing.JFrame {
         jTable2 = new javax.swing.JTable();
         jScrollPane7 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        dialogAgregarPresupuesto = new javax.swing.JDialog();
+        jScrollPane9 = new javax.swing.JScrollPane();
+        tablaAgregarPresuArt = new javax.swing.JTable();
+        jPanel10 = new javax.swing.JPanel();
+        btnAgregarPresuArt = new javax.swing.JButton();
+        jLabel15 = new javax.swing.JLabel();
+        txtAgregarPresuCantidad = new javax.swing.JTextField();
+        jScrollPane10 = new javax.swing.JScrollPane();
+        tablaAgregarPresuArtPre = new javax.swing.JTable();
+        jPanel11 = new javax.swing.JPanel();
+        btnAgregarPresuQuitarArt = new javax.swing.JButton();
+        jPanel12 = new javax.swing.JPanel();
+        btnAgregarPresuCrear = new javax.swing.JButton();
+        btnAgregarPresuCancelar = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
@@ -432,7 +446,7 @@ public class Interfaz extends javax.swing.JFrame {
         presupuestos.setLayout(new java.awt.BorderLayout());
 
         jPanel8.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel8.setLayout(new java.awt.GridLayout());
+        jPanel8.setLayout(new java.awt.GridLayout(1, 0));
 
         jButton1.setText("Agregar");
         jPanel8.add(jButton1);
@@ -479,6 +493,120 @@ public class Interfaz extends javax.swing.JFrame {
         jPanel9.add(jScrollPane7);
 
         presupuestos.add(jPanel9, java.awt.BorderLayout.CENTER);
+
+        dialogAgregarPresupuesto.getContentPane().setLayout(new javax.swing.BoxLayout(dialogAgregarPresupuesto.getContentPane(), javax.swing.BoxLayout.Y_AXIS));
+
+        tablaAgregarPresuArt.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane9.setViewportView(tablaAgregarPresuArt);
+
+        dialogAgregarPresupuesto.getContentPane().add(jScrollPane9);
+
+        btnAgregarPresuArt.setText("Agregar artículo");
+
+        jLabel15.setText("Cantidad:");
+
+        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
+        jPanel10.setLayout(jPanel10Layout);
+        jPanel10Layout.setHorizontalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel10Layout.createSequentialGroup()
+                .addGap(231, 231, 231)
+                .addComponent(btnAgregarPresuArt)
+                .addGap(40, 40, 40)
+                .addComponent(jLabel15)
+                .addGap(18, 18, 18)
+                .addComponent(txtAgregarPresuCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(259, Short.MAX_VALUE))
+        );
+        jPanel10Layout.setVerticalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAgregarPresuArt)
+                    .addComponent(jLabel15)
+                    .addComponent(txtAgregarPresuCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
+
+        dialogAgregarPresupuesto.getContentPane().add(jPanel10);
+
+        tablaAgregarPresuArtPre.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane10.setViewportView(tablaAgregarPresuArtPre);
+
+        dialogAgregarPresupuesto.getContentPane().add(jScrollPane10);
+
+        btnAgregarPresuQuitarArt.setText("Quitar artículo");
+
+        javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
+        jPanel11.setLayout(jPanel11Layout);
+        jPanel11Layout.setHorizontalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 795, Short.MAX_VALUE)
+            .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel11Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(btnAgregarPresuQuitarArt)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        jPanel11Layout.setVerticalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 23, Short.MAX_VALUE)
+            .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel11Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(btnAgregarPresuQuitarArt)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+
+        dialogAgregarPresupuesto.getContentPane().add(jPanel11);
+
+        jPanel12.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        btnAgregarPresuCrear.setText("Crear presupuesto");
+
+        btnAgregarPresuCancelar.setText("Cancelar");
+
+        javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
+        jPanel12.setLayout(jPanel12Layout);
+        jPanel12Layout.setHorizontalGroup(
+            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel12Layout.createSequentialGroup()
+                .addGap(190, 190, 190)
+                .addComponent(btnAgregarPresuCrear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(42, 42, 42)
+                .addComponent(btnAgregarPresuCancelar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(275, 275, 275))
+        );
+        jPanel12Layout.setVerticalGroup(
+            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel12Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(btnAgregarPresuCrear)
+                    .addComponent(btnAgregarPresuCancelar)))
+        );
+
+        dialogAgregarPresupuesto.getContentPane().add(jPanel12);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -578,6 +706,10 @@ public class Interfaz extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel articulos;
+    private javax.swing.JButton btnAgregarPresuArt;
+    private javax.swing.JButton btnAgregarPresuCancelar;
+    private javax.swing.JButton btnAgregarPresuCrear;
+    private javax.swing.JButton btnAgregarPresuQuitarArt;
     private javax.swing.JButton btnClientesAgregar;
     private javax.swing.JButton btnClientesBorrar;
     private javax.swing.JButton btnClientesModificar;
@@ -586,6 +718,7 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JButton btnProveedoresModificar;
     private javax.swing.JPanel clientes;
     private javax.swing.JComboBox<String> comboProveedores;
+    private javax.swing.JDialog dialogAgregarPresupuesto;
     private javax.swing.Box.Filler filler10;
     private javax.swing.Box.Filler filler11;
     private javax.swing.Box.Filler filler12;
@@ -605,6 +738,7 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
@@ -628,6 +762,9 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -637,6 +774,7 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -644,6 +782,7 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JSplitPane jSplitPane2;
     private javax.swing.JTable jTable1;
@@ -656,7 +795,10 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField2;
     private javax.swing.JPanel presupuestos;
     private javax.swing.JPanel proveedores;
+    private javax.swing.JTable tablaAgregarPresuArt;
+    private javax.swing.JTable tablaAgregarPresuArtPre;
     private javax.swing.JTable tablaArticulos;
+    private javax.swing.JTextField txtAgregarPresuCantidad;
     private javax.swing.JTextField txtClientesApellidos;
     private javax.swing.JTextField txtClientesCorreo;
     private javax.swing.JTextField txtClientesDireccion;
