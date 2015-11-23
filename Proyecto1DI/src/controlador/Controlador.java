@@ -111,6 +111,11 @@ public class Controlador implements ActionListener, MouseListener{
             //INICIALIZAMOS LOS MODELOS DE LOS COMBOBOX
             vista.comboProveedores.setModel(new DefaultComboBoxModel(modelo.getProveedores()));
             
+            //INICIALIZAMOS LAS TABLAS VACÍAS CON SUS RESPECTIVOS MODELOS
+            vista.tablaArticulos.setModel(modelo.tablaArticulosVacia());
+            vista.tablaPedidos.setModel(modelo.tablaPedidosVacia());
+            vista.tablaPresupuesto.setModel(modelo.tablaPresupuestosVacia());
+            
         } catch (UnsupportedLookAndFeelException ex){}
           catch (ClassNotFoundException ex){}
           catch (InstantiationException ex){}
