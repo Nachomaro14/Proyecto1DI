@@ -29,7 +29,7 @@ public class Interfaz extends javax.swing.JFrame {
 
         dialogAgregarPresupuesto = new javax.swing.JDialog();
         jPanel21 = new javax.swing.JPanel();
-        comboClientesAgrPresupuesto = new javax.swing.JComboBox<>();
+        comboClientesAgrPresupuesto = new javax.swing.JComboBox<String>();
         jLabel33 = new javax.swing.JLabel();
         jScrollPane9 = new javax.swing.JScrollPane();
         tablaAgregarPresuArt = new javax.swing.JTable();
@@ -46,7 +46,7 @@ public class Interfaz extends javax.swing.JFrame {
         btnAgregarPresuCancelar = new javax.swing.JButton();
         dialogAgregarPedido = new javax.swing.JDialog();
         jPanel20 = new javax.swing.JPanel();
-        comboClientesAgrPedido = new javax.swing.JComboBox<>();
+        comboClientesAgrPedido = new javax.swing.JComboBox<String>();
         jLabel32 = new javax.swing.JLabel();
         jScrollPane11 = new javax.swing.JScrollPane();
         tablaAgregarPedArt = new javax.swing.JTable();
@@ -109,6 +109,8 @@ public class Interfaz extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tablaClientes = new javax.swing.JTable();
+        jPanel22 = new javax.swing.JPanel();
+        comboPresupuestosOPedidos = new javax.swing.JComboBox();
         jScrollPane4 = new javax.swing.JScrollPane();
         tablaPedidosClientes = new javax.swing.JTable();
         articulos = new javax.swing.JPanel();
@@ -122,7 +124,7 @@ public class Interfaz extends javax.swing.JFrame {
         txtPCPArt = new javax.swing.JFormattedTextField();
         txtPVPArt = new javax.swing.JFormattedTextField();
         jLabel11 = new javax.swing.JLabel();
-        comboProveedores = new javax.swing.JComboBox<>();
+        comboProveedores = new javax.swing.JComboBox<String>();
         jPanel16 = new javax.swing.JPanel();
         btnArticulosAgregar = new javax.swing.JButton();
         btnArticulosModificar = new javax.swing.JButton();
@@ -164,7 +166,7 @@ public class Interfaz extends javax.swing.JFrame {
         tablaProveedoresArticulos = new javax.swing.JTable();
         presupuestos = new javax.swing.JPanel();
         jPanel19 = new javax.swing.JPanel();
-        comboClientesPresupuestos = new javax.swing.JComboBox<>();
+        comboClientesPresupuestos = new javax.swing.JComboBox<String>();
         jLabel31 = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
         btnPresuAgregar = new javax.swing.JButton();
@@ -183,7 +185,7 @@ public class Interfaz extends javax.swing.JFrame {
         btnPedidoGenFac = new javax.swing.JButton();
         jPanel18 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
-        comboClientesPedidos = new javax.swing.JComboBox<>();
+        comboClientesPedidos = new javax.swing.JComboBox<String>();
         jLabel30 = new javax.swing.JLabel();
         jScrollPane13 = new javax.swing.JScrollPane();
         tablaPedidos = new javax.swing.JTable();
@@ -202,7 +204,7 @@ public class Interfaz extends javax.swing.JFrame {
 
         dialogAgregarPresupuesto.getContentPane().setLayout(new javax.swing.BoxLayout(dialogAgregarPresupuesto.getContentPane(), javax.swing.BoxLayout.Y_AXIS));
 
-        comboClientesAgrPresupuesto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboClientesAgrPresupuesto.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel33.setText("Cliente");
 
@@ -343,7 +345,7 @@ public class Interfaz extends javax.swing.JFrame {
 
         dialogAgregarPedido.getContentPane().setLayout(new javax.swing.BoxLayout(dialogAgregarPedido.getContentPane(), javax.swing.BoxLayout.Y_AXIS));
 
-        comboClientesAgrPedido.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboClientesAgrPedido.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel32.setText("Cliente");
 
@@ -682,6 +684,27 @@ public class Interfaz extends javax.swing.JFrame {
 
         jPanel1.add(jScrollPane3);
 
+        comboPresupuestosOPedidos.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        javax.swing.GroupLayout jPanel22Layout = new javax.swing.GroupLayout(jPanel22);
+        jPanel22.setLayout(jPanel22Layout);
+        jPanel22Layout.setHorizontalGroup(
+            jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel22Layout.createSequentialGroup()
+                .addGap(370, 370, 370)
+                .addComponent(comboPresupuestosOPedidos, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(370, 370, 370))
+        );
+        jPanel22Layout.setVerticalGroup(
+            jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel22Layout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addComponent(comboPresupuestosOPedidos)
+                .addGap(35, 35, 35))
+        );
+
+        jPanel1.add(jPanel22);
+
         tablaPedidosClientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -703,7 +726,7 @@ public class Interfaz extends javax.swing.JFrame {
         clientes.setLayout(clientesLayout);
         clientesLayout.setHorizontalGroup(
             clientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 941, Short.MAX_VALUE)
+            .addComponent(jSplitPane1)
         );
         clientesLayout.setVerticalGroup(
             clientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -722,7 +745,7 @@ public class Interfaz extends javax.swing.JFrame {
 
         jLabel11.setText("Proveedor:");
 
-        comboProveedores.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboProveedores.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jPanel16.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -962,7 +985,7 @@ public class Interfaz extends javax.swing.JFrame {
 
         presupuestos.setLayout(new java.awt.BorderLayout());
 
-        comboClientesPresupuestos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboClientesPresupuestos.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel31.setText("Cliente");
 
@@ -1060,7 +1083,7 @@ public class Interfaz extends javax.swing.JFrame {
         jPanel18.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel18.setLayout(new javax.swing.BoxLayout(jPanel18, javax.swing.BoxLayout.Y_AXIS));
 
-        comboClientesPedidos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboClientesPedidos.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel30.setText("Cliente");
 
@@ -1256,6 +1279,7 @@ public class Interfaz extends javax.swing.JFrame {
     public javax.swing.JComboBox<String> comboClientesAgrPresupuesto;
     public javax.swing.JComboBox<String> comboClientesPedidos;
     public javax.swing.JComboBox<String> comboClientesPresupuestos;
+    private javax.swing.JComboBox comboPresupuestosOPedidos;
     public javax.swing.JComboBox<String> comboProveedores;
     public javax.swing.JDialog dialogAgregarPedido;
     public javax.swing.JDialog dialogAgregarPresupuesto;
@@ -1320,6 +1344,7 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel20;
     private javax.swing.JPanel jPanel21;
+    private javax.swing.JPanel jPanel22;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
