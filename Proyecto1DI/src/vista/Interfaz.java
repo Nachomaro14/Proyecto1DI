@@ -1279,7 +1279,7 @@ public class Interfaz extends javax.swing.JFrame {
     public javax.swing.JComboBox<String> comboClientesAgrPresupuesto;
     public javax.swing.JComboBox<String> comboClientesPedidos;
     public javax.swing.JComboBox<String> comboClientesPresupuestos;
-    private javax.swing.JComboBox comboPresupuestosOPedidos;
+    public javax.swing.JComboBox comboPresupuestosOPedidos;
     public javax.swing.JComboBox<String> comboProveedores;
     public javax.swing.JDialog dialogAgregarPedido;
     public javax.swing.JDialog dialogAgregarPresupuesto;
