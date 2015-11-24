@@ -52,6 +52,10 @@ public class Controlador implements ActionListener, MouseListener{
         btnPresuGenProf,
         btnPresuCrearPed,
         
+        btnPedidoAgregar,
+        btnPedidoBorrar,
+        btnPedidoGenFac,
+        
         btnAgregarPresuArt,
         btnAgregarPresuQuitarArt,
         btnAgregarPresuCrear,
@@ -110,11 +114,25 @@ public class Controlador implements ActionListener, MouseListener{
             
             //INICIALIZAMOS LOS MODELOS DE LOS COMBOBOX
             vista.comboProveedores.setModel(new DefaultComboBoxModel(modelo.getProveedores()));
+            vista.comboClientesPedidos.setModel(new DefaultComboBoxModel(modelo.getClientes()));
+            vista.comboClientesPresupuestos.setModel(new DefaultComboBoxModel(modelo.getClientes()));
+            vista.comboClientesAgrPedido.setModel(new DefaultComboBoxModel(modelo.getClientes()));
+            vista.comboClientesAgrPresupuesto.setModel(new DefaultComboBoxModel(modelo.getClientes()));
             
             //INICIALIZAMOS LAS TABLAS VACÍAS CON SUS RESPECTIVOS MODELOS
             vista.tablaArticulos.setModel(modelo.tablaArticulosVacia());
             vista.tablaPedidos.setModel(modelo.tablaPedidosVacia());
             vista.tablaPresupuesto.setModel(modelo.tablaPresupuestosVacia());
+            vista.tablaClientes.setModel(modelo.tablaClientesVacia());
+            vista.tablaProveedores.setModel(modelo.tablaProveedoresVacia());
+            vista.tablaPedidosClientes.setModel(modelo.tablaPedidosVacia());
+            vista.tablaProveedoresArticulos.setModel(modelo.tablaArticulosProveedoresVacia());
+            vista.tablaPresuArtPresu.setModel(modelo.tablaArticulosPresupuestosVacia());
+            vista.tablaPedidosArtPed.setModel(modelo.tablaArticulosPedidosVacia());
+            vista.tablaAgregarPresuArt.setModel(modelo.tablaArticulosVacia());
+            vista.tablaAgregarPresuArtPre.setModel(modelo.tablaArticulosVacia());
+            vista.tablaAgregarPedArt.setModel(modelo.tablaArticulosVacia());
+            vista.tablaAgregarPedArtPed.setModel(modelo.tablaArticulosVacia());
             
         } catch (UnsupportedLookAndFeelException ex){}
           catch (ClassNotFoundException ex){}
@@ -168,6 +186,13 @@ public class Controlador implements ActionListener, MouseListener{
         this.vista.btnPresuCrearPed.setActionCommand("btnPresuCrearPed");
         this.vista.btnPresuCrearPed.addActionListener(this);
         
+        this.vista.btnPedidoAgregar.setActionCommand("btnPedidoAgregar");
+        this.vista.btnPedidoAgregar.addActionListener(this);
+        this.vista.btnPedidoBorrar.setActionCommand("btnPedidoBorrar");
+        this.vista.btnPedidoBorrar.addActionListener(this);
+        this.vista.btnPedidoGenFac.setActionCommand("btnPedidoGenFac");
+        this.vista.btnPedidoGenFac.addActionListener(this);
+        
         this.vista.btnAgregarPresuArt.setActionCommand("btnAgregarPresuArt");
         this.vista.btnAgregarPresuArt.addActionListener(this);
         this.vista.btnAgregarPresuQuitarArt.setActionCommand("btnAgregarPresuQuitarArt");
@@ -186,6 +211,8 @@ public class Controlador implements ActionListener, MouseListener{
         this.vista.btnAgregarPedCancelar.setActionCommand("btnAgregarPedCancelar");
         this.vista.btnAgregarPedCancelar.addActionListener(this);
     }
+    
+    //DEFINIMOS LAS ACCIONES QUE SE REALIZARÁN AL PULSAR LOS BOTONES DE LA INTERFAZ
     
     public void actionPerformed(ActionEvent e) {
         switch(AccionMVC.valueOf(e.getActionCommand())){
@@ -369,6 +396,13 @@ public class Controlador implements ActionListener, MouseListener{
             case btnPresuCrearPed:
                 break;
                 
+            case btnPedidoAgregar:
+                break;
+            case btnPedidoBorrar:
+                break;
+            case btnPedidoGenFac:
+                break;
+                
             case btnAgregarPresuArt:
                 break;
             case btnAgregarPresuQuitarArt:
@@ -391,12 +425,29 @@ public class Controlador implements ActionListener, MouseListener{
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        //int A = vista.tablaT.rowAtPoint(e.getPoint());
-        //  if (A > -1){
-        //      try{
-        //          String B = String.valueOf(vista.tablaT.getValueAt(A, 0));
-        //      }
-        //  }
+        int articulo = vista.tablaArticulos.rowAtPoint(e.getPoint());
+        if (articulo > -1){
+            try{
+                String codigo = String.valueOf(vista.tablaArticulos.getValueAt(articulo, 0));
+                String proveedor = String.valueOf(vista.tablaArticulos.getValueAt(articulo, 1));
+                String nombre = String.valueOf(vista.tablaArticulos.getValueAt(articulo, 2));
+                String precioP = String.valueOf(vista.tablaArticulos.getValueAt(articulo, 3));
+                String precioC = String.valueOf(vista.tablaArticulos.getValueAt(articulo, 4));
+                String descripcion = modelo.descripcionArticulo(codigo);
+                vista.txtCodigoCodigo.setText(codigo);
+                for(int i = 0; i < vista.comboProveedores.getItemCount(); i++){
+                    if(vista.comboProveedores.getItemAt(i).toString().equals(proveedor)){
+                        vista.comboProveedores.setSelectedIndex(i);
+                    }
+                }
+                vista.txtNombreArt.setText(nombre);
+                vista.txtPCPArt.setText(precioP);
+                vista.txtPVPArt.setText(precioC);
+                vista.txtDescripcionArt.setText(descripcion);
+            }catch(Exception ex){
+                
+            }
+        }
     }
 
     @Override

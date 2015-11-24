@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 public class Modelo extends Database{
     
@@ -550,6 +551,23 @@ public class Modelo extends Database{
         return iva;
     }
     
+    public String descripcionArticulo(String codigo){
+        String des = "";
+        try{
+            String q = "SELECT Descripcion FROM Articulos WHERE Codigo = '"+ codigo +"'";
+            PreparedStatement pstm = this.getConexion().prepareStatement(q);
+            ResultSet res = pstm.executeQuery();
+            while(res.next()){
+                des = res.getString("Codigo");
+            }
+            res.close();
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "Error al obtener datos\n\n" + e.getMessage());
+            e.printStackTrace();
+        }
+        return des;
+    }
+    
     //MÉTODOS DE ARTÍCULOS DE PROVEEDORES
     
     public DefaultTableModel tablaArticulosProveedores(String cif){
@@ -587,7 +605,21 @@ public class Modelo extends Database{
             e.printStackTrace();
         }
         return tablemodel;
-    } 
+    }
+    
+    public TableModel tablaArticulosProveedoresVacia() {
+        DefaultTableModel tablemodel = new ModeloTablaNoEditable();
+        int registros = 0;
+        String[] columNames = {"Código","Nombre","PrecioP","PrecioC","IVA"};
+        Object[][] data = new String[registros][5];
+        try{
+            tablemodel.setDataVector(data, columNames);
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Error al construir tabla\n\n" + e.getMessage());
+            e.printStackTrace();
+        }
+        return tablemodel;
+    }
     
     //MÉTODOS DE PEDIDOS
     
@@ -750,6 +782,20 @@ public class Modelo extends Database{
             tablemodel.setDataVector(data, columNames);
         }catch(SQLException e){
             JOptionPane.showMessageDialog(null, "Error al obtener datos\n\n" + e.getMessage());
+            e.printStackTrace();
+        }
+        return tablemodel;
+    }
+    
+    public DefaultTableModel tablaArticulosPedidosVacia(){
+        DefaultTableModel tablemodel = new ModeloTablaNoEditable();
+        int registros = 0;
+        String[] columNames = {"Código","Nombre","PrecioC","Cantidad"};
+        Object[][] data = new String[registros][4];
+        try{
+            tablemodel.setDataVector(data, columNames);
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Error al construir tabla\n\n" + e.getMessage());
             e.printStackTrace();
         }
         return tablemodel;
@@ -951,6 +997,20 @@ public class Modelo extends Database{
             tablemodel.setDataVector(data, columNames);
         }catch(SQLException e){
             JOptionPane.showMessageDialog(null, "Error al obtener datos\n\n" + e.getMessage());
+            e.printStackTrace();
+        }
+        return tablemodel;
+    }
+    
+    public DefaultTableModel tablaArticulosPresupuestosVacia(){
+        DefaultTableModel tablemodel = new ModeloTablaNoEditable();
+        int registros = 0;
+        String[] columNames = {"Código","Nombre","PrecioC","Cantidad"};
+        Object[][] data = new String[registros][4];
+        try{
+            tablemodel.setDataVector(data, columNames);
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Error al construir tabla\n\n" + e.getMessage());
             e.printStackTrace();
         }
         return tablemodel;
