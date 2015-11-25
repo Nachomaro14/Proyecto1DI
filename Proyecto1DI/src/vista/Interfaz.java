@@ -1587,7 +1587,7 @@ public class Interfaz extends javax.swing.JFrame {
         jPanel17.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel17.setLayout(new java.awt.GridLayout(1, 0));
 
-        btnPedidoAgregar.setText("Agregar");
+        btnPedidoAgregar.setText("Agregar Pedido");
         jPanel17.add(btnPedidoAgregar);
 
         btnPedidoBorrar.setText("Borrar");

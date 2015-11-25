@@ -134,10 +134,7 @@ public class Controlador implements ActionListener, MouseListener{
             vista.tablaAgregarPedArt.setModel(modelo.tablaArticulosVacia());
             vista.tablaAgregarPedArtPed.setModel(modelo.tablaArticulosVacia());
             
-        } catch (UnsupportedLookAndFeelException ex){}
-          catch (ClassNotFoundException ex){}
-          catch (InstantiationException ex){}
-          catch (IllegalAccessException ex){}
+        } catch (UnsupportedLookAndFeelException | ClassNotFoundException | InstantiationException | IllegalAccessException ex){}
         
         //LES ASIGNAMOS LAS ACCIONES A LOS BOTONES
         
@@ -214,6 +211,7 @@ public class Controlador implements ActionListener, MouseListener{
     
     //DEFINIMOS LAS ACCIONES QUE SE REALIZARÁN AL PULSAR LOS BOTONES DE LA INTERFAZ
     
+    @Override
     public void actionPerformed(ActionEvent e) {
         switch(AccionMVC.valueOf(e.getActionCommand())){
             case menuInicio:
@@ -407,8 +405,9 @@ public class Controlador implements ActionListener, MouseListener{
                 break;
             case btnPresuCrearPed:
                 break;
-                
+                /*******************VISTA PEDIDOS**********************/
             case btnPedidoAgregar:
+                vista.dialogAgregarPedido.setVisible(true);
                 break;
             case btnPedidoBorrar:
                 break;
@@ -423,8 +422,9 @@ public class Controlador implements ActionListener, MouseListener{
                 break;
             case btnAgregarPresuCancelar:
                 break;
-                
+                /***********************************AGREGAR PEDIDOS**********************************/
             case btnAgregarPedArt:
+                
                 break;
             case btnAgregarPedQuitarArt:
                 break;
@@ -448,7 +448,7 @@ public class Controlador implements ActionListener, MouseListener{
                 String descripcion = modelo.descripcionArticulo(codigo);
                 vista.txtCodigoCodigo.setText(codigo);
                 for(int i = 0; i < vista.comboProveedores.getItemCount(); i++){
-                    if(vista.comboProveedores.getItemAt(i).toString().equals(proveedor)){
+                    if(vista.comboProveedores.getItemAt(i).equals(proveedor)){
                         vista.comboProveedores.setSelectedIndex(i);
                     }
                 }
@@ -484,6 +484,7 @@ public class Controlador implements ActionListener, MouseListener{
     
     public static void SCifras(JTextField a){
         a.addKeyListener(new KeyAdapter() {
+            @Override
             public void keyTyped(KeyEvent e){
                 char c = e.getKeyChar();
                 if(Character.isLetter(c)){
@@ -495,6 +496,7 @@ public class Controlador implements ActionListener, MouseListener{
     
     public static void SLetras(JTextField a){
         a.addKeyListener(new KeyAdapter() {
+            @Override
             public void keyTyped(KeyEvent e){
                 char c = e.getKeyChar();
                 if(Character.isDigit(c)){
