@@ -179,7 +179,7 @@ public class Modelo extends Database{
     public String[] getClientes(){
         int registros = 0;
         try{
-            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT count(DNI) as total FROM Clientes");
+            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT count(NIF) as total FROM Clientes");
             ResultSet res = pstm.executeQuery();
             res.next();
             registros = res.getInt("total");
@@ -190,12 +190,12 @@ public class Modelo extends Database{
         }
         String[] clientes = new String[registros];
         try{
-            String q = "SELECT DNI FROM Proveedores";
+            String q = "SELECT NIF FROM Clientes";
             PreparedStatement pstm = this.getConexion().prepareStatement(q);
             ResultSet res = pstm.executeQuery();
             int i=0;
             while(res.next()){
-                clientes[i] = res.getString("DNI");
+                clientes[i] = res.getString("NIF");
             i++;
             }
             res.close();
