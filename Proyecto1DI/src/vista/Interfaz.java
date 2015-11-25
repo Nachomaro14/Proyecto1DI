@@ -415,6 +415,7 @@ public class Interfaz extends javax.swing.JFrame {
 
         dialogAgregarPresupuesto.getContentPane().add(jPanel12);
 
+        dialogAgregarPedido.setMinimumSize(new java.awt.Dimension(500, 500));
         dialogAgregarPedido.getContentPane().setLayout(new javax.swing.BoxLayout(dialogAgregarPedido.getContentPane(), javax.swing.BoxLayout.Y_AXIS));
 
         comboClientesAgrPedido.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
