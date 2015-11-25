@@ -279,7 +279,11 @@ public class Controlador implements ActionListener, MouseListener{
                         || telefonoC.equals("") || correoC.equals("")){
                     JOptionPane.showMessageDialog(null, "Introduzca todos los valores necesarios");
                 }else{
-                    modelo.crearCliente(nnifC, nombreC, apellidosC, direccionC, telefonoC, correoC);
+                    if(modelo.comprobarExistenciaCliente(nnifC) == true){
+                        JOptionPane.showMessageDialog(null, "Ya existe un cliente con esa identificación");
+                    }else{
+                        modelo.crearCliente(nnifC, nombreC, apellidosC, direccionC, telefonoC, correoC);
+                    }
                 }
                 break;
             case btnClientesModificar:
@@ -320,7 +324,11 @@ public class Controlador implements ActionListener, MouseListener{
                     }
                     JOptionPane.showMessageDialog(null, "Introduzca todos los valores necesarios\n(Incluida una descripción)");
                 }else{
-                    modelo.crearArticulo(ncodigoA, proveedorA, nombreA, descripcionA, PCPA, PVPA);
+                    if(modelo.comprobarExistenciaArticulo(ncodigoA) == true){
+                        JOptionPane.showMessageDialog(null, "Ya existe un artículo con esa identificación");
+                    }else{
+                        modelo.crearArticulo(ncodigoA, proveedorA, nombreA, descripcionA, PCPA, PVPA);
+                    }
                 }
                 break;
             case btnArticulosModificar:
@@ -359,7 +367,11 @@ public class Controlador implements ActionListener, MouseListener{
                 if(ncifP.equals("") || nombreP.equals("") || direccionP.equals("") || telefonoP.equals("") || correoP.equals("")){
                     JOptionPane.showMessageDialog(null, "Introduzca todos los valores necesarios");
                 }else{
-                    modelo.crearProveedor(ncifP, nombreP, direccionP, telefonoP, correoP);
+                    if(modelo.comprobarExistenciaProveedor(ncifP) == true){
+                        JOptionPane.showMessageDialog(null, "Ya existe un artículo con esa identificación");
+                    }else{
+                        modelo.crearProveedor(ncifP, nombreP, direccionP, telefonoP, correoP);
+                    }
                 }
                 break;
             case btnProveedoresModificar:
