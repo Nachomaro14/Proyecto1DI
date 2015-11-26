@@ -45,6 +45,7 @@ public class Interfaz extends javax.swing.JFrame {
         jPanel12 = new javax.swing.JPanel();
         btnAgregarPresuCrear = new javax.swing.JButton();
         btnAgregarPresuCancelar = new javax.swing.JButton();
+        btnAgregarPresuCrearAux = new javax.swing.JButton();
         dialogAgregarPedido = new javax.swing.JDialog();
         jPanel20 = new javax.swing.JPanel();
         comboClientesAgrPedido = new javax.swing.JComboBox<String>();
@@ -63,6 +64,7 @@ public class Interfaz extends javax.swing.JFrame {
         jPanel15 = new javax.swing.JPanel();
         btnAgregarPedCrear = new javax.swing.JButton();
         btnAgregarPedCancelar = new javax.swing.JButton();
+        btmAgregarPedCrearAux = new javax.swing.JButton();
         dialogProformas = new javax.swing.JDialog();
         panelEmpresaProf = new javax.swing.JPanel();
         jLabel34 = new javax.swing.JLabel();
@@ -408,6 +410,8 @@ public class Interfaz extends javax.swing.JFrame {
 
         btnAgregarPresuCancelar.setText("Cancelar");
 
+        btnAgregarPresuCrearAux.setText("Crear presupuesto auxiliar");
+
         javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
         jPanel12.setLayout(jPanel12Layout);
         jPanel12Layout.setHorizontalGroup(
@@ -417,7 +421,9 @@ public class Interfaz extends javax.swing.JFrame {
                 .addComponent(btnAgregarPresuCrear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(42, 42, 42)
                 .addComponent(btnAgregarPresuCancelar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(275, 275, 275))
+                .addGap(47, 47, 47)
+                .addComponent(btnAgregarPresuCrearAux)
+                .addGap(155, 155, 155))
         );
         jPanel12Layout.setVerticalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -425,7 +431,8 @@ public class Interfaz extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(btnAgregarPresuCrear)
-                    .addComponent(btnAgregarPresuCancelar)))
+                    .addComponent(btnAgregarPresuCancelar)
+                    .addComponent(btnAgregarPresuCrearAux)))
         );
 
         dialogAgregarPresupuesto.getContentPane().add(jPanel12);
@@ -555,6 +562,8 @@ public class Interfaz extends javax.swing.JFrame {
 
         btnAgregarPedCancelar.setText("Cancelar");
 
+        btmAgregarPedCrearAux.setText("Crear pedido auxiliar");
+
         javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
         jPanel15.setLayout(jPanel15Layout);
         jPanel15Layout.setHorizontalGroup(
@@ -564,7 +573,9 @@ public class Interfaz extends javax.swing.JFrame {
                 .addComponent(btnAgregarPedCrear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(42, 42, 42)
                 .addComponent(btnAgregarPedCancelar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(275, 275, 275))
+                .addGap(45, 45, 45)
+                .addComponent(btmAgregarPedCrearAux)
+                .addGap(157, 157, 157))
         );
         jPanel15Layout.setVerticalGroup(
             jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -572,7 +583,8 @@ public class Interfaz extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(btnAgregarPedCrear)
-                    .addComponent(btnAgregarPedCancelar)))
+                    .addComponent(btnAgregarPedCancelar)
+                    .addComponent(btmAgregarPedCrearAux)))
         );
 
         dialogAgregarPedido.getContentPane().add(jPanel15);
@@ -1837,6 +1849,7 @@ public class Interfaz extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JPanel articulos;
+    public javax.swing.JButton btmAgregarPedCrearAux;
     public javax.swing.JButton btnAgregarPedArt;
     public javax.swing.JButton btnAgregarPedCancelar;
     public javax.swing.JButton btnAgregarPedCrear;
@@ -1844,6 +1857,7 @@ public class Interfaz extends javax.swing.JFrame {
     public javax.swing.JButton btnAgregarPresuArt;
     public javax.swing.JButton btnAgregarPresuCancelar;
     public javax.swing.JButton btnAgregarPresuCrear;
+    public javax.swing.JButton btnAgregarPresuCrearAux;
     public javax.swing.JButton btnAgregarPresuQuitarArt;
     public javax.swing.JButton btnArticulosAgregar;
     public javax.swing.JButton btnArticulosEliminar;

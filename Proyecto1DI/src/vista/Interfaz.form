@@ -228,7 +228,9 @@
                       <Component id="btnAgregarPresuCrear" max="32767" attributes="0"/>
                       <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                       <Component id="btnAgregarPresuCancelar" max="32767" attributes="0"/>
-                      <EmptySpace min="-2" pref="275" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+                      <Component id="btnAgregarPresuCrearAux" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="155" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -239,6 +241,7 @@
                       <Group type="103" groupAlignment="2" attributes="0">
                           <Component id="btnAgregarPresuCrear" alignment="2" min="-2" max="-2" attributes="0"/>
                           <Component id="btnAgregarPresuCancelar" alignment="2" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnAgregarPresuCrearAux" alignment="2" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -256,6 +259,14 @@
             <Component class="javax.swing.JButton" name="btnAgregarPresuCancelar">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Cancelar"/>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JButton" name="btnAgregarPresuCrearAux">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Crear presupuesto auxiliar"/>
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -494,7 +505,9 @@
                       <Component id="btnAgregarPedCrear" max="32767" attributes="0"/>
                       <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                       <Component id="btnAgregarPedCancelar" max="32767" attributes="0"/>
-                      <EmptySpace min="-2" pref="275" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+                      <Component id="btmAgregarPedCrearAux" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="157" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -505,6 +518,7 @@
                       <Group type="103" groupAlignment="2" attributes="0">
                           <Component id="btnAgregarPedCrear" alignment="2" min="-2" max="-2" attributes="0"/>
                           <Component id="btnAgregarPedCancelar" alignment="2" min="-2" max="-2" attributes="0"/>
+                          <Component id="btmAgregarPedCrearAux" alignment="2" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -522,6 +536,14 @@
             <Component class="javax.swing.JButton" name="btnAgregarPedCancelar">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Cancelar"/>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JButton" name="btmAgregarPedCrearAux">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Crear pedido auxiliar"/>
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
