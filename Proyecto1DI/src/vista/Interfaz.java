@@ -1203,7 +1203,7 @@ public class Interfaz extends javax.swing.JFrame {
 
         jPanel1.add(jScrollPane3);
 
-        comboPresupuestosOPedidos.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboPresupuestosOPedidos.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Presupuestos", "Pedidos" }));
 
         javax.swing.GroupLayout jPanel22Layout = new javax.swing.GroupLayout(jPanel22);
         jPanel22.setLayout(jPanel22Layout);

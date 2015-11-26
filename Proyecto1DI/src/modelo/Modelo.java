@@ -210,7 +210,7 @@ public class Modelo extends Database{
         String nombre = "";
         String apellidos = "";
         try{
-            String q = "SELECT Nombre, Apellidos FROM Clientes WHERE DNI = '"+dni+"'";
+            String q = "SELECT Nombre, Apellidos FROM Clientes WHERE NIF = '"+dni+"'";
             PreparedStatement pstm = this.getConexion().prepareStatement(q);
             ResultSet res = pstm.executeQuery();
             while(res.next()){
@@ -228,9 +228,9 @@ public class Modelo extends Database{
     public DefaultTableModel tablaClientes(){
         DefaultTableModel tablemodel = new ModeloTablaNoEditable();
         int registros = 0;
-        String[] columNames = {"DNI","Nombre","Apellidos","Dirección","Teléfono","Correo"};
+        String[] columNames = {"NIF","Nombre","Apellidos","Dirección","Teléfono","Correo"};
         try{
-            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT count(DNI) as total FROM Clientes");
+            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT count(NIF) as total FROM Clientes");
             ResultSet res = pstm.executeQuery();
             res.next();
             registros = res.getInt("total");
@@ -241,12 +241,12 @@ public class Modelo extends Database{
         }
         Object[][] data = new String[registros][6];
         try{
-            String q = "SELECT DNI, Nombre, Apellidos, Direccion, Telefono, Correo FROM Clientes";
+            String q = "SELECT NIF, Nombre, Apellidos, Direccion, Telefono, Correo FROM Clientes";
             PreparedStatement pstm = this.getConexion().prepareStatement(q);
             ResultSet res = pstm.executeQuery();
             int i=0;
             while(res.next()){
-                data[i][0] = res.getString("DNI");
+                data[i][0] = res.getString("NIF");
                 data[i][1] = res.getString("Nombre");
                 data[i][2] = res.getString("Apellidos");
                 data[i][3] = res.getString("Direccion");
@@ -266,7 +266,7 @@ public class Modelo extends Database{
     public DefaultTableModel tablaClientesVacia(){
         DefaultTableModel tablemodel = new ModeloTablaNoEditable();
         int registros = 0;
-        String[] columNames = {"DNI","Nombre","Apellidos","Dirección","Teléfono","Correo"};
+        String[] columNames = {"NIF","Nombre","Apellidos","Dirección","Teléfono","Correo"};
         Object[][] data = new String[registros][6];
         try{
             tablemodel.setDataVector(data, columNames);
@@ -278,7 +278,7 @@ public class Modelo extends Database{
     }
     
     public boolean comprobarExistenciaCliente(String dni){
-        String q = "SELECT DNI FROM Clientes WHERE DNI = '"+dni+"'";
+        String q = "SELECT NIF FROM Clientes WHERE NIF = '"+dni+"'";
         boolean resu = false;
         try{
             PreparedStatement pstm = this.getConexion().prepareStatement(q);
@@ -298,7 +298,7 @@ public class Modelo extends Database{
     }
     
     public void crearCliente(String dni, String nombre, String apellidos, String direccion, String telefono, String correo){
-        String q = "INSERT INTO Clientes (DNI, Nombre, Apellidos, Direccion, Telefono, Correo) "
+        String q = "INSERT INTO Clientes (NIF, Nombre, Apellidos, Direccion, Telefono, Correo) "
                 + "VALUES('"+dni+"','"+nombre+"', '"+apellidos+"','"+direccion+"','"+telefono+"','"+correo+"')";
         try {
             PreparedStatement pstm = this.getConexion().prepareStatement(q);
@@ -311,7 +311,7 @@ public class Modelo extends Database{
     }
     
     public void modificarCliente(String dni, String ndni, String nombre, String apellidos, String direccion, String telefono, String correo){
-        String q = "UPDATE Clientes SET DNI = '"+ndni+"', Nombre = '"+nombre+"', Apellidos = '"+apellidos+"', Direccion = '"+direccion
+        String q = "UPDATE Clientes SET NIF = '"+ndni+"', Nombre = '"+nombre+"', Apellidos = '"+apellidos+"', Direccion = '"+direccion
                 + "', Telefono = '"+telefono+"', Correo = '"+correo+"' WHERE DNI = '"+dni+"'";
         try {
             PreparedStatement pstm = this.getConexion().prepareStatement(q);
@@ -324,7 +324,7 @@ public class Modelo extends Database{
     }
     
     public void eliminarCliente(String dni){
-        String q = "DELETE FROM Clientes WHERE DNI = '"+dni+"'";
+        String q = "DELETE FROM Clientes WHERE NIF = '"+dni+"'";
         try {
             PreparedStatement pstm = this.getConexion().prepareStatement(q);
             pstm.execute();
@@ -767,7 +767,7 @@ public class Modelo extends Database{
         }
         Object[][] data = new String[registros][4];
         try{
-            String q = "SELECT CodigoArt, Nombre, PrecioC, Cantidad FROM ArtPedidos WHERE CodigoPed = '"+pedido+"'";
+            String q = "SELECT CodigoArt, Nombre, Precio, Cantidad FROM ArtPedidos WHERE CodigoPed = '"+pedido+"'";
             PreparedStatement pstm = this.getConexion().prepareStatement(q);
             ResultSet res = pstm.executeQuery();
             int i=0;
@@ -845,7 +845,7 @@ public class Modelo extends Database{
         int registros = 0;
         String[] columNames = {"Código","Precio","Fecha"};
         try{
-            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT count(Codigo) as total FROM Presupuestos'");
+            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT count(Codigo) as total FROM Presupuestos");
             ResultSet res = pstm.executeQuery();
             res.next();
             registros = res.getInt("total");
@@ -856,7 +856,7 @@ public class Modelo extends Database{
         }
         Object[][] data = new String[registros][3];
         try{
-            String q = "SELECT Codigo, Precio, Fecha FROM Pedidos'";
+            String q = "SELECT Codigo, Precio, Fecha FROM Pedidos";
             PreparedStatement pstm = this.getConexion().prepareStatement(q);
             ResultSet res = pstm.executeQuery();
             int i=0;
@@ -964,6 +964,43 @@ public class Modelo extends Database{
         }
     }
     
+    //MÉTODOS DE PRESUPUESTOS DE CLIENTES
+    
+    public DefaultTableModel tablaPresupuestosClientes(String cliente){
+        DefaultTableModel tablemodel = new ModeloTablaNoEditable();
+        int registros = 0;
+        String[] columNames = {"Código","Precio","Fecha"};
+        try{
+            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT count(Codigo) as total FROM Presupuestos WHERE NIF = '"+cliente+"'");
+            ResultSet res = pstm.executeQuery();
+            res.next();
+            registros = res.getInt("total");
+            res.close();
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "Error al contar tuplas\n\n" + e.getMessage());
+            e.printStackTrace();
+        }
+        Object[][] data = new String[registros][3];
+        try{
+            String q = "SELECT Codigo, Precio, Fecha FROM Presupuestos WHERE NIF = '"+cliente+"'";
+            PreparedStatement pstm = this.getConexion().prepareStatement(q);
+            ResultSet res = pstm.executeQuery();
+            int i=0;
+            while(res.next()){
+                data[i][0] = res.getString("Codigo");
+                data[i][1] = res.getDouble("Precio");
+                data[i][2] = res.getString("Fecha");
+            i++;
+            }
+            res.close();
+            tablemodel.setDataVector(data, columNames);
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "Error al obtener datos\n\n" + e.getMessage());
+            e.printStackTrace();
+        }
+        return tablemodel;
+    }
+    
     //MÉTODOS DE ARTÍCULOS DE PRESUPUESTOS
     
     public DefaultTableModel tablaArticulosPresupuestos(String presupuesto){
@@ -982,7 +1019,7 @@ public class Modelo extends Database{
         }
         Object[][] data = new String[registros][4];
         try{
-            String q = "SELECT CodigoArt, Nombre, PrecioC, Cantidad FROM ArtPresupuestos WHERE CodigoPre = '"+presupuesto+"'";
+            String q = "SELECT CodigoArt, Nombre, Precio, Cantidad FROM ArtPresupuestos WHERE CodigoPre = '"+presupuesto+"'";
             PreparedStatement pstm = this.getConexion().prepareStatement(q);
             ResultSet res = pstm.executeQuery();
             int i=0;

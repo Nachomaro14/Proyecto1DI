@@ -112,19 +112,19 @@ public class Controlador implements ActionListener, MouseListener {
             vista.comboClientesAgrPresupuesto.setModel(new DefaultComboBoxModel(modelo.getClientes()));
 
             //INICIALIZAMOS LAS TABLAS VACÍAS CON SUS RESPECTIVOS MODELOS
-            vista.tablaArticulos.setModel(modelo.tablaArticulosVacia());
-            vista.tablaPedidos.setModel(modelo.tablaPedidosVacia());
-            vista.tablaPresupuesto.setModel(modelo.tablaPresupuestosVacia());
-            vista.tablaClientes.setModel(modelo.tablaClientesVacia());
-            vista.tablaProveedores.setModel(modelo.tablaProveedoresVacia());
-            vista.tablaPedidosClientes.setModel(modelo.tablaPedidosVacia());
-            vista.tablaProveedoresArticulos.setModel(modelo.tablaArticulosProveedoresVacia());
-            vista.tablaPresuArtPresu.setModel(modelo.tablaArticulosPresupuestosVacia());
-            vista.tablaPedidosArtPed.setModel(modelo.tablaArticulosPedidosVacia());
-            vista.tablaAgregarPresuArt.setModel(modelo.tablaArticulosVacia());
-            vista.tablaAgregarPresuArtPre.setModel(modelo.tablaArticulosVacia());
-            vista.tablaAgregarPedArt.setModel(modelo.tablaArticulosVacia());
-            vista.tablaAgregarPedArtPed.setModel(modelo.tablaArticulosVacia());
+            vista.tablaArticulos.setModel(modelo.tablaArticulos());
+            vista.tablaPedidos.setModel(modelo.tablaPedidos());
+            vista.tablaPresupuesto.setModel(modelo.tablaPresupuestos());
+            vista.tablaClientes.setModel(modelo.tablaClientes());
+            vista.tablaProveedores.setModel(modelo.tablaProveedores());
+            vista.tablaPedidosClientes.setModel(modelo.tablaPedidos());
+            vista.tablaProveedoresArticulos.setModel(modelo.tablaArticulosProveedores(""));
+            vista.tablaPresuArtPresu.setModel(modelo.tablaArticulosPresupuestos(""));
+            vista.tablaPedidosArtPed.setModel(modelo.tablaArticulosPedidos(""));
+            vista.tablaAgregarPresuArt.setModel(modelo.tablaArticulos());
+            vista.tablaAgregarPresuArtPre.setModel(modelo.tablaArticulos());
+            vista.tablaAgregarPedArt.setModel(modelo.tablaArticulos());
+            vista.tablaAgregarPedArtPed.setModel(modelo.tablaArticulos());
 
         } catch (UnsupportedLookAndFeelException | ClassNotFoundException | InstantiationException | IllegalAccessException ex) {
         }
@@ -199,6 +199,67 @@ public class Controlador implements ActionListener, MouseListener {
         this.vista.btnAgregarPedCrear.addActionListener(this);
         this.vista.btnAgregarPedCancelar.setActionCommand("btnAgregarPedCancelar");
         this.vista.btnAgregarPedCancelar.addActionListener(this);
+        
+        //LES ASIGNAMOS LOS MOUSELISTENER A LAS TABLAS
+        this.vista.tablaClientes.addMouseListener(this);
+        this.vista.tablaClientes.getTableHeader().setReorderingAllowed(false);
+        this.vista.tablaClientes.getTableHeader().setResizingAllowed(false);
+        
+        this.vista.tablaAgregarPedArt.addMouseListener(this);
+        this.vista.tablaAgregarPedArt.getTableHeader().setReorderingAllowed(false);
+        this.vista.tablaAgregarPedArt.getTableHeader().setResizingAllowed(false);
+        
+        this.vista.tablaAgregarPedArtPed.addMouseListener(this);
+        this.vista.tablaAgregarPedArtPed.getTableHeader().setReorderingAllowed(false);
+        this.vista.tablaAgregarPedArtPed.getTableHeader().setResizingAllowed(false);
+        
+        this.vista.tablaAgregarPresuArt.addMouseListener(this);
+        this.vista.tablaAgregarPresuArt.getTableHeader().setReorderingAllowed(false);
+        this.vista.tablaAgregarPresuArt.getTableHeader().setResizingAllowed(false);
+        
+        this.vista.tablaAgregarPresuArtPre.addMouseListener(this);
+        this.vista.tablaAgregarPresuArtPre.getTableHeader().setReorderingAllowed(false);
+        this.vista.tablaAgregarPresuArtPre.getTableHeader().setResizingAllowed(false);
+        
+        this.vista.tablaArticulos.addMouseListener(this);
+        this.vista.tablaArticulos.getTableHeader().setReorderingAllowed(false);
+        this.vista.tablaArticulos.getTableHeader().setResizingAllowed(false);
+        
+        this.vista.tablaArticulosFac.addMouseListener(this);
+        this.vista.tablaArticulosFac.getTableHeader().setReorderingAllowed(false);
+        this.vista.tablaArticulosFac.getTableHeader().setResizingAllowed(false);
+        
+        this.vista.tablaArticulosProf.addMouseListener(this);
+        this.vista.tablaArticulosProf.getTableHeader().setReorderingAllowed(false);
+        this.vista.tablaArticulosProf.getTableHeader().setResizingAllowed(false);
+        
+        this.vista.tablaPedidos.addMouseListener(this);
+        this.vista.tablaPedidos.getTableHeader().setReorderingAllowed(false);
+        this.vista.tablaPedidos.getTableHeader().setResizingAllowed(false);
+        
+        this.vista.tablaPedidosArtPed.addMouseListener(this);
+        this.vista.tablaPedidosArtPed.getTableHeader().setReorderingAllowed(false);
+        this.vista.tablaPedidosArtPed.getTableHeader().setResizingAllowed(false);
+        
+        this.vista.tablaPedidosClientes.addMouseListener(this);
+        this.vista.tablaPedidosClientes.getTableHeader().setReorderingAllowed(false);
+        this.vista.tablaPedidosClientes.getTableHeader().setResizingAllowed(false);
+        
+        this.vista.tablaPresuArtPresu.addMouseListener(this);
+        this.vista.tablaPresuArtPresu.getTableHeader().setReorderingAllowed(false);
+        this.vista.tablaPresuArtPresu.getTableHeader().setResizingAllowed(false);
+        
+        this.vista.tablaPresupuesto.addMouseListener(this);
+        this.vista.tablaPresupuesto.getTableHeader().setReorderingAllowed(false);
+        this.vista.tablaPresupuesto.getTableHeader().setResizingAllowed(false);
+        
+        this.vista.tablaProveedores.addMouseListener(this);
+        this.vista.tablaProveedores.getTableHeader().setReorderingAllowed(false);
+        this.vista.tablaProveedores.getTableHeader().setResizingAllowed(false);
+        
+        this.vista.tablaProveedoresArticulos.addMouseListener(this);
+        this.vista.tablaProveedoresArticulos.getTableHeader().setReorderingAllowed(false);
+        this.vista.tablaProveedoresArticulos.getTableHeader().setResizingAllowed(false);
     }
 
     //DEFINIMOS LAS ACCIONES QUE SE REALIZARÁN AL PULSAR LOS BOTONES DE LA INTERFAZ
@@ -274,6 +335,7 @@ public class Controlador implements ActionListener, MouseListener {
                         modelo.crearCliente(nnifC, nombreC, apellidosC, direccionC, telefonoC, correoC);
                     }
                 }
+                vista.tablaClientes.setModel(modelo.tablaClientes());
                 break;
             case btnClientesModificar:
                 String nifCM = vista.txtClientesNif.getText();
@@ -289,6 +351,7 @@ public class Controlador implements ActionListener, MouseListener {
                 } else {
                     modelo.modificarCliente(nifCM, nnifCM, nombreCM, apellidosCM, direccionCM, telefonoCM, correoCM);
                 }
+                vista.tablaClientes.setModel(modelo.tablaClientes());
                 break;
             case btnClientesBorrar:
                 String nifCE = vista.txtClientesNif.getText();
@@ -297,6 +360,7 @@ public class Controlador implements ActionListener, MouseListener {
                 } else {
                     modelo.eliminarCliente(nifCE);
                 }
+                vista.tablaClientes.setModel(modelo.tablaClientes());
                 break;
 
             case btnArticulosAgregar:
@@ -319,6 +383,7 @@ public class Controlador implements ActionListener, MouseListener {
                         modelo.crearArticulo(ncodigoA, proveedorA, nombreA, descripcionA, PCPA, PVPA);
                     }
                 }
+                vista.tablaArticulos.setModel(modelo.tablaArticulos());
                 break;
             case btnArticulosModificar:
                 String codigoAM = vista.txtCodigoCodigo.getText();
@@ -337,6 +402,7 @@ public class Controlador implements ActionListener, MouseListener {
                 } else {
                     modelo.modificarArticulo(codigoAM, ncodigoAM, proveedorAM, nombreAM, descripcionAM, PCPAM, PVPAM);
                 }
+                vista.tablaArticulos.setModel(modelo.tablaArticulos());
                 break;
             case btnArticulosEliminar:
                 String codigoAE = vista.txtCodigoCodigo.getText();
@@ -345,6 +411,7 @@ public class Controlador implements ActionListener, MouseListener {
                 } else {
                     modelo.eliminarArticulo(codigoAE);
                 }
+                vista.tablaArticulos.setModel(modelo.tablaArticulos());
                 break;
 
             case btnProveedoresAgregar:
@@ -362,6 +429,7 @@ public class Controlador implements ActionListener, MouseListener {
                         modelo.crearProveedor(ncifP, nombreP, direccionP, telefonoP, correoP);
                     }
                 }
+                vista.tablaProveedores.setModel(modelo.tablaProveedores());
                 break;
             case btnProveedoresModificar:
                 String cifPM = vista.txtProveedoresCif.getText();
@@ -378,6 +446,7 @@ public class Controlador implements ActionListener, MouseListener {
                 } else {
                     modelo.modificarProveedor(cifPM, ncifPM, nombrePM, direccionPM, telefonoPM, correoPM);
                 }
+                vista.tablaProveedores.setModel(modelo.tablaProveedores());
                 break;
             case btnProveedoresBorrar:
                 String cifPE = vista.txtProveedoresCif.getText();
@@ -386,6 +455,7 @@ public class Controlador implements ActionListener, MouseListener {
                 } else {
                     modelo.eliminarProveedor(cifPE);
                 }
+                vista.tablaProveedores.setModel(modelo.tablaProveedores());
                 break;
             /**
              * ********VISTA PRESUPUESTO*********
@@ -488,17 +558,24 @@ public class Controlador implements ActionListener, MouseListener {
         if (cliente > - 1) {
             try{
                 String nif = String.valueOf(vista.tablaClientes.getValueAt(cliente, 0));
-                String nombre = String.valueOf(vista.tablaClientes.getValueAt(proveedor, 1));
+                String nombre = String.valueOf(vista.tablaClientes.getValueAt( cliente, 1));
                 String apellidos = String.valueOf(vista.tablaClientes.getValueAt(cliente, 2));
-                String direccion = String.valueOf(vista.tablaClientes.getValueAt(proveedor, 3));
-                String telefono = String.valueOf(vista.tablaClientes.getValueAt(proveedor, 4));
-                String correo = String.valueOf(vista.tablaClientes.getValueAt(proveedor, 5));
+                String direccion = String.valueOf(vista.tablaClientes.getValueAt( cliente, 3));
+                String telefono = String.valueOf(vista.tablaClientes.getValueAt( cliente, 4));
+                String correo = String.valueOf(vista.tablaClientes.getValueAt( cliente, 5));
                 vista.txtClientesNif.setText(nif);
                 vista.txtClientesNombre.setText(nombre);
                 vista.txtClientesApellidos.setText(apellidos);
                 vista.txtClientesDireccion.setText(direccion);
                 vista.txtClientesTelefono.setText(telefono);
                 vista.txtClientesCorreo.setText(correo);
+                
+                if(vista.comboPresupuestosOPedidos.getSelectedItem().toString().equals("Presupuestos")){
+                    vista.tablaPedidosClientes.setModel(modelo.tablaPresupuestosClientes(nif));
+                }else{
+                    vista.tablaPedidosClientes.setModel(modelo.tablaPedidosClientes(nif));
+                }
+                
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(null, "Error al obtener los datos de la tupla de la tabla.\n\n"+ex.getMessage());
                 ex.printStackTrace();
@@ -508,22 +585,18 @@ public class Controlador implements ActionListener, MouseListener {
 
     @Override
     public void mousePressed(MouseEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public void mouseReleased(MouseEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public void mouseEntered(MouseEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public void mouseExited(MouseEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public static void SCifras(JTextField a) {
