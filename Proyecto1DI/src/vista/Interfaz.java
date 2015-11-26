@@ -406,7 +406,7 @@ public class Interfaz extends javax.swing.JFrame {
 
         jPanel12.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        btnAgregarPresuCrear.setText("Crear presupuesto");
+        btnAgregarPresuCrear.setText("Finalizar presupuesto");
 
         btnAgregarPresuCancelar.setText("Cancelar");
 
@@ -417,13 +417,11 @@ public class Interfaz extends javax.swing.JFrame {
         jPanel12Layout.setHorizontalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel12Layout.createSequentialGroup()
-                .addGap(190, 190, 190)
-                .addComponent(btnAgregarPresuCrear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(42, 42, 42)
-                .addComponent(btnAgregarPresuCancelar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(47, 47, 47)
                 .addComponent(btnAgregarPresuCrearAux)
-                .addGap(155, 155, 155))
+                .addGap(208, 208, 208)
+                .addComponent(btnAgregarPresuCrear, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE)
+                .addGap(226, 226, 226)
+                .addComponent(btnAgregarPresuCancelar, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE))
         );
         jPanel12Layout.setVerticalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -558,7 +556,7 @@ public class Interfaz extends javax.swing.JFrame {
 
         jPanel15.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        btnAgregarPedCrear.setText("Crear pedido");
+        btnAgregarPedCrear.setText("Finalizar pedido");
 
         btnAgregarPedCancelar.setText("Cancelar");
 
@@ -569,13 +567,11 @@ public class Interfaz extends javax.swing.JFrame {
         jPanel15Layout.setHorizontalGroup(
             jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel15Layout.createSequentialGroup()
-                .addGap(190, 190, 190)
-                .addComponent(btnAgregarPedCrear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(42, 42, 42)
-                .addComponent(btnAgregarPedCancelar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(45, 45, 45)
                 .addComponent(btmAgregarPedCrearAux)
-                .addGap(157, 157, 157))
+                .addGap(224, 224, 224)
+                .addComponent(btnAgregarPedCrear, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE)
+                .addGap(210, 210, 210)
+                .addComponent(btnAgregarPedCancelar, javax.swing.GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE))
         );
         jPanel15Layout.setVerticalGroup(
             jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
