@@ -115,7 +115,7 @@ public class Controlador implements ActionListener, MouseListener {
             //INICIALIZAMOS LAS TABLAS VACÍAS CON SUS RESPECTIVOS MODELOS
             vista.tablaArticulos.setModel(modelo.tablaArticulos());
             vista.tablaPedidos.setModel(modelo.tablaPedidosClientes(vista.comboClientesPedidos.getSelectedItem().toString()));
-            vista.tablaPresupuesto.setModel(modelo.tablaPresupuestosClientes(vista.comboClientesPresupuestos.getSelectedItem().toString()));
+            vista.tablaPresupuestos.setModel(modelo.tablaPresupuestosClientes(vista.comboClientesPresupuestos.getSelectedItem().toString()));
             vista.tablaClientes.setModel(modelo.tablaClientes());
             vista.tablaProveedores.setModel(modelo.tablaProveedores());
             vista.tablaPedidosClientes.setModel(modelo.tablaPresupuestosClientes(""));
@@ -123,9 +123,9 @@ public class Controlador implements ActionListener, MouseListener {
             vista.tablaPresuArtPresu.setModel(modelo.tablaArticulosPresupuestos(""));
             vista.tablaPedidosArtPed.setModel(modelo.tablaArticulosPedidos(""));
             vista.tablaAgregarPresuArt.setModel(modelo.tablaArticulos());
-            vista.tablaAgregarPresuArtPre.setModel(modelo.tablaArticulos());
+            vista.tablaAgregarPresuArtPre.setModel(modelo.tablaArticulosPresupuestosVacia());
             vista.tablaAgregarPedArt.setModel(modelo.tablaArticulos());
-            vista.tablaAgregarPedArtPed.setModel(modelo.tablaArticulos());
+            vista.tablaAgregarPedArtPed.setModel(modelo.tablaArticulosPedidosVacia());
             
             //AÑADIMOS ALGUNOS DETALLES
             String codigo = vista.comboProveedores.getSelectedItem().toString();
@@ -259,9 +259,9 @@ public class Controlador implements ActionListener, MouseListener {
         this.vista.tablaPresuArtPresu.getTableHeader().setReorderingAllowed(false);
         this.vista.tablaPresuArtPresu.getTableHeader().setResizingAllowed(false);
 
-        this.vista.tablaPresupuesto.addMouseListener(this);
-        this.vista.tablaPresupuesto.getTableHeader().setReorderingAllowed(false);
-        this.vista.tablaPresupuesto.getTableHeader().setResizingAllowed(false);
+        this.vista.tablaPresupuestos.addMouseListener(this);
+        this.vista.tablaPresupuestos.getTableHeader().setReorderingAllowed(false);
+        this.vista.tablaPresupuestos.getTableHeader().setResizingAllowed(false);
 
         this.vista.tablaProveedores.addMouseListener(this);
         this.vista.tablaProveedores.getTableHeader().setReorderingAllowed(false);
@@ -659,7 +659,26 @@ public class Controlador implements ActionListener, MouseListener {
                 ex.printStackTrace();
             }
         }
-
+        int presupuesto = vista.tablaPresupuestos.rowAtPoint(e.getPoint());
+        if (presupuesto > - 1) {
+            try{
+                String codigo = String.valueOf(vista.tablaPresupuestos.getValueAt(presupuesto, 0));
+                vista.tablaPresuArtPresu.setModel(modelo.tablaArticulosPresupuestos(codigo));
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(null, "Error al obtener los datos de la tupla de la tabla.\n\n" + ex.getMessage());
+                ex.printStackTrace();
+            }
+        }
+        int pedido = vista.tablaPedidos.rowAtPoint(e.getPoint());
+        if (pedido > - 1) {
+            try{
+                String codigo = String.valueOf(vista.tablaPedidos.getValueAt(pedido, 0));
+                vista.tablaPedidosArtPed.setModel(modelo.tablaArticulosPedidos(codigo));
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(null, "Error al obtener los datos de la tupla de la tabla.\n\n" + ex.getMessage());
+                ex.printStackTrace();
+            }
+        }
     }
 
     @Override

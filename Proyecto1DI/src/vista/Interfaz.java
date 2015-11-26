@@ -252,7 +252,7 @@ public class Interfaz extends javax.swing.JFrame {
         btnPresuCrearPed = new javax.swing.JButton();
         jPanel9 = new javax.swing.JPanel();
         jScrollPane8 = new javax.swing.JScrollPane();
-        tablaPresupuesto = new javax.swing.JTable();
+        tablaPresupuestos = new javax.swing.JTable();
         jScrollPane7 = new javax.swing.JScrollPane();
         tablaPresuArtPresu = new javax.swing.JTable();
         pedidos = new javax.swing.JPanel();
@@ -1586,7 +1586,7 @@ public class Interfaz extends javax.swing.JFrame {
         jPanel9.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel9.setLayout(new javax.swing.BoxLayout(jPanel9, javax.swing.BoxLayout.Y_AXIS));
 
-        tablaPresupuesto.setModel(new javax.swing.table.DefaultTableModel(
+        tablaPresupuestos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -1597,7 +1597,7 @@ public class Interfaz extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane8.setViewportView(tablaPresupuesto);
+        jScrollPane8.setViewportView(tablaPresupuestos);
 
         jPanel9.add(jScrollPane8);
 
@@ -2008,7 +2008,7 @@ public class Interfaz extends javax.swing.JFrame {
     public javax.swing.JTable tablaPedidosArtPed;
     public javax.swing.JTable tablaPedidosClientes;
     public javax.swing.JTable tablaPresuArtPresu;
-    public javax.swing.JTable tablaPresupuesto;
+    public javax.swing.JTable tablaPresupuestos;
     public javax.swing.JTable tablaProveedores;
     public javax.swing.JTable tablaProveedoresArticulos;
     public javax.swing.JTextField txtAgregarPedCantidad;
