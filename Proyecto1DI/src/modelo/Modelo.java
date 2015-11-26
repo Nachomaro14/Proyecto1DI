@@ -815,6 +815,43 @@ public class Modelo extends Database {
         }
         return data;
     }
+    
+    public void nuevoArticuloPedido(String codigoArt, String codigoPed, double precio, String nombre, int cantidad){
+        String q = "INSERT INTO ArtPresupuestos (CodigoArt, CodigoPed, Precio, Nombre, Cantidad) "
+                + "VALUES('" + codigoArt + "','" + codigoPed + "'," + precio + ", '"+nombre+"', "+cantidad+")";
+        try {
+            PreparedStatement pstm = this.getConexion().prepareStatement(q);
+            pstm.execute();
+            pstm.close();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error al introducir nuevo artículo del presupuesto\n\n" + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+    
+    public void eliminarTodosArticulosPedido(String codigoPed){
+        String q = "DELETE FROM ArtPedidos WHERE CodigoPed = '"+codigoPed+"'";
+        try{
+           PreparedStatement pstm = this.getConexion().prepareStatement(q);
+            pstm.execute();
+            pstm.close();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error al eliminar los artículos del pedido\n\n" + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+    
+    public void eliminarArticuloPedido(String codigoPed, String codigoArt){
+        String q = "DELETE FROM ArtPedidos WHERE CodigoPed = '"+codigoPed+"' AND CodigoArt = '"+codigoArt+"'";
+        try{
+           PreparedStatement pstm = this.getConexion().prepareStatement(q);
+            pstm.execute();
+            pstm.close();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error al eliminar los artículos del pedido\n\n" + e.getMessage());
+            e.printStackTrace();
+        }
+    }
 
     //MÉTODOS DE PEDIDOS DE CLIENTES
     public DefaultTableModel tablaPedidosClientes(String cliente) {
@@ -952,9 +989,9 @@ public class Modelo extends Database {
         return resu;
     }
 
-    public void crearPresupuesto(String codigo, String fecha, String precio, String cliente) {
-        String q = "INSERT INTO Presupuestos (Codigo, Fecha, Precio) "
-                + "VALUES('" + codigo + "','" + fecha + "'," + precio + ")";
+    public void crearPresupuesto(String fecha, double precio, String cliente) {
+        String q = "INSERT INTO Presupuestos (NIF, Fecha, Precio) "
+                + "VALUES('"+cliente+"', '" + fecha + "', " + precio + ")";
         try {
             PreparedStatement pstm = this.getConexion().prepareStatement(q);
             pstm.execute();
@@ -975,6 +1012,23 @@ public class Modelo extends Database {
             JOptionPane.showMessageDialog(null, "Error al eliminar el artículo\n\n" + e.getMessage());
             e.printStackTrace();
         }
+    }
+    
+    public String obtenerUltimoPresupuesto(){
+        String codigo = "";
+        String q = "SELECT Codigo FROM Presupuestos ORDER BY Codigo DESC LIMIT 1";
+        try {
+            PreparedStatement pstm = this.getConexion().prepareStatement(q);
+            ResultSet res = pstm.executeQuery();
+            while (res.next()) {
+                codigo = res.getString("Codigo");
+            }
+            res.close();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error al obtener datos\n\n" + e.getMessage());
+            e.printStackTrace();
+        }
+        return codigo;
     }
 
     //MÉTODOS DE PRESUPUESTOS DE CLIENTES
@@ -1072,7 +1126,7 @@ public class Modelo extends Database {
             ResultSet res = pstm.executeQuery();
             int i = 0;
             while (res.next()) {
-                data[0] = res.getString("CodigoArt");
+                data[0] = res.getString("Codigo");
                 data[1] = res.getString("Nombre");
                 data[2] = res.getDouble("PrecioC");
                 i++;
@@ -1085,7 +1139,60 @@ public class Modelo extends Database {
         return data;
     }
     
-    public void nuevoArticuloPresupuesto(String codigo){
-        
+    public void nuevoArticuloPresupuesto(String codigoArt, String codigoPre, double precio, String nombre, int cantidad){
+        String q = "INSERT INTO ArtPresupuestos (CodigoArt, CodigoPre, Precio, Nombre, Cantidad) "
+                + "VALUES('" + codigoArt + "','" + codigoPre + "'," + precio + ", '"+nombre+"', "+cantidad+")";
+        try {
+            PreparedStatement pstm = this.getConexion().prepareStatement(q);
+            pstm.execute();
+            pstm.close();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error al introducir nuevo artículo del presupuesto\n\n" + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+    
+    public void eliminarTodosArticulosPresupuesto(String codigoPre){
+        String q = "DELETE FROM ArtPresupuestos WHERE CodigoPre = '"+codigoPre+"'";
+        try{
+           PreparedStatement pstm = this.getConexion().prepareStatement(q);
+            pstm.execute();
+            pstm.close();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error al eliminar los artículos del presupuesto\n\n" + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+    
+    public void eliminarArticuloPresupuesto(String codigoPre, String codigoArt){
+        String q = "DELETE FROM ArtPresupuestos WHERE CodigoPre = '"+codigoPre+"' AND CodigoArt = '"+codigoArt+"'";
+        try{
+           PreparedStatement pstm = this.getConexion().prepareStatement(q);
+            pstm.execute();
+            pstm.close();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error al eliminar los artículos del presupuesto\n\n" + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+    
+    public boolean comprobarExistenciaArticulosDePresupuesto(String presupuesto){
+        String q = "SELECT CodigoPre FROM ArtPresupuestos WHERE CodigoPre = '" + presupuesto + "'";
+        boolean resu = false;
+        try {
+            PreparedStatement pstm = this.getConexion().prepareStatement(q);
+            ResultSet res = pstm.executeQuery();
+            res.next();
+            if (res.getRow() == 0) {
+                resu = false;
+            } else {
+                resu = true;
+            }
+            res.close();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error al comprobar existencia\n\n" + e.getMessage());
+            e.printStackTrace();
+        }
+        return resu;
     }
 }

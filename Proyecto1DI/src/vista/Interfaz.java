@@ -42,10 +42,12 @@ public class Interfaz extends javax.swing.JFrame {
         tablaAgregarPresuArtPre = new javax.swing.JTable();
         jPanel11 = new javax.swing.JPanel();
         btnAgregarPresuQuitarArt = new javax.swing.JButton();
+        labelCodigoArtPresuSeleccionado = new javax.swing.JLabel();
         jPanel12 = new javax.swing.JPanel();
         btnAgregarPresuCrear = new javax.swing.JButton();
         btnAgregarPresuCancelar = new javax.swing.JButton();
         btnAgregarPresuCrearAux = new javax.swing.JButton();
+        labelCodigoPresupuestoAux = new javax.swing.JLabel();
         dialogAgregarPedido = new javax.swing.JDialog();
         jPanel20 = new javax.swing.JPanel();
         comboClientesAgrPedido = new javax.swing.JComboBox<String>();
@@ -257,7 +259,6 @@ public class Interfaz extends javax.swing.JFrame {
         jPanel9 = new javax.swing.JPanel();
         jScrollPane8 = new javax.swing.JScrollPane();
         tablaPresupuestos = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
         jScrollPane7 = new javax.swing.JScrollPane();
         tablaPresuArtPresu = new javax.swing.JTable();
         pedidos = new javax.swing.JPanel();
@@ -385,7 +386,10 @@ public class Interfaz extends javax.swing.JFrame {
         jPanel11.setLayout(jPanel11Layout);
         jPanel11Layout.setHorizontalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 896, Short.MAX_VALUE)
+            .addGroup(jPanel11Layout.createSequentialGroup()
+                .addGap(258, 258, 258)
+                .addComponent(labelCodigoArtPresuSeleccionado, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(506, Short.MAX_VALUE))
             .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel11Layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -394,7 +398,7 @@ public class Interfaz extends javax.swing.JFrame {
         );
         jPanel11Layout.setVerticalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 23, Short.MAX_VALUE)
+            .addComponent(labelCodigoArtPresuSeleccionado, javax.swing.GroupLayout.DEFAULT_SIZE, 23, Short.MAX_VALUE)
             .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel11Layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -418,7 +422,9 @@ public class Interfaz extends javax.swing.JFrame {
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel12Layout.createSequentialGroup()
                 .addComponent(btnAgregarPresuCrearAux)
-                .addGap(208, 208, 208)
+                .addGap(18, 18, 18)
+                .addComponent(labelCodigoPresupuestoAux, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(btnAgregarPresuCrear, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE)
                 .addGap(226, 226, 226)
                 .addComponent(btnAgregarPresuCancelar, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE))
@@ -426,11 +432,12 @@ public class Interfaz extends javax.swing.JFrame {
         jPanel12Layout.setVerticalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel12Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addGap(0, 0, 0)
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(btnAgregarPresuCrear)
                     .addComponent(btnAgregarPresuCancelar)
-                    .addComponent(btnAgregarPresuCrearAux)))
+                    .addComponent(btnAgregarPresuCrearAux)
+                    .addComponent(labelCodigoPresupuestoAux, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
         dialogAgregarPresupuesto.getContentPane().add(jPanel12);
@@ -1590,7 +1597,7 @@ public class Interfaz extends javax.swing.JFrame {
         jPanel8.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel8.setLayout(new java.awt.GridLayout(1, 0));
 
-        btnPresuCrearPed.setText("Finalizar");
+        btnPresuCrearPed.setText("Nuevo Presupuesto");
         jPanel8.add(btnPresuCrearPed);
 
         btnPresuBorrar.setText("Borrar");
@@ -1618,9 +1625,6 @@ public class Interfaz extends javax.swing.JFrame {
         jScrollPane8.setViewportView(tablaPresupuestos);
 
         jPanel9.add(jScrollPane8);
-
-        jButton1.setText("Crear presupuesto");
-        jPanel9.add(jButton1);
 
         tablaPresuArtPresu.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1892,7 +1896,6 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.Box.Filler filler8;
     private javax.swing.Box.Filler filler9;
     public javax.swing.JPanel inicio;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel0;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -2005,8 +2008,10 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JSplitPane jSplitPane2;
     public javax.swing.JLabel labelCodArtPed;
     public javax.swing.JLabel labelCodArtPresu;
+    public javax.swing.JLabel labelCodigoArtPresuSeleccionado;
     public javax.swing.JLabel labelCodigoPedido;
     public javax.swing.JLabel labelCodigoPresupuesto;
+    public javax.swing.JLabel labelCodigoPresupuestoAux;
     public javax.swing.JLabel labelLogo;
     public javax.swing.JLabel labelNombreCliente;
     public javax.swing.JLabel labelNombreClientesPedidos;
