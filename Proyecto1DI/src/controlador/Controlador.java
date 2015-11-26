@@ -543,6 +543,10 @@ public class Controlador implements ActionListener, MouseListener {
             String nif = vista.comboClientesPresupuestos.getSelectedItem().toString();
             String nombreYApellidos = modelo.getNombreCliente(nif);
             vista.labelNombreCliente.setText(nombreYApellidos);
+        }else if(e.getSource() == vista.comboClientesPedidos){
+            String nif = vista.comboClientesPedidos.getSelectedItem().toString();
+            String nombreYApellidos = modelo.getNombreCliente(nif);
+            vista.labelNombreClientesPedidos.setText(nombreYApellidos);
         }
     }
 
