@@ -794,6 +794,27 @@ public class Modelo extends Database {
         }
         return tablemodel;
     }
+    
+    public Object[] infoArticuloPedido(String codigo){
+        Object[] data = new Object[3];
+        try {
+            String q = "SELECT Codigo, Nombre, PrecioC FROM Articulos WHERE Codigo = '" + codigo + "'";
+            PreparedStatement pstm = this.getConexion().prepareStatement(q);
+            ResultSet res = pstm.executeQuery();
+            int i = 0;
+            while (res.next()) {
+                data[0] = res.getString("CodigoArt");
+                data[1] = res.getString("Nombre");
+                data[2] = res.getDouble("PrecioC");
+                i++;
+            }
+            res.close();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error al obtener datos\n\n" + e.getMessage());
+            e.printStackTrace();
+        }
+        return data;
+    }
 
     //MÉTODOS DE PEDIDOS DE CLIENTES
     public DefaultTableModel tablaPedidosClientes(String cliente) {
@@ -1041,5 +1062,30 @@ public class Modelo extends Database {
             e.printStackTrace();
         }
         return tablemodel;
+    }
+    
+    public Object[] infoArticuloPresupuesto(String codigo){
+        Object[] data = new Object[3];
+        try {
+            String q = "SELECT Codigo, Nombre, PrecioC FROM Articulos WHERE Codigo = '" + codigo + "'";
+            PreparedStatement pstm = this.getConexion().prepareStatement(q);
+            ResultSet res = pstm.executeQuery();
+            int i = 0;
+            while (res.next()) {
+                data[0] = res.getString("CodigoArt");
+                data[1] = res.getString("Nombre");
+                data[2] = res.getDouble("PrecioC");
+                i++;
+            }
+            res.close();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error al obtener datos\n\n" + e.getMessage());
+            e.printStackTrace();
+        }
+        return data;
+    }
+    
+    public void nuevoArticuloPresupuesto(String codigo){
+        
     }
 }

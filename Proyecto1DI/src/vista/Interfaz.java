@@ -37,6 +37,7 @@ public class Interfaz extends javax.swing.JFrame {
         btnAgregarPresuArt = new javax.swing.JButton();
         jLabel15 = new javax.swing.JLabel();
         txtAgregarPresuCantidad = new javax.swing.JTextField();
+        labelCodArtPresu = new javax.swing.JLabel();
         jScrollPane10 = new javax.swing.JScrollPane();
         tablaAgregarPresuArtPre = new javax.swing.JTable();
         jPanel11 = new javax.swing.JPanel();
@@ -54,6 +55,7 @@ public class Interfaz extends javax.swing.JFrame {
         btnAgregarPedArt = new javax.swing.JButton();
         jLabel19 = new javax.swing.JLabel();
         txtAgregarPedCantidad = new javax.swing.JTextField();
+        labelCodArtPed = new javax.swing.JLabel();
         jScrollPane12 = new javax.swing.JScrollPane();
         tablaAgregarPedArtPed = new javax.swing.JTable();
         jPanel14 = new javax.swing.JPanel();
@@ -245,14 +247,15 @@ public class Interfaz extends javax.swing.JFrame {
         comboClientesPresupuestos = new javax.swing.JComboBox<String>();
         jLabel31 = new javax.swing.JLabel();
         labelNombreCliente = new javax.swing.JLabel();
+        labelCodigoPresupuesto = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
-        btnPresuAgregar = new javax.swing.JButton();
+        btnPresuCrearPed = new javax.swing.JButton();
         btnPresuBorrar = new javax.swing.JButton();
         btnPresuGenProf = new javax.swing.JButton();
-        btnPresuCrearPed = new javax.swing.JButton();
         jPanel9 = new javax.swing.JPanel();
         jScrollPane8 = new javax.swing.JScrollPane();
         tablaPresupuestos = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
         jScrollPane7 = new javax.swing.JScrollPane();
         tablaPresuArtPresu = new javax.swing.JTable();
         pedidos = new javax.swing.JPanel();
@@ -265,6 +268,7 @@ public class Interfaz extends javax.swing.JFrame {
         comboClientesPedidos = new javax.swing.JComboBox<String>();
         jLabel30 = new javax.swing.JLabel();
         labelNombreClientesPedidos = new javax.swing.JLabel();
+        labelCodigoPedido = new javax.swing.JLabel();
         jScrollPane13 = new javax.swing.JScrollPane();
         tablaPedidos = new javax.swing.JTable();
         jScrollPane14 = new javax.swing.JScrollPane();
@@ -335,13 +339,15 @@ public class Interfaz extends javax.swing.JFrame {
         jPanel10Layout.setHorizontalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel10Layout.createSequentialGroup()
-                .addGap(231, 231, 231)
-                .addComponent(btnAgregarPresuArt)
-                .addGap(40, 40, 40)
+                .addContainerGap(272, Short.MAX_VALUE)
+                .addComponent(labelCodArtPresu)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel15)
                 .addGap(18, 18, 18)
                 .addComponent(txtAgregarPresuCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(360, Short.MAX_VALUE))
+                .addGap(64, 64, 64)
+                .addComponent(btnAgregarPresuArt)
+                .addGap(277, 277, 277))
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -350,7 +356,8 @@ public class Interfaz extends javax.swing.JFrame {
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAgregarPresuArt)
                     .addComponent(jLabel15)
-                    .addComponent(txtAgregarPresuCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(txtAgregarPresuCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelCodArtPresu)))
         );
 
         dialogAgregarPresupuesto.getContentPane().add(jPanel10);
@@ -479,13 +486,15 @@ public class Interfaz extends javax.swing.JFrame {
         jPanel13Layout.setHorizontalGroup(
             jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel13Layout.createSequentialGroup()
-                .addGap(231, 231, 231)
-                .addComponent(btnAgregarPedArt)
-                .addGap(40, 40, 40)
+                .addGap(273, 273, 273)
+                .addComponent(labelCodArtPed)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel19)
                 .addGap(18, 18, 18)
                 .addComponent(txtAgregarPedCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(360, Short.MAX_VALUE))
+                .addGap(65, 65, 65)
+                .addComponent(btnAgregarPedArt)
+                .addContainerGap(275, Short.MAX_VALUE))
         );
         jPanel13Layout.setVerticalGroup(
             jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -494,7 +503,8 @@ public class Interfaz extends javax.swing.JFrame {
                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAgregarPedArt)
                     .addComponent(jLabel19)
-                    .addComponent(txtAgregarPedCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(txtAgregarPedCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelCodArtPed)))
         );
 
         dialogAgregarPedido.getContentPane().add(jPanel13);
@@ -1546,12 +1556,14 @@ public class Interfaz extends javax.swing.JFrame {
             jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel19Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addComponent(jLabel31, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
+                .addComponent(jLabel31, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(comboClientesPresupuestos, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(labelNombreCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(419, Short.MAX_VALUE))
+                .addGap(223, 223, 223)
+                .addComponent(labelCodigoPresupuesto, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel19Layout.setVerticalGroup(
             jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1560,8 +1572,9 @@ public class Interfaz extends javax.swing.JFrame {
                 .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(comboClientesPresupuestos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel31)
-                    .addComponent(labelNombreCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(19, 19, 19))
+                    .addComponent(labelNombreCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelCodigoPresupuesto, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(16, 16, 16))
         );
 
         presupuestos.add(jPanel19, java.awt.BorderLayout.PAGE_START);
@@ -1569,17 +1582,14 @@ public class Interfaz extends javax.swing.JFrame {
         jPanel8.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel8.setLayout(new java.awt.GridLayout(1, 0));
 
-        btnPresuAgregar.setText("Agregar");
-        jPanel8.add(btnPresuAgregar);
+        btnPresuCrearPed.setText("Finalizar");
+        jPanel8.add(btnPresuCrearPed);
 
         btnPresuBorrar.setText("Borrar");
         jPanel8.add(btnPresuBorrar);
 
         btnPresuGenProf.setText("Generar proforma");
         jPanel8.add(btnPresuGenProf);
-
-        btnPresuCrearPed.setText("Crear pedido");
-        jPanel8.add(btnPresuCrearPed);
 
         presupuestos.add(jPanel8, java.awt.BorderLayout.PAGE_END);
 
@@ -1600,6 +1610,9 @@ public class Interfaz extends javax.swing.JFrame {
         jScrollPane8.setViewportView(tablaPresupuestos);
 
         jPanel9.add(jScrollPane8);
+
+        jButton1.setText("Crear presupuesto");
+        jPanel9.add(jButton1);
 
         tablaPresuArtPresu.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1654,21 +1667,27 @@ public class Interfaz extends javax.swing.JFrame {
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel30, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
+                .addComponent(jLabel30, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(comboClientesPedidos, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(labelNombreClientesPedidos, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(548, 548, 548))
+                .addGap(380, 380, 380)
+                .addComponent(labelCodigoPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel30)
-                    .addComponent(comboClientesPedidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelNombreClientesPedidos, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(labelCodigoPedido, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel30)
+                            .addComponent(comboClientesPedidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelNombreClientesPedidos, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(20, 20, 20))
         );
 
@@ -1751,7 +1770,7 @@ public class Interfaz extends javax.swing.JFrame {
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(proveedores, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(presupuestos, javax.swing.GroupLayout.DEFAULT_SIZE, 987, Short.MAX_VALUE))
+                .addComponent(presupuestos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(pedidos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -1835,7 +1854,6 @@ public class Interfaz extends javax.swing.JFrame {
     public javax.swing.JButton btnPedidoAgregar;
     public javax.swing.JButton btnPedidoBorrar;
     public javax.swing.JButton btnPedidoGenFac;
-    public javax.swing.JButton btnPresuAgregar;
     public javax.swing.JButton btnPresuBorrar;
     public javax.swing.JButton btnPresuCrearPed;
     public javax.swing.JButton btnPresuGenProf;
@@ -1864,6 +1882,7 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.Box.Filler filler8;
     private javax.swing.Box.Filler filler9;
     public javax.swing.JPanel inicio;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel0;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -1974,6 +1993,10 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JSplitPane jSplitPane2;
+    public javax.swing.JLabel labelCodArtPed;
+    public javax.swing.JLabel labelCodArtPresu;
+    public javax.swing.JLabel labelCodigoPedido;
+    public javax.swing.JLabel labelCodigoPresupuesto;
     public javax.swing.JLabel labelLogo;
     public javax.swing.JLabel labelNombreCliente;
     public javax.swing.JLabel labelNombreClientesPedidos;

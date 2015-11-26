@@ -45,7 +45,6 @@ public class Controlador implements ActionListener, MouseListener {
         btnProveedoresAgregar,
         btnProveedoresModificar,
         btnProveedoresBorrar,
-        btnPresuAgregar,
         btnPresuBorrar,
         btnPresuGenProf,
         btnPresuCrearPed,
@@ -96,6 +95,7 @@ public class Controlador implements ActionListener, MouseListener {
             SCifras(vista.txtPVPArt);
             SCifras(vista.txtProveedoresTelefono);
             SCifras(vista.txtAgregarPresuCantidad);
+            SCifras(vista.txtAgregarPedCantidad);
 
             //ESTABLECEMOS LA VISIBILIDAD DE LOS PANELES AL INICIAR
             vista.clientes.setVisible(false);
@@ -176,8 +176,6 @@ public class Controlador implements ActionListener, MouseListener {
         this.vista.btnProveedoresBorrar.setActionCommand("btnProveedoresBorrar");
         this.vista.btnProveedoresBorrar.addActionListener(this);
 
-        this.vista.btnPresuAgregar.setActionCommand("btnPresuAgregar");
-        this.vista.btnPresuAgregar.addActionListener(this);
         this.vista.btnPresuBorrar.setActionCommand("btnPresuBorrar");
         this.vista.btnPresuBorrar.addActionListener(this);
         this.vista.btnPresuGenProf.setActionCommand("btnPresuGenProf");
@@ -534,16 +532,18 @@ public class Controlador implements ActionListener, MouseListener {
             /**
              *** BOTONES VISTA PRESUPUESTO***
              */
-            case btnPresuAgregar:
-                vista.dialogAgregarPedido.pack();
-                vista.dialogAgregarPedido.setLocationRelativeTo(null);
-                vista.dialogAgregarPresupuesto.setVisible(true);
-                break;
             case btnPresuBorrar:
+                String codPreB = vista.labelCodigoPresupuesto.getText();
+                modelo.eliminarPresupuesto(codPreB);
+                vista.tablaPresupuestos.setModel(modelo.tablaPresupuestos());
+                vista.tablaPresuArtPresu.setModel(modelo.tablaArticulosPresupuestosVacia());
                 break;
             case btnPresuGenProf:
                 break;
             case btnPresuCrearPed:
+                vista.dialogAgregarPedido.pack();
+                vista.dialogAgregarPedido.setLocationRelativeTo(null);
+                vista.dialogAgregarPresupuesto.setVisible(true);
                 break;
             /**
              * ***BOTONES VISTA PEDIDOS****
@@ -554,6 +554,10 @@ public class Controlador implements ActionListener, MouseListener {
                 vista.dialogAgregarPedido.setVisible(true);
                 break;
             case btnPedidoBorrar:
+                String codPB = vista.labelCodigoPedido.getText();
+                modelo.eliminarPedido(codPB);
+                vista.tablaPedidos.setModel(modelo.tablaPedidos());
+                vista.tablaPedidosArtPed.setModel(modelo.tablaArticulosPedidosVacia());
                 break;
             case btnPedidoGenFac:
                 break;
@@ -561,6 +565,17 @@ public class Controlador implements ActionListener, MouseListener {
              * ***** JDIALOG PRESUPUESTOS***
              */
             case btnAgregarPresuArt:
+                String codigo = vista.labelCodArtPresu.getText();
+                int cantidad = Integer.parseInt(vista.txtAgregarPresuCantidad.getText());
+                if(!codigo.equals("")){
+                    if(cantidad >= 0){
+                        Object[] info = modelo.infoArticuloPresupuesto(codigo);
+                    }else{
+                        JOptionPane.showMessageDialog(null, "La cantidad debe ser positiva.");
+                    }
+                }else{
+                    JOptionPane.showMessageDialog(null, "Seleccione un artículo de la tabla.");
+                }
                 break;
             case btnAgregarPresuQuitarArt:
                 break;
@@ -568,6 +583,10 @@ public class Controlador implements ActionListener, MouseListener {
                 break;
             case btnAgregarPresuCancelar:
                 vista.dialogAgregarPresupuesto.dispose();
+                vista.tablaAgregarPresuArtPre.setModel(modelo.tablaArticulosPresupuestosVacia());
+                vista.txtAgregarPresuCantidad.setText("");
+                vista.comboClientesAgrPresupuesto.setSelectedIndex(0);
+                vista.labelCodArtPresu.setText("");
                 break;
             /**
              * ******************JDIALOG PEDIDOS****************
@@ -580,6 +599,10 @@ public class Controlador implements ActionListener, MouseListener {
                 break;
             case btnAgregarPedCancelar:
                 vista.dialogAgregarPedido.dispose();
+                vista.tablaAgregarPedArtPed.setModel(modelo.tablaArticulosPedidosVacia());
+                vista.txtAgregarPedCantidad.setText("");
+                vista.comboClientesAgrPedido.setSelectedIndex(0);
+                vista.labelCodArtPed.setText("");
                 break;
         }
     }
@@ -664,6 +687,7 @@ public class Controlador implements ActionListener, MouseListener {
             try{
                 String codigo = String.valueOf(vista.tablaPresupuestos.getValueAt(presupuesto, 0));
                 vista.tablaPresuArtPresu.setModel(modelo.tablaArticulosPresupuestos(codigo));
+                vista.labelCodigoPresupuesto.setText(codigo);
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(null, "Error al obtener los datos de la tupla de la tabla.\n\n" + ex.getMessage());
                 ex.printStackTrace();
@@ -674,6 +698,7 @@ public class Controlador implements ActionListener, MouseListener {
             try{
                 String codigo = String.valueOf(vista.tablaPedidos.getValueAt(pedido, 0));
                 vista.tablaPedidosArtPed.setModel(modelo.tablaArticulosPedidos(codigo));
+                vista.labelCodigoPedido.setText(codigo);
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(null, "Error al obtener los datos de la tupla de la tabla.\n\n" + ex.getMessage());
                 ex.printStackTrace();
