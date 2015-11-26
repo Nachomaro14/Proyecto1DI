@@ -4,6 +4,7 @@ import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
@@ -261,6 +262,39 @@ public class Controlador implements ActionListener, MouseListener {
         this.vista.tablaProveedoresArticulos.addMouseListener(this);
         this.vista.tablaProveedoresArticulos.getTableHeader().setReorderingAllowed(false);
         this.vista.tablaProveedoresArticulos.getTableHeader().setResizingAllowed(false);
+        
+        //ESTABLECEMOS LOS ITEMLISTENER PARA LOS COMBOBOX
+        this.vista.comboClientesAgrPedido.addItemListener( new ItemListener(){
+            public void itemStateChanged(ItemEvent e) {
+                String codigo = vista.comboProveedores.getSelectedItem().toString();
+                String nombre = modelo.getNombreProveedor(codigo);
+                vista.labelNombreProveedor.setText(nombre);
+            }
+        });
+        this.vista.comboPresupuestosOPedidos.addItemListener( new ItemListener(){
+            public void itemStateChanged(ItemEvent e) {
+                String nif = vista.txtClientesNif.getText();
+                if(vista.comboPresupuestosOPedidos.getSelectedItem().toString().equals("Presupuestos")){
+                    vista.tablaPedidosClientes.setModel(modelo.tablaPresupuestosClientes(nif));
+                }else{
+                    vista.tablaPedidosClientes.setModel(modelo.tablaPedidosClientes(nif));
+                }
+            }
+        });
+        this.vista.comboClientesPresupuestos.addItemListener( new ItemListener(){
+            public void itemStateChanged(ItemEvent e) {
+                String nif = vista.comboClientesPresupuestos.getSelectedItem().toString();
+                String nombreYApellidos = modelo.getNombreCliente(nif);
+                vista.labelNombreCliente.setText(nombreYApellidos);
+            }
+        });
+        this.vista.comboClientesPedidos.addItemListener( new ItemListener(){
+            public void itemStateChanged(ItemEvent e) {
+                String nif = vista.comboClientesPedidos.getSelectedItem().toString();
+                String nombreYApellidos = modelo.getNombreCliente(nif);
+                vista.labelNombreClientesPedidos.setText(nombreYApellidos);
+            }
+        });
     }
 
     //DEFINIMOS LAS ACCIONES QUE SE REALIZARÁN AL PULSAR LOS BOTONES DE LA INTERFAZ
@@ -524,29 +558,6 @@ public class Controlador implements ActionListener, MouseListener {
             case btnAgregarPedCancelar:
                 vista.dialogAgregarPedido.dispose();
                 break;
-        }
-    }
-    
-    public void itemStateChanged(ItemEvent e) {
-        if(e.getSource() == vista.comboProveedores) {
-            String codigo = vista.comboProveedores.getSelectedItem().toString();
-            String nombre = modelo.getNombreProveedor(codigo);
-            vista.labelNombreProveedor.setText(nombre);
-        }else if(e.getSource() == vista.comboPresupuestosOPedidos){
-            String nif = vista.txtClientesNif.getText();
-            if(vista.comboPresupuestosOPedidos.getSelectedItem().toString().equals("Presupuestos")){
-                vista.tablaPedidosClientes.setModel(modelo.tablaPresupuestosClientes(nif));
-            }else{
-                vista.tablaPedidosClientes.setModel(modelo.tablaPedidosClientes(nif));
-            }
-        }else if(e.getSource() == vista.comboClientesPresupuestos){
-            String nif = vista.comboClientesPresupuestos.getSelectedItem().toString();
-            String nombreYApellidos = modelo.getNombreCliente(nif);
-            vista.labelNombreCliente.setText(nombreYApellidos);
-        }else if(e.getSource() == vista.comboClientesPedidos){
-            String nif = vista.comboClientesPedidos.getSelectedItem().toString();
-            String nombreYApellidos = modelo.getNombreCliente(nif);
-            vista.labelNombreClientesPedidos.setText(nombreYApellidos);
         }
     }
 

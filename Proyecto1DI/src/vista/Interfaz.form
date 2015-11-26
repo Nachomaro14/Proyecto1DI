@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <NonVisualComponents>
     <Container class="javax.swing.JDialog" name="dialogAgregarPresupuesto">
       <AuxValues>
@@ -1487,7 +1487,7 @@
               <Component id="clientes" alignment="0" max="32767" attributes="0"/>
           </Group>
           <Group type="103" rootIndex="2" groupAlignment="0" attributes="0">
-              <Component id="articulos" alignment="0" pref="948" max="32767" attributes="0"/>
+              <Component id="articulos" alignment="0" max="32767" attributes="0"/>
           </Group>
           <Group type="103" rootIndex="3" groupAlignment="0" attributes="0">
               <Component id="proveedores" alignment="1" max="32767" attributes="0"/>
