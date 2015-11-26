@@ -462,7 +462,46 @@ public class Controlador implements ActionListener, MouseListener {
                 vista.txtPVPArt.setText(precioC);
                 vista.txtDescripcionArt.setText(descripcion);
             } catch (Exception ex) {
-
+                JOptionPane.showMessageDialog(null, "Error al obtener los datos de la tupla de la tabla.\n\n"+ex.getMessage());
+                ex.printStackTrace();
+            }
+        }
+        int proveedor = vista.tablaProveedores.rowAtPoint(e.getPoint());
+        if (proveedor > -1) {
+            try {
+                String cif = String.valueOf(vista.tablaProveedores.getValueAt(proveedor, 0));
+                String nombre = String.valueOf(vista.tablaProveedores.getValueAt(proveedor, 1));
+                String direccion = String.valueOf(vista.tablaProveedores.getValueAt(proveedor, 2));
+                String telefono = String.valueOf(vista.tablaProveedores.getValueAt(proveedor, 3));
+                String correo = String.valueOf(vista.tablaProveedores.getValueAt(proveedor, 4));
+                vista.txtProveedoresCif.setText(cif);
+                vista.txtProveedoresNombre.setText(nombre);
+                vista.txtProveedoresDireccion.setText(direccion);
+                vista.txtProveedoresTelefono.setText(telefono);
+                vista.txtProveedoresCorreo.setText(correo);
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(null, "Error al obtener los datos de la tupla de la tabla.\n\n"+ex.getMessage());
+                ex.printStackTrace();
+            }
+        }
+        int cliente = vista.tablaClientes.rowAtPoint(e.getPoint());
+        if (cliente > - 1) {
+            try{
+                String nif = String.valueOf(vista.tablaClientes.getValueAt(cliente, 0));
+                String nombre = String.valueOf(vista.tablaClientes.getValueAt(proveedor, 1));
+                String apellidos = String.valueOf(vista.tablaClientes.getValueAt(cliente, 2));
+                String direccion = String.valueOf(vista.tablaClientes.getValueAt(proveedor, 3));
+                String telefono = String.valueOf(vista.tablaClientes.getValueAt(proveedor, 4));
+                String correo = String.valueOf(vista.tablaClientes.getValueAt(proveedor, 5));
+                vista.txtClientesNif.setText(nif);
+                vista.txtClientesNombre.setText(nombre);
+                vista.txtClientesApellidos.setText(apellidos);
+                vista.txtClientesDireccion.setText(direccion);
+                vista.txtClientesTelefono.setText(telefono);
+                vista.txtClientesCorreo.setText(correo);
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(null, "Error al obtener los datos de la tupla de la tabla.\n\n"+ex.getMessage());
+                ex.printStackTrace();
             }
         }
     }
