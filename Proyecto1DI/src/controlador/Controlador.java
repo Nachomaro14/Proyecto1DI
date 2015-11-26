@@ -3,6 +3,7 @@ package controlador;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
@@ -347,10 +348,13 @@ public class Controlador implements ActionListener, MouseListener {
                 String direccionCM = vista.txtClientesDireccion.getText();
                 String telefonoCM = vista.txtClientesTelefono.getText();
                 String correoCM = vista.txtClientesCorreo.getText();
-                if (nifCM.equals("") || nnifCM.equals("") || nombreCM.equals("") || direccionCM.equals("")
+                if (nifCM.equals("") || nombreCM.equals("") || direccionCM.equals("")
                         || telefonoCM.equals("") || correoCM.equals("")) {
                     JOptionPane.showMessageDialog(null, "Introduzca todos los valores necesarios");
                 } else {
+                    if(nnifCM.equals("")){
+                        nnifCM = nifCM;
+                    }
                     modelo.modificarCliente(nifCM, nnifCM, nombreCM, apellidosCM, direccionCM, telefonoCM, correoCM);
                 }
                 vista.tablaClientes.setModel(modelo.tablaClientes());
@@ -398,13 +402,16 @@ public class Controlador implements ActionListener, MouseListener {
                 double PVPAM = Double.parseDouble(vista.txtPVPArt.getText());
                 String proveedorAM = vista.comboProveedores.getSelectedItem().toString();
                 String descripcionAM = vista.txtDescripcionArt.getText();
-                if (ncodigoAM.equals("") || nombreAM.equals("") || vista.txtPCPArt.getText().equals("") || vista.txtPVPArt.getText().equals("")
+                if (nombreAM.equals("") || vista.txtPCPArt.getText().equals("") || vista.txtPVPArt.getText().equals("")
                         || PCPAM <= 0.0 || PVPAM <= 0.0 || proveedorAM.equals("") || descripcionAM.equals("") || codigoAM.equals("")) {
                     if (codigoAM.equals("")) {
                         JOptionPane.showMessageDialog(null, "Primero debe seleccionarse un artículo a modificar");
                     }
                     JOptionPane.showMessageDialog(null, "Introduzca todos los valores necesarios\n(Incluida una descripción)");
                 } else {
+                    if(ncodigoAM.equals("")){
+                        ncodigoAM = codigoAM;
+                    }
                     modelo.modificarArticulo(codigoAM, ncodigoAM, proveedorAM, nombreAM, descripcionAM, PCPAM, PVPAM);
                 }
                 vista.tablaArticulos.setModel(modelo.tablaArticulos());
@@ -445,12 +452,15 @@ public class Controlador implements ActionListener, MouseListener {
                 String direccionPM = vista.txtProveedoresDireccion.getText();
                 String telefonoPM = vista.txtProveedoresTelefono.getText();
                 String correoPM = vista.txtProveedoresCorreo.getText();
-                if (cifPM.equals("") || ncifPM.equals("") || nombrePM.equals("") || direccionPM.equals("") || telefonoPM.equals("") || correoPM.equals("")) {
+                if (cifPM.equals("") || nombrePM.equals("") || direccionPM.equals("") || telefonoPM.equals("") || correoPM.equals("")) {
                     if (cifPM.equals("")) {
                         JOptionPane.showMessageDialog(null, "Primero debe seleccionarse un proveedor a modificar");
                     }
                     JOptionPane.showMessageDialog(null, "Introduzca todos los valores necesarios");
                 } else {
+                    if(ncifPM.equals("")){
+                        ncifPM = cifPM;
+                    }
                     modelo.modificarProveedor(cifPM, ncifPM, nombrePM, direccionPM, telefonoPM, correoPM);
                 }
                 vista.tablaProveedores.setModel(modelo.tablaProveedores());
@@ -516,6 +526,25 @@ public class Controlador implements ActionListener, MouseListener {
                 break;
         }
     }
+    
+    public void itemStateChanged(ItemEvent e) {
+        if(e.getSource() == vista.comboProveedores) {
+            String codigo = vista.comboProveedores.getSelectedItem().toString();
+            String nombre = modelo.getNombreProveedor(codigo);
+            vista.labelNombreProveedor.setText(nombre);
+        }else if(e.getSource() == vista.comboPresupuestosOPedidos){
+            String nif = vista.txtClientesNif.getText();
+            if(vista.comboPresupuestosOPedidos.getSelectedItem().toString().equals("Presupuestos")){
+                vista.tablaPedidosClientes.setModel(modelo.tablaPresupuestosClientes(nif));
+            }else{
+                vista.tablaPedidosClientes.setModel(modelo.tablaPedidosClientes(nif));
+            }
+        }else if(e.getSource() == vista.comboClientesPresupuestos){
+            String nif = vista.comboClientesPresupuestos.getSelectedItem().toString();
+            String nombreYApellidos = modelo.getNombreCliente(nif);
+            vista.labelNombreCliente.setText(nombreYApellidos);
+        }
+    }
 
     @Override
     public void mouseClicked(MouseEvent e) {
@@ -540,6 +569,8 @@ public class Controlador implements ActionListener, MouseListener {
                 vista.txtPVPArt.setText(precioC);
                 vista.txtDescripcionArt.setText(descripcion);
                 vista.txtIVAArt.setText(IVA);
+                String nombreP = modelo.getNombreProveedor(proveedor);
+                vista.labelNombreProveedor.setText(nombreP);
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(null, "Error al obtener los datos de la tupla de la tabla.\n\n" + ex.getMessage());
                 ex.printStackTrace();

@@ -310,7 +310,7 @@ public class Modelo extends Database {
 
     public void modificarCliente(String dni, String ndni, String nombre, String apellidos, String direccion, String telefono, String correo) {
         String q = "UPDATE Clientes SET NIF = '" + ndni + "', Nombre = '" + nombre + "', Apellidos = '" + apellidos + "', Direccion = '" + direccion
-                + "', Telefono = '" + telefono + "', Correo = '" + correo + "' WHERE DNI = '" + dni + "'";
+                + "', Telefono = '" + telefono + "', Correo = '" + correo + "' WHERE NIF = '" + dni + "'";
         try {
             PreparedStatement pstm = this.getConexion().prepareStatement(q);
             pstm.execute();
