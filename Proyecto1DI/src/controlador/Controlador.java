@@ -115,11 +115,11 @@ public class Controlador implements ActionListener, MouseListener {
 
             //INICIALIZAMOS LAS TABLAS VACÍAS CON SUS RESPECTIVOS MODELOS
             vista.tablaArticulos.setModel(modelo.tablaArticulos());
-            vista.tablaPedidos.setModel(modelo.tablaPedidos());
-            vista.tablaPresupuesto.setModel(modelo.tablaPresupuestos());
+            vista.tablaPedidos.setModel(modelo.tablaPedidosClientes(vista.comboClientesPedidos.getSelectedItem().toString()));
+            vista.tablaPresupuesto.setModel(modelo.tablaPresupuestosClientes(vista.comboClientesPresupuestos.getSelectedItem().toString()));
             vista.tablaClientes.setModel(modelo.tablaClientes());
             vista.tablaProveedores.setModel(modelo.tablaProveedores());
-            vista.tablaPedidosClientes.setModel(modelo.tablaPedidos());
+            vista.tablaPedidosClientes.setModel(modelo.tablaPresupuestosClientes(""));
             vista.tablaProveedoresArticulos.setModel(modelo.tablaArticulosProveedores(""));
             vista.tablaPresuArtPresu.setModel(modelo.tablaArticulosPresupuestos(""));
             vista.tablaPedidosArtPed.setModel(modelo.tablaArticulosPedidos(""));
@@ -127,6 +127,15 @@ public class Controlador implements ActionListener, MouseListener {
             vista.tablaAgregarPresuArtPre.setModel(modelo.tablaArticulos());
             vista.tablaAgregarPedArt.setModel(modelo.tablaArticulos());
             vista.tablaAgregarPedArtPed.setModel(modelo.tablaArticulos());
+            
+            //AÑADIMOS ALGUNOS DETALLES
+            String codigo = vista.comboProveedores.getSelectedItem().toString();
+            String nombre = modelo.getNombreProveedor(codigo);
+            vista.labelNombreProveedor.setText(nombre);
+            String nif = vista.comboClientesPresupuestos.getSelectedItem().toString();
+            String nombreYApellidos = modelo.getNombreCliente(nif);
+            vista.labelNombreCliente.setText(nombreYApellidos);
+            vista.labelNombreClientesPedidos.setText(nombreYApellidos);
 
         } catch (UnsupportedLookAndFeelException | ClassNotFoundException | InstantiationException | IllegalAccessException ex) {
         }
@@ -263,7 +272,7 @@ public class Controlador implements ActionListener, MouseListener {
         this.vista.tablaProveedoresArticulos.getTableHeader().setReorderingAllowed(false);
         this.vista.tablaProveedoresArticulos.getTableHeader().setResizingAllowed(false);
         
-        //ESTABLECEMOS LOS ITEMLISTENER PARA LOS COMBOBOX
+        //ESTABLECEMOS LOS ITEM LISTENERS PARA LOS COMBOBOX
         this.vista.comboClientesAgrPedido.addItemListener( new ItemListener(){
             public void itemStateChanged(ItemEvent e) {
                 String codigo = vista.comboProveedores.getSelectedItem().toString();
