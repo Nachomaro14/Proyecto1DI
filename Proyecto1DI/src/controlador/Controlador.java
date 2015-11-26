@@ -9,7 +9,6 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -382,6 +381,10 @@ public class Controlador implements ActionListener, MouseListener {
                     }
                 }
                 vista.tablaClientes.setModel(modelo.tablaClientes());
+                vista.comboClientesAgrPedido.setModel(new DefaultComboBoxModel(modelo.getClientes()));
+                vista.comboClientesAgrPresupuesto.setModel(new DefaultComboBoxModel(modelo.getClientes()));
+                vista.comboClientesPedidos.setModel(new DefaultComboBoxModel(modelo.getClientes()));
+                vista.comboClientesPresupuestos.setModel(new DefaultComboBoxModel(modelo.getClientes()));
                 break;
             case btnClientesModificar:
                 String nifCM = vista.txtClientesNif.getText();
@@ -401,6 +404,10 @@ public class Controlador implements ActionListener, MouseListener {
                     modelo.modificarCliente(nifCM, nnifCM, nombreCM, apellidosCM, direccionCM, telefonoCM, correoCM);
                 }
                 vista.tablaClientes.setModel(modelo.tablaClientes());
+                vista.comboClientesAgrPedido.setModel(new DefaultComboBoxModel(modelo.getClientes()));
+                vista.comboClientesAgrPresupuesto.setModel(new DefaultComboBoxModel(modelo.getClientes()));
+                vista.comboClientesPedidos.setModel(new DefaultComboBoxModel(modelo.getClientes()));
+                vista.comboClientesPresupuestos.setModel(new DefaultComboBoxModel(modelo.getClientes()));
                 break;
             case btnClientesBorrar:
                 String nifCE = vista.txtClientesNif.getText();
@@ -410,6 +417,10 @@ public class Controlador implements ActionListener, MouseListener {
                     modelo.eliminarCliente(nifCE);
                 }
                 vista.tablaClientes.setModel(modelo.tablaClientes());
+                vista.comboClientesAgrPedido.setModel(new DefaultComboBoxModel(modelo.getClientes()));
+                vista.comboClientesAgrPresupuesto.setModel(new DefaultComboBoxModel(modelo.getClientes()));
+                vista.comboClientesPedidos.setModel(new DefaultComboBoxModel(modelo.getClientes()));
+                vista.comboClientesPresupuestos.setModel(new DefaultComboBoxModel(modelo.getClientes()));
                 break;
             /**
              * *BOTONES VISTA ARTICULOS**
@@ -487,6 +498,7 @@ public class Controlador implements ActionListener, MouseListener {
                     }
                 }
                 vista.tablaProveedores.setModel(modelo.tablaProveedores());
+                vista.comboProveedores.setModel(new DefaultComboBoxModel(modelo.getProveedores()));
                 break;
             case btnProveedoresModificar:
                 String cifPM = vista.txtProveedoresCif.getText();
@@ -507,6 +519,7 @@ public class Controlador implements ActionListener, MouseListener {
                     modelo.modificarProveedor(cifPM, ncifPM, nombrePM, direccionPM, telefonoPM, correoPM);
                 }
                 vista.tablaProveedores.setModel(modelo.tablaProveedores());
+                vista.comboProveedores.setModel(new DefaultComboBoxModel(modelo.getProveedores()));
                 break;
             case btnProveedoresBorrar:
                 String cifPE = vista.txtProveedoresCif.getText();
@@ -516,6 +529,7 @@ public class Controlador implements ActionListener, MouseListener {
                     modelo.eliminarProveedor(cifPE);
                 }
                 vista.tablaProveedores.setModel(modelo.tablaProveedores());
+                vista.comboProveedores.setModel(new DefaultComboBoxModel(modelo.getProveedores()));
                 break;
             /**
              *** BOTONES VISTA PRESUPUESTO***
