@@ -621,7 +621,7 @@ public class Modelo extends Database {
     public DefaultTableModel tablaPedidos() {
         DefaultTableModel tablemodel = new ModeloTablaNoEditable();
         int registros = 0;
-        String[] columNames = {"Código", "Cliente", "Precio", "Fecha", "Beneficios"};
+        String[] columNames = {"Código", "Cliente", "Precio", "Fecha"};
         try {
             PreparedStatement pstm = this.getConexion().prepareStatement("SELECT count(Codigo) as total FROM Pedidos");
             ResultSet res = pstm.executeQuery();
@@ -632,9 +632,9 @@ public class Modelo extends Database {
             JOptionPane.showMessageDialog(null, "Error al contar tuplas\n\n" + e.getMessage());
             e.printStackTrace();
         }
-        Object[][] data = new Object[registros][5];
+        Object[][] data = new Object[registros][4];
         try {
-            String q = "SELECT Codigo, Cliente, Precio, Fecha, Beneficio FROM Pedidos";
+            String q = "SELECT Codigo, Cliente, Precio, Fecha FROM Pedidos";
             PreparedStatement pstm = this.getConexion().prepareStatement(q);
             ResultSet res = pstm.executeQuery();
             int i = 0;
@@ -643,7 +643,6 @@ public class Modelo extends Database {
                 data[i][1] = res.getString("Cliente");
                 data[i][2] = res.getDouble("Precio");
                 data[i][3] = res.getString("Fecha");
-                data[i][4] = res.getDouble("Beneficio");
                 i++;
             }
             res.close();
@@ -653,6 +652,18 @@ public class Modelo extends Database {
             e.printStackTrace();
         }
         return tablemodel;
+    }
+    
+    public void actualizarPrecioPedido(String pedido, double precio){
+        String q = "UPDATE Pedidos SET Precio = " + precio + " WHERE Codigo = '" + pedido + "'";
+        try{
+           PreparedStatement pstm = this.getConexion().prepareStatement(q);
+            pstm.execute();
+            pstm.close();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error al modificar precio del presupuesto\n\n" + e.getMessage());
+            e.printStackTrace();
+        }
     }
 
     public String[] getPedidos() {
@@ -719,9 +730,9 @@ public class Modelo extends Database {
         return resu;
     }
 
-    public void crearPedido(String codigo, String fecha, double precio, String cliente, double beneficio) {
-        String q = "INSERT INTO Pedidos (Codigo, Fecha, Precio, Cliente, Beneficio) "
-                + "VALUES('" + codigo + "','" + fecha + "'," + precio + ",'" + cliente + "'," + beneficio + ")";
+    public void crearPedido(String fecha, double precio, String cliente) {
+        String q = "INSERT INTO Pedidos (Fecha, Precio, Cliente) "
+                + "VALUES('" + fecha + "'," + precio + ",'" + cliente + "')";
         try {
             PreparedStatement pstm = this.getConexion().prepareStatement(q);
             pstm.execute();
@@ -742,6 +753,43 @@ public class Modelo extends Database {
             JOptionPane.showMessageDialog(null, "Error al eliminar el artículo\n\n" + e.getMessage());
             e.printStackTrace();
         }
+    }
+    
+    public String obtenerUltimoPedido(){
+        String codigo = "";
+        String q = "SELECT Codigo FROM Pedidos ORDER BY Codigo DESC LIMIT 1";
+        try {
+            PreparedStatement pstm = this.getConexion().prepareStatement(q);
+            ResultSet res = pstm.executeQuery();
+            while (res.next()) {
+                codigo = res.getString("Codigo");
+            }
+            res.close();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error al obtener datos\n\n" + e.getMessage());
+            e.printStackTrace();
+        }
+        return codigo;
+    }
+    
+    public boolean comprobarExistenciaArticulosDePedido(String pedido){
+        String q = "SELECT CodigoPed FROM ArtPedidos WHERE CodigoPed = '" + pedido + "'";
+        boolean resu = false;
+        try {
+            PreparedStatement pstm = this.getConexion().prepareStatement(q);
+            ResultSet res = pstm.executeQuery();
+            res.next();
+            if (res.getRow() == 0) {
+                resu = false;
+            } else {
+                resu = true;
+            }
+            res.close();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error al comprobar existencia\n\n" + e.getMessage());
+            e.printStackTrace();
+        }
+        return resu;
     }
 
     //MÉTODOS DE ARTÍCULOS DE PEDIDOS
@@ -768,7 +816,7 @@ public class Modelo extends Database {
             while (res.next()) {
                 data[i][0] = res.getString("CodigoArt");
                 data[i][1] = res.getString("Nombre");
-                data[i][2] = res.getDouble("PrecioC");
+                data[i][2] = res.getDouble("Precio");
                 data[i][3] = res.getInt("Cantidad");
                 i++;
             }
@@ -803,7 +851,7 @@ public class Modelo extends Database {
             ResultSet res = pstm.executeQuery();
             int i = 0;
             while (res.next()) {
-                data[0] = res.getString("CodigoArt");
+                data[0] = res.getString("Codigo");
                 data[1] = res.getString("Nombre");
                 data[2] = res.getDouble("PrecioC");
                 i++;
@@ -817,7 +865,7 @@ public class Modelo extends Database {
     }
     
     public void nuevoArticuloPedido(String codigoArt, String codigoPed, double precio, String nombre, int cantidad){
-        String q = "INSERT INTO ArtPresupuestos (CodigoArt, CodigoPed, Precio, Nombre, Cantidad) "
+        String q = "INSERT INTO ArtPedidos (CodigoArt, CodigoPed, Precio, Nombre, Cantidad) "
                 + "VALUES('" + codigoArt + "','" + codigoPed + "'," + precio + ", '"+nombre+"', "+cantidad+")";
         try {
             PreparedStatement pstm = this.getConexion().prepareStatement(q);
@@ -851,6 +899,23 @@ public class Modelo extends Database {
             JOptionPane.showMessageDialog(null, "Error al eliminar los artículos del pedido\n\n" + e.getMessage());
             e.printStackTrace();
         }
+    }
+    
+    public double sumaPedido(String pedido){
+        double suma = 0.0;
+        String q = "SELECT SUM(Precio * Cantidad) as suma FROM ArtPedidos WHERE CodigoPed = '"+ pedido +"'";
+        try{
+            PreparedStatement pstm = this.getConexion().prepareStatement(q);
+            ResultSet res = pstm.executeQuery();
+            while (res.next()) {
+                suma = res.getDouble("suma");
+            }
+            res.close();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error al obtener datos\n\n" + e.getMessage());
+            e.printStackTrace();
+        }
+        return suma;
     }
 
     //MÉTODOS DE PEDIDOS DE CLIENTES

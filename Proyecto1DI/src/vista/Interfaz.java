@@ -63,10 +63,12 @@ public class Interfaz extends javax.swing.JFrame {
         tablaAgregarPedArtPed = new javax.swing.JTable();
         jPanel14 = new javax.swing.JPanel();
         btnAgregarPedQuitarArt = new javax.swing.JButton();
+        labelCodigoArtPedSeleccionado = new javax.swing.JLabel();
         jPanel15 = new javax.swing.JPanel();
         btnAgregarPedCrear = new javax.swing.JButton();
         btnAgregarPedCancelar = new javax.swing.JButton();
-        btmAgregarPedCrearAux = new javax.swing.JButton();
+        btnAgregarPedCrearAux = new javax.swing.JButton();
+        labelCodigoPedidoAux = new javax.swing.JLabel();
         dialogProformas = new javax.swing.JDialog();
         panelEmpresaProf = new javax.swing.JPanel();
         jLabel34 = new javax.swing.JLabel();
@@ -287,6 +289,7 @@ public class Interfaz extends javax.swing.JFrame {
         menuPedidos = new javax.swing.JMenuItem();
         menuPresupuestos = new javax.swing.JMenuItem();
 
+        dialogAgregarPresupuesto.setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         dialogAgregarPresupuesto.setAlwaysOnTop(true);
         dialogAgregarPresupuesto.setModal(true);
         dialogAgregarPresupuesto.getContentPane().setLayout(new javax.swing.BoxLayout(dialogAgregarPresupuesto.getContentPane(), javax.swing.BoxLayout.Y_AXIS));
@@ -442,6 +445,7 @@ public class Interfaz extends javax.swing.JFrame {
 
         dialogAgregarPresupuesto.getContentPane().add(jPanel12);
 
+        dialogAgregarPedido.setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         dialogAgregarPedido.setAlwaysOnTop(true);
         dialogAgregarPedido.setMinimumSize(new java.awt.Dimension(500, 500));
         dialogAgregarPedido.setModal(true);
@@ -542,7 +546,10 @@ public class Interfaz extends javax.swing.JFrame {
         jPanel14.setLayout(jPanel14Layout);
         jPanel14Layout.setHorizontalGroup(
             jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 896, Short.MAX_VALUE)
+            .addGroup(jPanel14Layout.createSequentialGroup()
+                .addGap(234, 234, 234)
+                .addComponent(labelCodigoArtPedSeleccionado, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(508, Short.MAX_VALUE))
             .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel14Layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -551,7 +558,7 @@ public class Interfaz extends javax.swing.JFrame {
         );
         jPanel14Layout.setVerticalGroup(
             jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 23, Short.MAX_VALUE)
+            .addComponent(labelCodigoArtPedSeleccionado, javax.swing.GroupLayout.DEFAULT_SIZE, 23, Short.MAX_VALUE)
             .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel14Layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -567,15 +574,17 @@ public class Interfaz extends javax.swing.JFrame {
 
         btnAgregarPedCancelar.setText("Cancelar");
 
-        btmAgregarPedCrearAux.setText("Crear pedido auxiliar");
+        btnAgregarPedCrearAux.setText("Crear pedido auxiliar");
 
         javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
         jPanel15.setLayout(jPanel15Layout);
         jPanel15Layout.setHorizontalGroup(
             jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel15Layout.createSequentialGroup()
-                .addComponent(btmAgregarPedCrearAux)
-                .addGap(224, 224, 224)
+                .addComponent(btnAgregarPedCrearAux)
+                .addGap(18, 18, 18)
+                .addComponent(labelCodigoPedidoAux, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(btnAgregarPedCrear, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE)
                 .addGap(210, 210, 210)
                 .addComponent(btnAgregarPedCancelar, javax.swing.GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE))
@@ -587,7 +596,8 @@ public class Interfaz extends javax.swing.JFrame {
                 .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(btnAgregarPedCrear)
                     .addComponent(btnAgregarPedCancelar)
-                    .addComponent(btmAgregarPedCrearAux)))
+                    .addComponent(btnAgregarPedCrearAux)))
+            .addComponent(labelCodigoPedidoAux, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         dialogAgregarPedido.getContentPane().add(jPanel15);
@@ -1038,7 +1048,9 @@ public class Interfaz extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+
+        inicio.setBackground(new java.awt.Color(255, 255, 255));
 
         panelEmpresa.setBorder(javax.swing.BorderFactory.createTitledBorder("Datos de la empresa"));
 
@@ -1849,10 +1861,10 @@ public class Interfaz extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JPanel articulos;
-    public javax.swing.JButton btmAgregarPedCrearAux;
     public javax.swing.JButton btnAgregarPedArt;
     public javax.swing.JButton btnAgregarPedCancelar;
     public javax.swing.JButton btnAgregarPedCrear;
+    public javax.swing.JButton btnAgregarPedCrearAux;
     public javax.swing.JButton btnAgregarPedQuitarArt;
     public javax.swing.JButton btnAgregarPresuArt;
     public javax.swing.JButton btnAgregarPresuCancelar;
@@ -2008,8 +2020,10 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JSplitPane jSplitPane2;
     public javax.swing.JLabel labelCodArtPed;
     public javax.swing.JLabel labelCodArtPresu;
+    public javax.swing.JLabel labelCodigoArtPedSeleccionado;
     public javax.swing.JLabel labelCodigoArtPresuSeleccionado;
     public javax.swing.JLabel labelCodigoPedido;
+    public javax.swing.JLabel labelCodigoPedidoAux;
     public javax.swing.JLabel labelCodigoPresupuesto;
     public javax.swing.JLabel labelCodigoPresupuestoAux;
     public javax.swing.JLabel labelLogo;
