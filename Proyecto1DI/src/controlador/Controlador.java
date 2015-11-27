@@ -300,6 +300,8 @@ public class Controlador implements ActionListener, MouseListener {
                 String nif = vista.comboClientesPresupuestos.getSelectedItem().toString();
                 String nombreYApellidos = modelo.getNombreCliente(nif);
                 vista.labelNombreCliente.setText(nombreYApellidos);
+                vista.tablaPresupuestos.setModel(modelo.tablaPresupuestosClientes(nif));
+                vista.tablaPresuArtPresu.setModel(modelo.tablaArticulosPresupuestosVacia());
             }
         });
         this.vista.comboClientesPedidos.addItemListener( new ItemListener(){
@@ -587,6 +589,7 @@ public class Controlador implements ActionListener, MouseListener {
                         Object[] info = modelo.infoArticuloPresupuesto(codigo);
                         if(!presupuesto.equals("")){
                             modelo.nuevoArticuloPresupuesto(codigo, presupuesto, (Double) info[2], (String) info[1], Integer.parseInt(cantidad));
+                            vista.tablaAgregarPresuArtPre.setModel(modelo.tablaArticulosPresupuestos(presupuesto));
                         }else{
                             JOptionPane.showMessageDialog(null, "Primero debe crear un presupuesto auxiliar.");
                         }
@@ -613,8 +616,13 @@ public class Controlador implements ActionListener, MouseListener {
                 break;
             case btnAgregarPresuCrear:
                 boolean existe = modelo.comprobarExistenciaArticulosDePresupuesto(vista.labelCodigoPresupuestoAux.getText());
+                String presu = vista.labelCodigoPresupuestoAux.getText();
                 if(existe == true){
+                    double precio = modelo.sumaPresupuesto(presu);
+                    modelo.actualizarPrecioPresupuesto(presu, precio);
+                    String cli = vista.comboClientesPresupuestos.getSelectedItem().toString();
                     vista.dialogAgregarPresupuesto.setVisible(false);
+                    vista.tablaPresupuestos.setModel(modelo.tablaPresupuestosClientes(cli));
                 }else{
                     JOptionPane.showMessageDialog(null, "Antes de finalizar debes añadir artículos al presupuesto.");
                 }
@@ -752,8 +760,18 @@ public class Controlador implements ActionListener, MouseListener {
         int articuloParaPresupuesto = vista.tablaAgregarPresuArt.rowAtPoint(e.getPoint());
         if (articuloParaPresupuesto > -1) {
             try{
-                String codigo = String.valueOf(vista.tablaArticulos.getValueAt(articulo, 0));
+                String codigo = String.valueOf(vista.tablaArticulos.getValueAt(articuloParaPresupuesto, 0));
                 vista.labelCodArtPresu.setText(codigo);
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(null, "Error al obtener los datos de la tupla de la tabla.\n\n" + ex.getMessage());
+                ex.printStackTrace();
+            }
+        }
+        int articuloTempParaPresupuesto = vista.tablaAgregarPresuArtPre.rowAtPoint(e.getPoint());
+        if (articuloTempParaPresupuesto > -1) {
+            try{
+                String codigo = String.valueOf(vista.tablaAgregarPresuArtPre.getValueAt(articuloTempParaPresupuesto, 0));
+                vista.labelCodigoArtPresuSeleccionado.setText(codigo);
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(null, "Error al obtener los datos de la tupla de la tabla.\n\n" + ex.getMessage());
                 ex.printStackTrace();

@@ -1091,7 +1091,7 @@ public class Modelo extends Database {
             while (res.next()) {
                 data[i][0] = res.getString("CodigoArt");
                 data[i][1] = res.getString("Nombre");
-                data[i][2] = res.getDouble("PrecioC");
+                data[i][2] = res.getDouble("Precio");
                 data[i][3] = res.getInt("Cantidad");
                 i++;
             }
@@ -1194,5 +1194,34 @@ public class Modelo extends Database {
             e.printStackTrace();
         }
         return resu;
+    }
+    
+    public double sumaPresupuesto(String presupuesto){
+        double suma = 0.0;
+        String q = "SELECT SUM(Precio * Cantidad) as suma FROM ArtPresupuestos WHERE CodigoPre = '"+ presupuesto +"'";
+        try{
+            PreparedStatement pstm = this.getConexion().prepareStatement(q);
+            ResultSet res = pstm.executeQuery();
+            while (res.next()) {
+                suma = res.getDouble("suma");
+            }
+            res.close();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error al obtener datos\n\n" + e.getMessage());
+            e.printStackTrace();
+        }
+        return suma;
+    }
+    
+    public void actualizarPrecioPresupuesto(String presupuesto, double precio){
+        String q = "UPDATE Presupuestos SET Precio = " + precio + " WHERE Codigo = '" + presupuesto + "'";
+        try{
+           PreparedStatement pstm = this.getConexion().prepareStatement(q);
+            pstm.execute();
+            pstm.close();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error al modificar precio del presupuesto\n\n" + e.getMessage());
+            e.printStackTrace();
+        }
     }
 }
