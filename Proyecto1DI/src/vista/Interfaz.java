@@ -1753,10 +1753,22 @@ public class Interfaz extends javax.swing.JFrame {
 
         menuOpciones.setText("Opciones");
 
+        menuInicio.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_I, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
         menuInicio.setText("Inicio");
+        menuInicio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuInicioActionPerformed(evt);
+            }
+        });
         menuOpciones.add(menuInicio);
 
+        menuSalir.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
         menuSalir.setText("Salir");
+        menuSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuSalirActionPerformed(evt);
+            }
+        });
         menuOpciones.add(menuSalir);
 
         jMenuBar1.add(menuOpciones);
@@ -1823,6 +1835,14 @@ public class Interfaz extends javax.swing.JFrame {
     private void comboClientesPedidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboClientesPedidosActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_comboClientesPedidosActionPerformed
+
+    private void menuSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuSalirActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_menuSalirActionPerformed
+
+    private void menuInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuInicioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_menuInicioActionPerformed
 
     /**
      * @param args the command line arguments

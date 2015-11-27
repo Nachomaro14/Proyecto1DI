@@ -796,6 +796,7 @@ public class Controlador implements ActionListener, MouseListener {
                 vista.txtProveedoresDireccion.setText(direccion);
                 vista.txtProveedoresTelefono.setText(telefono);
                 vista.txtProveedoresCorreo.setText(correo);
+                vista.tablaProveedoresArticulos.setModel(modelo.tablaArticulosProveedores(cif));
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(null, "Error al obtener los datos de la tupla de la tabla.\n\n" + ex.getMessage());
                 ex.printStackTrace();
