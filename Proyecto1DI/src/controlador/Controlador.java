@@ -39,22 +39,30 @@ public class Controlador implements ActionListener, MouseListener {
         menuPedidos,
         menuPresupuestos,
         menuSalir,
+        /**botones vista clientes**/
         btnClientesAgregar,
         btnClientesModificar,
         btnClientesBorrar,
+        /**botones vista articulos**/
         btnArticulosAgregar,
         btnArticulosModificar,
         btnArticulosEliminar,
+        /**botones vista proveedor**/
         btnProveedoresAgregar,
         btnProveedoresModificar,
         btnProveedoresBorrar,
+        /**botones vista presupuesto**/
         btnPresuBorrar,
         btnPresuGenProf,
         btnPresuCrearPed,
+        
         btnAgregarPresuCrearAux,
+        /**botones vista pedidos**/
         btnPedidoAgregar,
         btnPedidoBorrar,
         btnPedidoGenFac,
+        
+        
         btnAgregarPresuArt,
         btnAgregarPresuQuitarArt,
         btnAgregarPresuCrear,
@@ -279,6 +287,7 @@ public class Controlador implements ActionListener, MouseListener {
         
         //ESTABLECEMOS LOS ITEM LISTENERS PARA LOS COMBOBOX
         this.vista.comboClientesAgrPedido.addItemListener( new ItemListener(){
+            @Override
             public void itemStateChanged(ItemEvent e) {
                 String codigo = vista.comboProveedores.getSelectedItem().toString();
                 String nombre = modelo.getNombreProveedor(codigo);
@@ -286,6 +295,7 @@ public class Controlador implements ActionListener, MouseListener {
             }
         });
         this.vista.comboPresupuestosOPedidos.addItemListener( new ItemListener(){
+            @Override
             public void itemStateChanged(ItemEvent e) {
                 String nif = vista.txtClientesNif.getText();
                 if(vista.comboPresupuestosOPedidos.getSelectedItem().toString().equals("Presupuestos")){
@@ -296,6 +306,7 @@ public class Controlador implements ActionListener, MouseListener {
             }
         });
         this.vista.comboClientesPresupuestos.addItemListener( new ItemListener(){
+            @Override
             public void itemStateChanged(ItemEvent e) {
                 String nif = vista.comboClientesPresupuestos.getSelectedItem().toString();
                 String nombreYApellidos = modelo.getNombreCliente(nif);
@@ -305,6 +316,7 @@ public class Controlador implements ActionListener, MouseListener {
             }
         });
         this.vista.comboClientesPedidos.addItemListener( new ItemListener(){
+            @Override
             public void itemStateChanged(ItemEvent e) {
                 String nif = vista.comboClientesPedidos.getSelectedItem().toString();
                 String nombreYApellidos = modelo.getNombreCliente(nif);
@@ -312,6 +324,7 @@ public class Controlador implements ActionListener, MouseListener {
             }
         });
         this.vista.comboClientesAgrPresupuesto.addItemListener( new ItemListener(){
+            @Override
             public void itemStateChanged(ItemEvent e) {
                 String nif = vista.comboClientesAgrPresupuesto.getSelectedItem().toString();
                 vista.tablaAgregarPresuArtPre.setModel(modelo.tablaArticulosPresupuestos(nif));

@@ -7,18 +7,17 @@ import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import modelo.Modelo;
 
 public class PDF {
 
-    Modelo consultas = new Modelo();
+    
 
     public void generarFacturaPDF() throws FileNotFoundException, DocumentException {
         Document documento = new Document();
         FileOutputStream fos = new FileOutputStream("Factura.pdf");
         PdfPTable tablaEmpresa, tablaPedidos, tablaArticuloPedido;
 
-        consultas.tablaArticulosPedidos(null);
+        
 
         PdfWriter.getInstance(documento, fos).setInitialLeading(20);
 
