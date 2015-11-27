@@ -15,7 +15,7 @@ import java.util.logging.Logger;
 
 public class ModeloPdf extends Database {
 
-    Database con;
+    Database con = new Database();
     Statement stm;
     ResultSet rst;
 
@@ -110,7 +110,7 @@ public class ModeloPdf extends Database {
         ArrayList<ArtPresupuestos> artiPresux = new ArrayList<>();
         try {
             stm = con.getConexion().createStatement();
-            rst = stm.executeQuery("select * from ArtPedidos");
+            rst = stm.executeQuery("select * from ArtPresupuestos");
             while (rst.next()) {
                 ArtPresupuestos apre = new ArtPresupuestos();
                 apre.setCodigoArticulo(rst.getInt("CodigoArt"));
@@ -125,4 +125,5 @@ public class ModeloPdf extends Database {
         }
         return artiPresux;
     }
+
 }

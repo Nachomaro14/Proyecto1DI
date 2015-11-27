@@ -653,11 +653,11 @@ public class Modelo extends Database {
         }
         return tablemodel;
     }
-    
-    public void actualizarPrecioPedido(String pedido, double precio){
+
+    public void actualizarPrecioPedido(String pedido, double precio) {
         String q = "UPDATE Pedidos SET Precio = " + precio + " WHERE Codigo = '" + pedido + "'";
-        try{
-           PreparedStatement pstm = this.getConexion().prepareStatement(q);
+        try {
+            PreparedStatement pstm = this.getConexion().prepareStatement(q);
             pstm.execute();
             pstm.close();
         } catch (SQLException e) {
@@ -754,8 +754,8 @@ public class Modelo extends Database {
             e.printStackTrace();
         }
     }
-    
-    public String obtenerUltimoPedido(){
+
+    public String obtenerUltimoPedido() {
         String codigo = "";
         String q = "SELECT Codigo FROM Pedidos ORDER BY Codigo DESC LIMIT 1";
         try {
@@ -771,8 +771,8 @@ public class Modelo extends Database {
         }
         return codigo;
     }
-    
-    public boolean comprobarExistenciaArticulosDePedido(String pedido){
+
+    public boolean comprobarExistenciaArticulosDePedido(String pedido) {
         String q = "SELECT CodigoPed FROM ArtPedidos WHERE CodigoPed = '" + pedido + "'";
         boolean resu = false;
         try {
@@ -842,8 +842,8 @@ public class Modelo extends Database {
         }
         return tablemodel;
     }
-    
-    public Object[] infoArticuloPedido(String codigo){
+
+    public Object[] infoArticuloPedido(String codigo) {
         Object[] data = new Object[3];
         try {
             String q = "SELECT Codigo, Nombre, PrecioC FROM Articulos WHERE Codigo = '" + codigo + "'";
@@ -863,10 +863,10 @@ public class Modelo extends Database {
         }
         return data;
     }
-    
-    public void nuevoArticuloPedido(String codigoArt, String codigoPed, double precio, String nombre, int cantidad){
+
+    public void nuevoArticuloPedido(String codigoArt, String codigoPed, double precio, String nombre, int cantidad) {
         String q = "INSERT INTO ArtPedidos (CodigoArt, CodigoPed, Precio, Nombre, Cantidad) "
-                + "VALUES('" + codigoArt + "','" + codigoPed + "'," + precio + ", '"+nombre+"', "+cantidad+")";
+                + "VALUES('" + codigoArt + "','" + codigoPed + "'," + precio + ", '" + nombre + "', " + cantidad + ")";
         try {
             PreparedStatement pstm = this.getConexion().prepareStatement(q);
             pstm.execute();
@@ -876,11 +876,11 @@ public class Modelo extends Database {
             e.printStackTrace();
         }
     }
-    
-    public void eliminarTodosArticulosPedido(String codigoPed){
-        String q = "DELETE FROM ArtPedidos WHERE CodigoPed = '"+codigoPed+"'";
-        try{
-           PreparedStatement pstm = this.getConexion().prepareStatement(q);
+
+    public void eliminarTodosArticulosPedido(String codigoPed) {
+        String q = "DELETE FROM ArtPedidos WHERE CodigoPed = '" + codigoPed + "'";
+        try {
+            PreparedStatement pstm = this.getConexion().prepareStatement(q);
             pstm.execute();
             pstm.close();
         } catch (SQLException e) {
@@ -888,11 +888,11 @@ public class Modelo extends Database {
             e.printStackTrace();
         }
     }
-    
-    public void eliminarArticuloPedido(String codigoPed, String codigoArt){
-        String q = "DELETE FROM ArtPedidos WHERE CodigoPed = '"+codigoPed+"' AND CodigoArt = '"+codigoArt+"'";
-        try{
-           PreparedStatement pstm = this.getConexion().prepareStatement(q);
+
+    public void eliminarArticuloPedido(String codigoPed, String codigoArt) {
+        String q = "DELETE FROM ArtPedidos WHERE CodigoPed = '" + codigoPed + "' AND CodigoArt = '" + codigoArt + "'";
+        try {
+            PreparedStatement pstm = this.getConexion().prepareStatement(q);
             pstm.execute();
             pstm.close();
         } catch (SQLException e) {
@@ -900,11 +900,11 @@ public class Modelo extends Database {
             e.printStackTrace();
         }
     }
-    
-    public double sumaPedido(String pedido){
+
+    public double sumaPedido(String pedido) {
         double suma = 0.0;
-        String q = "SELECT SUM(Precio * Cantidad) as suma FROM ArtPedidos WHERE CodigoPed = '"+ pedido +"'";
-        try{
+        String q = "SELECT SUM(Precio * Cantidad) as suma FROM ArtPedidos WHERE CodigoPed = '" + pedido + "'";
+        try {
             PreparedStatement pstm = this.getConexion().prepareStatement(q);
             ResultSet res = pstm.executeQuery();
             while (res.next()) {
@@ -1056,7 +1056,7 @@ public class Modelo extends Database {
 
     public void crearPresupuesto(String fecha, double precio, String cliente) {
         String q = "INSERT INTO Presupuestos (NIF, Fecha, Precio) "
-                + "VALUES('"+cliente+"', '" + fecha + "', " + precio + ")";
+                + "VALUES('" + cliente + "', '" + fecha + "', " + precio + ")";
         try {
             PreparedStatement pstm = this.getConexion().prepareStatement(q);
             pstm.execute();
@@ -1078,8 +1078,8 @@ public class Modelo extends Database {
             e.printStackTrace();
         }
     }
-    
-    public String obtenerUltimoPresupuesto(){
+
+    public String obtenerUltimoPresupuesto() {
         String codigo = "";
         String q = "SELECT Codigo FROM Presupuestos ORDER BY Codigo DESC LIMIT 1";
         try {
@@ -1182,8 +1182,8 @@ public class Modelo extends Database {
         }
         return tablemodel;
     }
-    
-    public Object[] infoArticuloPresupuesto(String codigo){
+
+    public Object[] infoArticuloPresupuesto(String codigo) {
         Object[] data = new Object[3];
         try {
             String q = "SELECT Codigo, Nombre, PrecioC FROM Articulos WHERE Codigo = '" + codigo + "'";
@@ -1203,10 +1203,10 @@ public class Modelo extends Database {
         }
         return data;
     }
-    
-    public void nuevoArticuloPresupuesto(String codigoArt, String codigoPre, double precio, String nombre, int cantidad){
+
+    public void nuevoArticuloPresupuesto(String codigoArt, String codigoPre, double precio, String nombre, int cantidad) {
         String q = "INSERT INTO ArtPresupuestos (CodigoArt, CodigoPre, Precio, Nombre, Cantidad) "
-                + "VALUES('" + codigoArt + "','" + codigoPre + "'," + precio + ", '"+nombre+"', "+cantidad+")";
+                + "VALUES('" + codigoArt + "','" + codigoPre + "'," + precio + ", '" + nombre + "', " + cantidad + ")";
         try {
             PreparedStatement pstm = this.getConexion().prepareStatement(q);
             pstm.execute();
@@ -1216,11 +1216,11 @@ public class Modelo extends Database {
             e.printStackTrace();
         }
     }
-    
-    public void eliminarTodosArticulosPresupuesto(String codigoPre){
-        String q = "DELETE FROM ArtPresupuestos WHERE CodigoPre = '"+codigoPre+"'";
-        try{
-           PreparedStatement pstm = this.getConexion().prepareStatement(q);
+
+    public void eliminarTodosArticulosPresupuesto(String codigoPre) {
+        String q = "DELETE FROM ArtPresupuestos WHERE CodigoPre = '" + codigoPre + "'";
+        try {
+            PreparedStatement pstm = this.getConexion().prepareStatement(q);
             pstm.execute();
             pstm.close();
         } catch (SQLException e) {
@@ -1228,11 +1228,11 @@ public class Modelo extends Database {
             e.printStackTrace();
         }
     }
-    
-    public void eliminarArticuloPresupuesto(String codigoPre, String codigoArt){
-        String q = "DELETE FROM ArtPresupuestos WHERE CodigoPre = '"+codigoPre+"' AND CodigoArt = '"+codigoArt+"'";
-        try{
-           PreparedStatement pstm = this.getConexion().prepareStatement(q);
+
+    public void eliminarArticuloPresupuesto(String codigoPre, String codigoArt) {
+        String q = "DELETE FROM ArtPresupuestos WHERE CodigoPre = '" + codigoPre + "' AND CodigoArt = '" + codigoArt + "'";
+        try {
+            PreparedStatement pstm = this.getConexion().prepareStatement(q);
             pstm.execute();
             pstm.close();
         } catch (SQLException e) {
@@ -1240,8 +1240,8 @@ public class Modelo extends Database {
             e.printStackTrace();
         }
     }
-    
-    public boolean comprobarExistenciaArticulosDePresupuesto(String presupuesto){
+
+    public boolean comprobarExistenciaArticulosDePresupuesto(String presupuesto) {
         String q = "SELECT CodigoPre FROM ArtPresupuestos WHERE CodigoPre = '" + presupuesto + "'";
         boolean resu = false;
         try {
@@ -1260,11 +1260,11 @@ public class Modelo extends Database {
         }
         return resu;
     }
-    
-    public double sumaPresupuesto(String presupuesto){
+
+    public double sumaPresupuesto(String presupuesto) {
         double suma = 0.0;
-        String q = "SELECT SUM(Precio * Cantidad) as suma FROM ArtPresupuestos WHERE CodigoPre = '"+ presupuesto +"'";
-        try{
+        String q = "SELECT SUM(Precio * Cantidad) as suma FROM ArtPresupuestos WHERE CodigoPre = '" + presupuesto + "'";
+        try {
             PreparedStatement pstm = this.getConexion().prepareStatement(q);
             ResultSet res = pstm.executeQuery();
             while (res.next()) {
@@ -1277,16 +1277,73 @@ public class Modelo extends Database {
         }
         return suma;
     }
-    
-    public void actualizarPrecioPresupuesto(String presupuesto, double precio){
+
+    public void actualizarPrecioPresupuesto(String presupuesto, double precio) {
         String q = "UPDATE Presupuestos SET Precio = " + precio + " WHERE Codigo = '" + presupuesto + "'";
-        try{
-           PreparedStatement pstm = this.getConexion().prepareStatement(q);
+        try {
+            PreparedStatement pstm = this.getConexion().prepareStatement(q);
             pstm.execute();
             pstm.close();
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Error al modificar precio del presupuesto\n\n" + e.getMessage());
             e.printStackTrace();
         }
+    }
+    /*METODOS PARA EL PDF*/
+
+    public String getFechaPedido(String codigo) {
+        String fechaped = "";
+        String q = "select Fecha from Pedidos where Codigo='" + codigo + "'";
+        try {
+            PreparedStatement pstm = this.getConexion().prepareStatement(q);
+            ResultSet res = pstm.executeQuery();
+            while (res.next()) {
+                fechaped = res.getString("Fecha");
+            }
+            res.close();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error al obtener datos\n\n" + e.getMessage());
+            e.printStackTrace();
+        }
+        return fechaped;
+    }
+
+    public String getFechaPresupuesto(String codigo) {
+        String fechapres = "";
+        String q = "select Fecha from Presupuestos where Codigo='" + codigo + "'";
+        try {
+            PreparedStatement pstm = this.getConexion().prepareStatement(q);
+            ResultSet res = pstm.executeQuery();
+            while (res.next()) {
+                fechapres = res.getString("Fecha");
+            }
+            res.close();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error al obtener datos\n\n" + e.getMessage());
+            e.printStackTrace();
+        }
+        return fechapres;
+    }
+
+    public String[] getClientePedido(String nif) {
+        String[] cliente = new String[6];
+        String q = "select * from Clientes where NIF='" + nif + "'";
+        try {
+            PreparedStatement pstm = this.getConexion().prepareStatement(q);
+            ResultSet res = pstm.executeQuery();
+            while (res.next()) {
+                cliente[0] = res.getString("Nif");
+                cliente[1] = res.getString("Nombre");
+                cliente[2] = res.getString("Apellidos");
+                cliente[3] = res.getString("Direccion");
+                cliente[4] = res.getString("Telefono");
+                cliente[5] = res.getString("Correo");
+            }
+            res.close();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error al obtener datos\n\n" + e.getMessage());
+            e.printStackTrace();
+        }
+        return cliente;
     }
 }

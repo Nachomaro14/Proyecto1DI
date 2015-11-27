@@ -19,6 +19,7 @@ import modelo.ModeloPdf;
 public class PDF {
 
     ModeloPdf datos = new ModeloPdf();
+
     ArrayList<Clientes> clienteList = datos.recogeClientes();
     ArrayList<Empresa> empresaList = datos.recogeEmpresa();
     ArrayList<Pedidos> pedidosList = datos.recogePedidos();
@@ -28,7 +29,7 @@ public class PDF {
     Document documento;
     FileOutputStream fos;
 
-    public void generarFacturaPDF(/*String codPedido*/) throws FileNotFoundException, DocumentException {
+    public void generarFacturaPDF(String codPedido, String fchPedido, String[] cliente) throws FileNotFoundException, DocumentException {
         documento = new Document();
         fos = new FileOutputStream("Factura.pdf");
         PdfPTable tablaArticuloPedido;
@@ -42,14 +43,15 @@ public class PDF {
         cabecera.setAlignment(Element.ALIGN_CENTER);
         documento.add(cabecera);
 
-        Paragraph cliente = new Paragraph();
-        cliente.add("Cliente: " + clienteList.get(1) + " " + clienteList.get(2));
-        cliente.add("Domicilio: " + clienteList.get(3));
-        cliente.add("Correo: " + clienteList.get(4));
-        documento.add(cliente);
+        Paragraph clientex = new Paragraph();
+        clientex.add("Cliente: " + cliente[1] + " " + cliente[2]);
+        /*MODIFICA AQUI*/
+        clientex.add("Domicilio: " + clienteList.get(3));
+        clientex.add("Correo: " + clienteList.get(4));
+        documento.add(clientex);
 
-        documento.add(new Paragraph("Codigo del pedido: "/*+ codPedido*/));
-        documento.add(new Paragraph("Fecha: " + pedidosList.get(2)));
+        documento.add(new Paragraph("Codigo del pedido: " + codPedido));
+        documento.add(new Paragraph("Fecha: " + fchPedido));
 
         documento.add(new Paragraph(""));
         tablaArticuloPedido = new PdfPTable(4);

@@ -1,5 +1,6 @@
 package controlador;
 
+import com.itextpdf.text.DocumentException;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
@@ -10,9 +11,12 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.FileNotFoundException;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -41,30 +45,37 @@ public class Controlador implements ActionListener, MouseListener {
         menuPedidos,
         menuPresupuestos,
         menuSalir,
-        /**botones vista clientes**/
+        /**
+         * botones vista clientes*
+         */
         btnClientesAgregar,
         btnClientesModificar,
         btnClientesBorrar,
-        /**botones vista articulos**/
+        /**
+         * botones vista articulos*
+         */
         btnArticulosAgregar,
         btnArticulosModificar,
         btnArticulosEliminar,
-        /**botones vista proveedor**/
+        /**
+         * botones vista proveedor*
+         */
         btnProveedoresAgregar,
         btnProveedoresModificar,
         btnProveedoresBorrar,
-        /**botones vista presupuesto**/
+        /**
+         * botones vista presupuesto*
+         */
         btnPresuBorrar,
         btnPresuGenProf,
         btnPresuCrearPed,
-        
         btnAgregarPresuCrearAux,
-        /**botones vista pedidos**/
+        /**
+         * botones vista pedidos*
+         */
         btnPedidoAgregar,
         btnPedidoBorrar,
         btnPedidoGenFac,
-        
-        
         btnAgregarPresuArt,
         btnAgregarPresuQuitarArt,
         btnAgregarPresuCrear,
@@ -141,7 +152,7 @@ public class Controlador implements ActionListener, MouseListener {
             vista.tablaAgregarPresuArtPre.setModel(modelo.tablaArticulosPresupuestosVacia());
             vista.tablaAgregarPedArt.setModel(modelo.tablaArticulos());
             vista.tablaAgregarPedArtPed.setModel(modelo.tablaArticulosPedidosVacia());
-            
+
             //AÑADIMOS ALGUNOS DETALLES
             String codigo = vista.comboProveedores.getSelectedItem().toString();
             String nombre = modelo.getNombreProveedor(codigo);
@@ -152,13 +163,13 @@ public class Controlador implements ActionListener, MouseListener {
             vista.labelNombreClientesPedidos.setText(nombreYApellidos);
             String nifP = vista.comboClientesAgrPresupuesto.getSelectedItem().toString();
             vista.tablaAgregarPresuArtPre.setModel(modelo.tablaArticulosPresupuestos(nifP));
-            
+
             int w = vista.labelLogo.getWidth();
             int h = vista.labelLogo.getHeight();
             ImageIcon icon = new javax.swing.ImageIcon(getClass().getResource("/imagenes/empresa.jpeg"));
-        
-            Image img = icon.getImage() ;  
-            Image newimg = img.getScaledInstance(w, h, java.awt.Image.SCALE_SMOOTH) ;  
+
+            Image img = icon.getImage();
+            Image newimg = img.getScaledInstance(w, h, java.awt.Image.SCALE_SMOOTH);
             icon = new ImageIcon(newimg);
             vista.labelLogo.setIcon(icon);
 
@@ -298,9 +309,9 @@ public class Controlador implements ActionListener, MouseListener {
         this.vista.tablaProveedoresArticulos.addMouseListener(this);
         this.vista.tablaProveedoresArticulos.getTableHeader().setReorderingAllowed(false);
         this.vista.tablaProveedoresArticulos.getTableHeader().setResizingAllowed(false);
-        
+
         //ESTABLECEMOS LOS ITEM LISTENERS PARA LOS COMBOBOX
-        this.vista.comboClientesAgrPedido.addItemListener( new ItemListener(){
+        this.vista.comboClientesAgrPedido.addItemListener(new ItemListener() {
             @Override
             public void itemStateChanged(ItemEvent e) {
                 String codigo = vista.comboProveedores.getSelectedItem().toString();
@@ -308,18 +319,18 @@ public class Controlador implements ActionListener, MouseListener {
                 vista.labelNombreProveedor.setText(nombre);
             }
         });
-        this.vista.comboPresupuestosOPedidos.addItemListener( new ItemListener(){
+        this.vista.comboPresupuestosOPedidos.addItemListener(new ItemListener() {
             @Override
             public void itemStateChanged(ItemEvent e) {
                 String nif = vista.txtClientesNif.getText();
-                if(vista.comboPresupuestosOPedidos.getSelectedItem().toString().equals("Presupuestos")){
+                if (vista.comboPresupuestosOPedidos.getSelectedItem().toString().equals("Presupuestos")) {
                     vista.tablaPedidosClientes.setModel(modelo.tablaPresupuestosClientes(nif));
-                }else{
+                } else {
                     vista.tablaPedidosClientes.setModel(modelo.tablaPedidosClientes(nif));
                 }
             }
         });
-        this.vista.comboClientesPresupuestos.addItemListener( new ItemListener(){
+        this.vista.comboClientesPresupuestos.addItemListener(new ItemListener() {
             @Override
             public void itemStateChanged(ItemEvent e) {
                 String nif = vista.comboClientesPresupuestos.getSelectedItem().toString();
@@ -330,7 +341,7 @@ public class Controlador implements ActionListener, MouseListener {
                 vista.labelCodigoPresupuesto.setText("");
             }
         });
-        this.vista.comboClientesPedidos.addItemListener( new ItemListener(){
+        this.vista.comboClientesPedidos.addItemListener(new ItemListener() {
             @Override
             public void itemStateChanged(ItemEvent e) {
                 String nif = vista.comboClientesPedidos.getSelectedItem().toString();
@@ -341,7 +352,7 @@ public class Controlador implements ActionListener, MouseListener {
                 vista.labelCodigoPedido.setText("");
             }
         });
-        this.vista.comboClientesAgrPresupuesto.addItemListener( new ItemListener(){
+        this.vista.comboClientesAgrPresupuesto.addItemListener(new ItemListener() {
             @Override
             public void itemStateChanged(ItemEvent e) {
                 String nif = vista.comboClientesAgrPresupuesto.getSelectedItem().toString();
@@ -443,7 +454,7 @@ public class Controlador implements ActionListener, MouseListener {
                         || telefonoCM.equals("") || correoCM.equals("")) {
                     JOptionPane.showMessageDialog(null, "Introduzca todos los valores necesarios");
                 } else {
-                    if(nnifCM.equals("")){
+                    if (nnifCM.equals("")) {
                         nnifCM = nifCM;
                     }
                     modelo.modificarCliente(nifCM, nnifCM, nombreCM, apellidosCM, direccionCM, telefonoCM, correoCM);
@@ -508,7 +519,7 @@ public class Controlador implements ActionListener, MouseListener {
                     }
                     JOptionPane.showMessageDialog(null, "Introduzca todos los valores necesarios\n(Incluida una descripción)");
                 } else {
-                    if(ncodigoAM.equals("")){
+                    if (ncodigoAM.equals("")) {
                         ncodigoAM = codigoAM;
                     }
                     modelo.modificarArticulo(codigoAM, ncodigoAM, proveedorAM, nombreAM, descripcionAM, PCPAM, PVPAM);
@@ -558,7 +569,7 @@ public class Controlador implements ActionListener, MouseListener {
                     }
                     JOptionPane.showMessageDialog(null, "Introduzca todos los valores necesarios");
                 } else {
-                    if(ncifPM.equals("")){
+                    if (ncifPM.equals("")) {
                         ncifPM = cifPM;
                     }
                     modelo.modificarProveedor(cifPM, ncifPM, nombrePM, direccionPM, telefonoPM, correoPM);
@@ -607,6 +618,17 @@ public class Controlador implements ActionListener, MouseListener {
                 vista.tablaPedidosArtPed.setModel(modelo.tablaArticulosPedidosVacia());
                 break;
             case btnPedidoGenFac:
+                String codiPedi = vista.labelCodigoPedido.getText();
+                String fechaPedi = modelo.getFechaPedido(codiPedi);
+                String[] clientex = modelo.getClientePedido(codiPedi);
+                PDF pdf = new PDF();
+
+                try {
+                    pdf.generarFacturaPDF(codiPedi, fechaPedi,clientex);
+                } catch (FileNotFoundException | DocumentException ex) {
+                    Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
                 break;
             /**
              * ***** JDIALOG PRESUPUESTOS***
@@ -615,19 +637,19 @@ public class Controlador implements ActionListener, MouseListener {
                 String presupuesto = vista.labelCodigoPresupuestoAux.getText();
                 String codigo = vista.labelCodArtPresu.getText();
                 String cantidad = vista.txtAgregarPresuCantidad.getText();
-                if(!codigo.equals("")){
-                    if(!cantidad.equals("") && Integer.parseInt(cantidad) >= 0){
+                if (!codigo.equals("")) {
+                    if (!cantidad.equals("") && Integer.parseInt(cantidad) >= 0) {
                         Object[] info = modelo.infoArticuloPresupuesto(codigo);
-                        if(!presupuesto.equals("")){
+                        if (!presupuesto.equals("")) {
                             modelo.nuevoArticuloPresupuesto(codigo, presupuesto, (Double) info[2], (String) info[1], Integer.parseInt(cantidad));
                             vista.tablaAgregarPresuArtPre.setModel(modelo.tablaArticulosPresupuestos(presupuesto));
-                        }else{
+                        } else {
                             JOptionPane.showMessageDialog(null, "Primero debe crear un presupuesto auxiliar.");
                         }
-                    }else{
+                    } else {
                         JOptionPane.showMessageDialog(null, "La cantidad debe ser positiva.");
                     }
-                }else{
+                } else {
                     JOptionPane.showMessageDialog(null, "Seleccione un artículo de la tabla.");
                 }
                 break;
@@ -648,7 +670,7 @@ public class Controlador implements ActionListener, MouseListener {
             case btnAgregarPresuCrear:
                 boolean existe = modelo.comprobarExistenciaArticulosDePresupuesto(vista.labelCodigoPresupuestoAux.getText());
                 String presu = vista.labelCodigoPresupuestoAux.getText();
-                if(existe == true){
+                if (existe == true) {
                     double precio = modelo.sumaPresupuesto(presu);
                     modelo.actualizarPrecioPresupuesto(presu, precio);
                     String cli = vista.comboClientesPresupuestos.getSelectedItem().toString();
@@ -661,7 +683,7 @@ public class Controlador implements ActionListener, MouseListener {
                     vista.labelCodArtPresu.setText("");
                     vista.labelCodigoPresupuestoAux.setText("");
                     vista.labelCodigoArtPresuSeleccionado.setText("");
-                }else{
+                } else {
                     JOptionPane.showMessageDialog(null, "Antes de finalizar debes añadir artículos al presupuesto.");
                 }
                 break;
@@ -686,19 +708,19 @@ public class Controlador implements ActionListener, MouseListener {
                 String pedido = vista.labelCodigoPedidoAux.getText();
                 String codigoPed = vista.labelCodArtPed.getText();
                 String cantidadPed = vista.txtAgregarPedCantidad.getText();
-                if(!codigoPed.equals("")){
-                    if(!cantidadPed.equals("") && Integer.parseInt(cantidadPed) >= 0){
+                if (!codigoPed.equals("")) {
+                    if (!cantidadPed.equals("") && Integer.parseInt(cantidadPed) >= 0) {
                         Object[] info = modelo.infoArticuloPedido(codigoPed);
-                        if(!pedido.equals("")){
+                        if (!pedido.equals("")) {
                             modelo.nuevoArticuloPedido(codigoPed, pedido, (Double) info[2], (String) info[1], Integer.parseInt(cantidadPed));
                             vista.tablaAgregarPedArtPed.setModel(modelo.tablaArticulosPedidos(pedido));
-                        }else{
+                        } else {
                             JOptionPane.showMessageDialog(null, "Primero debe crear un presupuesto auxiliar.");
                         }
-                    }else{
+                    } else {
                         JOptionPane.showMessageDialog(null, "La cantidad debe ser positiva.");
                     }
-                }else{
+                } else {
                     JOptionPane.showMessageDialog(null, "Seleccione un artículo de la tabla.");
                 }
                 break;
@@ -719,7 +741,7 @@ public class Controlador implements ActionListener, MouseListener {
             case btnAgregarPedCrear:
                 boolean existeP = modelo.comprobarExistenciaArticulosDePedido(vista.labelCodigoPedidoAux.getText());
                 String ped = vista.labelCodigoPedidoAux.getText();
-                if(existeP == true){
+                if (existeP == true) {
                     double precio = modelo.sumaPedido(ped);
                     modelo.actualizarPrecioPedido(ped, precio);
                     String cli = vista.comboClientesPedidos.getSelectedItem().toString();
@@ -732,7 +754,7 @@ public class Controlador implements ActionListener, MouseListener {
                     vista.labelCodArtPed.setText("");
                     vista.labelCodigoPedidoAux.setText("");
                     vista.labelCodigoArtPedSeleccionado.setText("");
-                }else{
+                } else {
                     JOptionPane.showMessageDialog(null, "Antes de finalizar debes añadir artículos al presupuesto.");
                 }
                 break;
@@ -831,7 +853,7 @@ public class Controlador implements ActionListener, MouseListener {
         }
         int presupuesto = vista.tablaPresupuestos.rowAtPoint(e.getPoint());
         if (presupuesto > - 1) {
-            try{
+            try {
                 String codigo = String.valueOf(vista.tablaPresupuestos.getValueAt(presupuesto, 0));
                 vista.tablaPresuArtPresu.setModel(modelo.tablaArticulosPresupuestos(codigo));
                 vista.labelCodigoPresupuesto.setText(codigo);
@@ -842,7 +864,7 @@ public class Controlador implements ActionListener, MouseListener {
         }
         int pedido = vista.tablaPedidos.rowAtPoint(e.getPoint());
         if (pedido > - 1) {
-            try{
+            try {
                 String codigo = String.valueOf(vista.tablaPedidos.getValueAt(pedido, 0));
                 vista.tablaPedidosArtPed.setModel(modelo.tablaArticulosPedidos(codigo));
                 vista.labelCodigoPedido.setText(codigo);
@@ -853,7 +875,7 @@ public class Controlador implements ActionListener, MouseListener {
         }
         int articuloParaPresupuesto = vista.tablaAgregarPresuArt.rowAtPoint(e.getPoint());
         if (articuloParaPresupuesto > -1) {
-            try{
+            try {
                 String codigo = String.valueOf(vista.tablaAgregarPresuArt.getValueAt(articuloParaPresupuesto, 0));
                 vista.labelCodArtPresu.setText(codigo);
             } catch (Exception ex) {
@@ -863,7 +885,7 @@ public class Controlador implements ActionListener, MouseListener {
         }
         int articuloTempParaPresupuesto = vista.tablaAgregarPresuArtPre.rowAtPoint(e.getPoint());
         if (articuloTempParaPresupuesto > -1) {
-            try{
+            try {
                 String codigo = String.valueOf(vista.tablaAgregarPresuArtPre.getValueAt(articuloTempParaPresupuesto, 0));
                 vista.labelCodigoArtPresuSeleccionado.setText(codigo);
             } catch (Exception ex) {
@@ -873,7 +895,7 @@ public class Controlador implements ActionListener, MouseListener {
         }
         int articuloParaPedido = vista.tablaAgregarPedArt.rowAtPoint(e.getPoint());
         if (articuloParaPedido > -1) {
-            try{
+            try {
                 String codigo = String.valueOf(vista.tablaAgregarPedArt.getValueAt(articuloParaPedido, 0));
                 vista.labelCodArtPed.setText(codigo);
             } catch (Exception ex) {
@@ -883,7 +905,7 @@ public class Controlador implements ActionListener, MouseListener {
         }
         int articuloTempParaPedido = vista.tablaAgregarPedArtPed.rowAtPoint(e.getPoint());
         if (articuloTempParaPedido > -1) {
-            try{
+            try {
                 String codigo = String.valueOf(vista.tablaAgregarPedArtPed.getValueAt(articuloTempParaPedido, 0));
                 vista.labelCodigoArtPedSeleccionado.setText(codigo);
             } catch (Exception ex) {
