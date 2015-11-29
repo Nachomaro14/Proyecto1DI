@@ -31,7 +31,7 @@ public class PDF {
 
     public void generarFacturaPDF(String codPedido, String fchPedido, String[] cliente) throws FileNotFoundException, DocumentException {
         documento = new Document();
-        fos = new FileOutputStream("Factura.pdf");
+        fos = new FileOutputStream(cliente[1] + "Factura.pdf");
         PdfPTable tablaArticuloPedido;
 
         PdfWriter.getInstance(documento, fos).setInitialLeading(30);
@@ -45,9 +45,8 @@ public class PDF {
 
         Paragraph clientex = new Paragraph();
         clientex.add("Cliente: " + cliente[1] + " " + cliente[2]);
-        /*MODIFICA AQUI*/
-        clientex.add("Domicilio: " + clienteList.get(3));
-        clientex.add("Correo: " + clienteList.get(4));
+        clientex.add("Domicilio: " + cliente[3]);
+        clientex.add("Correo: " + cliente[5]);
         documento.add(clientex);
 
         documento.add(new Paragraph("Codigo del pedido: " + codPedido));
@@ -66,6 +65,8 @@ public class PDF {
             tablaArticuloPedido.addCell(String.valueOf(ape.getCantidad()));
         }
         documento.add(tablaArticuloPedido);
+
+        documento.close();
 
     }
 
