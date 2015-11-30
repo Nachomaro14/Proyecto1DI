@@ -486,7 +486,7 @@ public class Controlador implements ActionListener, MouseListener {
                 String nombreA = vista.txtNombreArt.getText();
                 double PCPA = Double.parseDouble(vista.txtPCPArt.getText());
                 double PVPA = Double.parseDouble(vista.txtPVPArt.getText());
-                int IVA = Integer.getInteger(vista.txtIVAArt.getText());
+                int IVA = Integer.parseInt(vista.txtIVAArt.getText());
                 String proveedorA = vista.comboProveedores.getSelectedItem().toString();
                 String descripcionA = vista.txtDescripcionArt.getText();
                 if (ncodigoA.equals("") || nombreA.equals("") || vista.txtPCPArt.getText().equals("") || vista.txtPVPArt.getText().equals("")
