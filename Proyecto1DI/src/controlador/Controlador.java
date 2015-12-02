@@ -96,6 +96,8 @@ public class Controlador implements ActionListener, MouseListener {
             //CAMBIAMOS EL LOGO DE LA APLICACIÓN
             Toolkit t = Toolkit.getDefaultToolkit();
             vista.setIconImage(t.getImage(getClass().getResource("/imagenes/logo.png")));
+            vista.dialogAgregarPedido.setIconImage(t.getImage(getClass().getResource("/imagenes/logo.png")));
+            vista.dialogAgregarPresupuesto.setIconImage(t.getImage(getClass().getResource("/imagenes/logo.png")));
 
             vista.pack();
             vista.setLocationRelativeTo(null);
@@ -122,6 +124,7 @@ public class Controlador implements ActionListener, MouseListener {
             SCifras(vista.txtProveedoresTelefono);
             SCifras(vista.txtAgregarPresuCantidad);
             SCifras(vista.txtAgregarPedCantidad);
+            SCifras(vista.txtNuevoCodigoArt);
 
             //ESTABLECEMOS LA VISIBILIDAD DE LOS PANELES AL INICIAR
             vista.clientes.setVisible(false);
@@ -656,7 +659,7 @@ public class Controlador implements ActionListener, MouseListener {
             case btnAgregarPresuCrearAux:
                 Calendar fecha = new GregorianCalendar();
                 int dia = fecha.get(Calendar.DAY_OF_MONTH);
-                int mes = fecha.get(Calendar.MONTH);
+                int mes = fecha.get(Calendar.MONTH) + 1;
                 int año = fecha.get(Calendar.YEAR);
                 String fechaHoy = "" + dia + "/" + mes + "/" + año;
                 String nif = vista.comboClientesAgrPresupuesto.getSelectedItem().toString();
